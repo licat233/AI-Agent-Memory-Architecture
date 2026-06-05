@@ -1,4 +1,4 @@
-# ARMOR AI Workspace Architecture V7.1 Stable
+# AI Workspace Architecture V7.1 Stable
 
 ## Version
 
