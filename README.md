@@ -1,30 +1,55 @@
 <p align="center">
-  <h1 align="center">ARMOR AI Workspace Architecture</h1>
-  <p align="center"><strong>A long-term, stable, auditable memory architecture for AI agent workspaces</strong></p>
-  <p align="center">V7.1 Stable &mdash; Deploy once, use continuously</p>
+  <h1 align="center">AI Agent Memory Architecture</h1>
+  <p align="center"><strong>Long-term, auditable memory architectures for AI agents</strong></p>
 </p>
 
 ---
 
-## Why This Exists
+## Overview
 
-AI agents can generate endlessly. But without a structured memory system, their knowledge degrades: facts get overwritten, drafts become "truth," stale research drives decisions, and nobody can trace where an answer came from.
+This repository provides structured memory architectures for AI agent workspaces. Instead of relying on vector stores or ad-hoc file storage, these architectures give AI agents a governed, permission-controlled, lifecycle-managed knowledge system built on Obsidian Vault.
 
-**ARMOR** solves this by giving your AI workspace a governed knowledge operating system &mdash; not just a vector store, but a layered, permission-controlled, lifecycle-managed memory architecture built on Obsidian Vault.
+**Current release: Enterprise AI Agent Memory Architecture (V7.1.5)**
 
-## Core Principles
+| Architecture | Status | Use Case |
+|---|---|---|
+| [Enterprise](#enterprise-architecture) | ✅ Stable (V7.1.5) | Multi-person teams, business operations, brand/product/customer knowledge management |
+| Personal | 🔜 Planned | Individual use, personal knowledge, lightweight governance |
+
+---
+
+## Enterprise Architecture
+
+**Version:** V7.1 Stable + V7.1.5 Governance Patch
+
+A production-grade memory architecture designed for enterprise AI agents managing business-critical knowledge: brand facts, product specifications, customer profiles, operational SOPs, and team workflows.
+
+### Who It's For
+
+- Teams deploying AI agents for business operations
+- Organizations needing auditable, source-backed AI memory
+- Multi-agent workspaces where knowledge consistency matters
+- Use cases requiring human approval for high-authority changes
+
+### Who It's NOT For
+
+- Individual users with personal AI assistants
+- Simple chatbot memory (use vector stores instead)
+- Scenarios where all knowledge has equal authority
+- Use cases that don't need audit trails or governance
+
+### Core Principles
 
 | Principle | Meaning |
 |---|---|
-| **SSOT** (Single Source of Truth) | Every piece of knowledge has exactly one authoritative location. No parallel truths, no `final-final.md`. |
-| **Capture ≠ Authority** | Agents can write freely into low-risk areas, but that doesn't make it true. Promotion requires review. |
+| **SSOT** (Single Source of Truth) | Every piece of knowledge has exactly one authoritative location. No parallel truths. |
+| **Capture ≠ Authority** | Agents can write freely into low-risk areas, but that doesn't make it true. |
 | **Capability ≠ Permission** | The runtime *can* write files, but the protocol decides whether it *may*. |
-| **Conservative Retrieval** | Default search excludes drafts, logs, raw research, archive, and unreviewed records. Only curated layers feed answers. |
-| **Low-Maintenance** | Automatic lifecycle rules handle drafts, stale research, and inactive projects. Humans only review high-authority changes. |
+| **Write ≠ Truth** (V7.1.5) | Write permission does not equal truth authority. Confidence must be validated. |
+| **Conservative Retrieval** | Default search excludes drafts, logs, raw research, archive, and unreviewed records. |
+| **Low-Maintenance** | Automatic lifecycle rules handle drafts, stale research, and inactive projects. |
 
-## How It Works
-
-### System Components
+### System Architecture
 
 ```text
 ┌─────────────────────────────────────────────────────┐
@@ -34,14 +59,14 @@ AI agents can generate endlessly. But without a structured memory system, their 
 └──────────────────────┬──────────────────────────────┘
                        │ approves proposals
 ┌──────────────────────▼──────────────────────────────┐
-│                    Hermes                            │
+│                   AI Agent                           │
 │         (primary agent / operating protocol)         │
 │  retrieve · classify · summarize · propose · write   │
 └──────────────────────┬──────────────────────────────┘
                        │ operates within
 ┌──────────────────────▼──────────────────────────────┐
-│                   Claudian                           │
-│           (Obsidian agent runtime)                   │
+│               Agent Runtime                          │
+│           (Obsidian / file system)                   │
 │    file I/O · search · skills · bash · MCP          │
 └──────────────────────┬──────────────────────────────┘
                        │ reads/writes
@@ -51,21 +76,6 @@ AI agents can generate endlessly. But without a structured memory system, their 
 │   storage · governance · graph · audit · review      │
 └─────────────────────────────────────────────────────┘
 ```
-
-### Five Memory Layers
-
-| Layer | What It Stores | Example |
-|---|---|---|
-| **Working Memory** | Single-task context, discarded after use | Current conversation, retrieval results |
-| **Facts** | Confirmed, current truth | Brand positioning, product pricing, customer profile |
-| **Rules** | Reusable execution standards | SOPs, SEO rules, content standards |
-| **Insights** | Validated experience | Cases, learnings, patterns, postmortems |
-| **Research** | External, uncertain, time-sensitive knowledge | Market research, competitor analysis, SERP data |
-
-Plus two supporting layers:
-
-- **Records** &mdash; raw evidence (meeting notes, emails, transcripts). Evidence, not current truth.
-- **Archive** &mdash; historical, deprecated, superseded material. Excluded from default retrieval.
 
 ### Two Operating Tracks
 
@@ -92,16 +102,40 @@ Plus two supporting layers:
          write freely                      change carefully
 ```
 
-### Permission Model
+### Permission Model (V7.1)
 
 | Class | Includes | Direct Write | Proposal Required |
 |---|---|:---:|:---:|
-| **A** | Core, Facts, Rules, Security Policy, Retrieval Rules | No | Yes + Human Approval |
-| **B** | Customers, Decisions, Learnings, Research, Projects | Create/Append OK | For current-state changes |
-| **C** | Drafts, Inbox, Logs, Proposals | Yes | No |
-| **R** | Meetings, Emails, Transcripts, Raw Evidence | Append only | No |
+| **A** | Core, Facts, Rules | No | Yes + Human Approval |
+| **B** | Insights, Research, Projects | Create/Append OK | For state changes |
+| **C** | Drafts, Inbox, Logs | Yes | No |
+| **R** | Records, Evidence | Append only | No |
 
-## Vault Structure
+### V7.1.5 Governance Layer
+
+The governance patch adds quality gates before writing:
+
+**Source-Based Confidence Labels:**
+
+| Label | Sources | Can Write To |
+|---|---|---|
+| **High** | User confirmed, official docs, verified specs | Class A (with controls), B, C, R |
+| **Medium** | Multiple references, research summary | Class B, C, R (NOT Class A directly) |
+| **Low** | AI inference, assumptions, weak sources | Class C only |
+| **No Memory** | Guesses, temporary, irrelevant | Do NOT store |
+
+**Fact Creation Gate:**
+
+```text
+Before creating/updating 01-Facts/:
+  → Search existing authoritative memory
+  → If exists: update
+  → If conflict: create Proposal
+  → If new + High confidence: create
+  → If new + Medium/Low: store in Insights/Research instead
+```
+
+### Vault Structure
 
 ```text
 Vault/
@@ -129,9 +163,9 @@ Vault/
 └── 99-Archive/               # Historical / deprecated material
 ```
 
-The top-level structure is **frozen**. Domain-specific subfolders, templates, and content within layers are fully extensible.
+The top-level structure is **frozen**. Domain-specific subfolders and content within layers are fully extensible.
 
-## Lifecycle & Automation
+### Lifecycle & Automation
 
 Knowledge decays automatically:
 
@@ -145,33 +179,41 @@ Knowledge decays automatically:
 | Logs | 30 days diagnostic value | 90 days |
 | Pending Proposals | 30-day reminder | 90 days auto-expire |
 
-Hermes handles classification, stale detection, conflict detection, duplicate detection, schema validation, and review queue preparation automatically. **Humans only review what affects authority.**
-
-## Version History
-
-| Version | Lines | Key Additions |
-|---|---|---|
-| [V4](ARMOR_AI_Workspace_Architecture_V4.md) | 1,024 | Foundation: SSOT, memory layers, basic vault structure |
-| [V5](ARMOR_AI_Workspace_Architecture_V5.md) | 2,879 | Knowledge triage, promotion framework, conflict resolution, permission model |
-| [V6](ARMOR_AI_Workspace_Architecture_V6.md) | 3,795 | Claudian runtime model, proposals layer, retrieval filter presets, naming conventions |
-| [V7](ARMOR_AI_Workspace_Architecture_V7.md) | 5,404 | Runtime retrieval, context packing, schema validation, security & retention policy |
-| [V7.1 Stable](ARMOR_AI_Workspace_Architecture_V7_1_Stable.md) | 4,129 | Architecture stability principle, Capture/Authority tracks, automatic lifecycle, low-maintenance ops |
+---
 
 ## Documentation
 
+### Enterprise Architecture Docs
+
 | Document | Description |
 |---|---|
-| [V7.1 Stable (Full Spec)](ARMOR_AI_Workspace_Architecture_V7_1_Stable.md) | The complete architecture specification &mdash; 54 sections covering every aspect of the system |
-| [Hermes Adaptation Guide](hermes_v71_complete_adaptation_guide.md) | Step-by-step guide for adapting Hermes to V7.1, including config, SOUL.md design, write/retrieval rules, and test cases |
+| [V7.1 Stable (Full Spec)](docs/enterprise/V7_1_Stable.md) | Complete architecture specification |
+| [V7.1.5 Governance Patch](docs/enterprise/V7_1_5_Governance_Patch.md) | Write quality gates, confidence labels, fact creation gate |
+| [Hermes Adaptation Guide](docs/enterprise/hermes_adaptation_guide.md) | Step-by-step guide for adapting Hermes agent |
 
-## Quick Start
+### Version History
+
+| Version | Key Additions |
+|---|---|
+| V4 | Foundation: SSOT, memory layers, basic vault structure |
+| V5 | Knowledge triage, promotion framework, conflict resolution, permission model |
+| V6 | Runtime model, proposals layer, retrieval filter presets |
+| V7 | Runtime retrieval, context packing, schema validation, security policy |
+| V7.1 Stable | Architecture stability, Capture/Authority tracks, automatic lifecycle |
+| V7.1.5 | Governance patch: confidence labels, fact creation gate, expiration rules |
+
+---
+
+## Quick Start (Enterprise)
 
 1. **Create the vault structure** using the frozen top-level layout above.
-2. **Set up Core files**: `Core-Memory.md`, `Hermes-Operating-Protocol.md`, `Source-of-Truth-Map.md`, `Permission-Policy.md`, `Retrieval-Rules.md`.
-3. **Configure Hermes** following the [Adaptation Guide](hermes_v71_complete_adaptation_guide.md) &mdash; point long-term memory to the Vault, set SQLite to runtime-only.
+2. **Set up Core files**: `Core-Memory.md`, `Hermes-Operating-Protocol.md`, `Source-of-Truth-Map.md`, `Permission-Policy.md`, `Retrieval-Rules.md`, `Governance-Patch-V715.md`.
+3. **Configure your AI agent** following the [Adaptation Guide](docs/enterprise/hermes_adaptation_guide.md) — point long-term memory to the Vault, set SQLite to runtime-only.
 4. **Create templates** for Records, Proposals, Rules, and Research in `70-Schemas/Templates/`.
-5. **Start capturing** &mdash; meeting notes go to Records, research goes to Research/Inbox, ideas go to Drafts.
-6. **Review by exception** &mdash; only proposals affecting current truth, rules, or customer state need human approval.
+5. **Start capturing** — meeting notes go to Records, research goes to Research/Inbox, ideas go to Drafts.
+6. **Review by exception** — only proposals affecting current truth, rules, or customer state need human approval.
+
+---
 
 ## Design Philosophy
 
@@ -186,6 +228,17 @@ Hermes handles classification, stale detection, conflict detection, duplicate de
 - Retrieval is conservative by default.
 - Unreviewed memory expires, degrades, or archives automatically.
 - Only changes that affect current truth or future behavior require human approval.
+
+---
+
+## Roadmap
+
+- [x] Enterprise AI Agent Memory Architecture (V7.1.5)
+- [ ] Personal AI Agent Memory Architecture (lightweight, single-user)
+- [ ] Migration guide: Enterprise → Personal
+- [ ] Integration examples for popular AI frameworks
+
+---
 
 ## License
 
