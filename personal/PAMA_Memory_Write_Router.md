@@ -30,6 +30,10 @@ store full content in built-in memory
 
 Runtime memory may only store short pointers, temporary task state, caches, or current-session continuity.
 
+This router is only for user-requested memory. When the user reports an error or asks the assistant to fix a mistake, the assistant must activate `00-Core/PAMA-Root-Cause-Fix-Protocol.md` instead of storing a memory patch.
+
+Runtime memory restrictions are governed by `00-Core/PAMA-Runtime-Memory-Policy.md`.
+
 ---
 
 ## Trigger Phrases
@@ -216,6 +220,10 @@ If the memory is a durable truth, the assistant must explain whether it is being
 
 In PAMA, "remember" is a governed Vault write action.
 
+In PAMA, "fix this" is a Root-Cause Fix Protocol event.
+
 Runtime memory is not long-term memory.
+
+Runtime memory is not a patch layer.
 
 Unclear memory goes to `08-Working-Memory/Memory-Candidates/`, never to runtime memory by default.

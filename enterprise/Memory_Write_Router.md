@@ -30,6 +30,8 @@ store full content in built-in memory
 
 Runtime memory may only store short pointers, temporary task state, caches, or retrieval indexes.
 
+This router is only for user-requested memory. When the user reports an error or asks Hermes to fix a mistake, Hermes must activate `00-Core/Root-Cause-Fix-Protocol.md` instead of storing a memory patch.
+
 ---
 
 ## Trigger Phrases
@@ -207,6 +209,8 @@ For Class A changes, Hermes must say that it created or will create a proposal r
 ## Final Principle
 
 In ARMOR, "remember" is a governed Vault write action.
+
+In ARMOR, "fix this" is a Root-Cause Fix Protocol event.
 
 Runtime memory is not long-term memory.
 

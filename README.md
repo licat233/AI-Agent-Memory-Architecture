@@ -93,12 +93,16 @@ Facts / rules / truth / validated insights / reviewed research
 | [ARMOR V7.1 Stable](enterprise/V7_1_Stable.md) | Full enterprise architecture specification |
 | [ARMOR V7.1.5 Governance Patch](enterprise/V7_1_5_Governance_Patch.md) | Confidence labels, fact creation gate, write quality rules |
 | [ARMOR Memory Write Router](enterprise/Memory_Write_Router.md) | Mandatory routing rules for user-requested permanent memory |
+| [ARMOR Root-Cause Fix Protocol](enterprise/Root_Cause_Fix_Protocol.md) | Mandatory protocol for fixing errors at their source layer |
+| [ARMOR Runtime Memory Policy](enterprise/Runtime_Memory_Policy.md) | Enterprise policy for keeping runtime memory low-authority and temporary |
 | [Hermes Adaptation Guide](enterprise/hermes_adaptation_guide.md) | How to adapt Hermes-style agents to ARMOR |
 | [Personal README](personal/README.md) | PAMA overview, personal vault layers, promotion rules |
 | [PAMA V5.1 Stable](personal/PAMA%20V5.1%20Stable.md) | Full personal architecture specification |
 | [PAMA Constitution](personal/PAMA%20Constitution%20v1.0.md) | Highest-level personal architecture charter |
 | [PAMA Deployment Spec](personal/PAMA-Deployment-Spec-v1.0.md.md) | Personal vault implementation and metadata rules |
 | [PAMA Memory Write Router](personal/PAMA_Memory_Write_Router.md) | Mandatory routing rules for user-requested permanent memory |
+| [PAMA Root-Cause Fix Protocol](personal/PAMA_Root_Cause_Fix_Protocol.md) | Mandatory protocol for fixing errors at their source layer |
+| [PAMA Runtime Memory Policy](personal/PAMA_Runtime_Memory_Policy.md) | Personal policy for keeping runtime memory temporary and low-authority |
 
 ### Ultimate Principle
 
@@ -192,12 +196,16 @@ PAMA 面向单个个人用户。它关注现实追踪、注意力审计、决策
 | [ARMOR V7.1 Stable](enterprise/V7_1_Stable.md) | 企业级完整架构规范 |
 | [ARMOR V7.1.5 Governance Patch](enterprise/V7_1_5_Governance_Patch.md) | 置信度标签、事实创建门禁、写入质量规则 |
 | [ARMOR Memory Write Router](enterprise/Memory_Write_Router.md) | 用户明确要求长期记忆时的强制写入路由规则 |
+| [ARMOR Root-Cause Fix Protocol](enterprise/Root_Cause_Fix_Protocol.md) | 错误必须在源头层级修复的强制协议 |
+| [ARMOR Runtime Memory Policy](enterprise/Runtime_Memory_Policy.md) | 运行时 memory 必须保持低权威和临时性的企业策略 |
 | [Hermes 适配指南](enterprise/hermes_adaptation_guide.md) | Hermes 类智能体如何接入 ARMOR |
 | [个人版 README](personal/README.md) | PAMA 总览、个人 Vault 层级、记忆晋升规则 |
 | [PAMA V5.1 Stable](personal/PAMA%20V5.1%20Stable.md) | 个人版完整架构规范 |
 | [PAMA 宪法](personal/PAMA%20Constitution%20v1.0.md) | 个人版最高治理章程 |
 | [PAMA 部署规范](personal/PAMA-Deployment-Spec-v1.0.md.md) | 个人 Vault 落地与元数据规则 |
 | [PAMA Memory Write Router](personal/PAMA_Memory_Write_Router.md) | 用户明确要求长期记忆时的强制写入路由规则 |
+| [PAMA Root-Cause Fix Protocol](personal/PAMA_Root_Cause_Fix_Protocol.md) | 错误必须在源头层级修复的强制协议 |
+| [PAMA Runtime Memory Policy](personal/PAMA_Runtime_Memory_Policy.md) | 运行时 memory 必须保持临时和低权威的个人策略 |
 
 ### 终极原则
 

@@ -102,6 +102,8 @@ AI can generate endlessly.
 
 The knowledge base must converge.
 
+Enterprise memory architecture must solve problems at the source layer, not accumulate behavioral patches in runtime memory.
+
 V7.1 Stable is designed around five principles:
 
 ```text
@@ -2426,6 +2428,10 @@ When the user explicitly asks Hermes to "remember" something, Hermes must treat 
 
 Runtime memory is cache only. User-requested permanent memory must be classified and routed to the Vault through `00-Core/Memory-Write-Router.md`.
 
+When the user reports an error or asks Hermes to fix a mistake, Hermes must not treat the correction as a memory write. It must activate `00-Core/Root-Cause-Fix-Protocol.md`.
+
+Runtime memory restrictions are governed by `00-Core/Runtime-Memory-Policy.md`.
+
 ```text
 Hermes through Claudian runtime
 ↓
@@ -2462,6 +2468,28 @@ If Hermes cannot confidently classify the memory, the fallback is:
 ```
 
 The fallback must not be runtime memory.
+
+## 28.1.1 Root-Cause Fix Is Not Memory Write
+
+Fix requests follow a separate protocol:
+
+```text
+User reports error
+↓
+Hermes identifies source layer
+↓
+Hermes edits source or creates proposal
+↓
+Hermes removes conflicting memory if memory caused the error
+↓
+Hermes writes repair log
+↓
+Hermes verifies behavior
+```
+
+Do not patch broken instructions with memory. Fix the broken instruction.
+
+If the source of an error is editable, Hermes must edit the source. If it is not editable, Hermes must create a fix proposal. Memory is not an acceptable substitute.
 
 ## 28.2 Triage
 
@@ -4055,6 +4083,8 @@ Source-of-Truth-Map.md
 Permission-Policy.md
 Retrieval-Rules.md
 Memory-Write-Router.md
+Root-Cause-Fix-Protocol.md
+Runtime-Memory-Policy.md
 Context-Packing-Policy.md
 Knowledge-Triage-Rules.md
 Conflict-Resolution-Policy.md

@@ -76,11 +76,13 @@ Top-level folders are part of the architecture boundary. Add subfolders inside l
 | [PAMA V5.1 Stable](PAMA%20V5.1%20Stable.md) | Full personal memory architecture and layer model |
 | [PAMA Deployment Spec v1.0](PAMA-Deployment-Spec-v1.0.md.md) | Physical Markdown/Obsidian implementation rules, metadata, confidence fields |
 | [PAMA Memory Write Router](PAMA_Memory_Write_Router.md) | Mandatory routing rules for user-requested permanent memory |
+| [PAMA Root-Cause Fix Protocol](PAMA_Root_Cause_Fix_Protocol.md) | Mandatory protocol for fixing errors at their source layer |
+| [PAMA Runtime Memory Policy](PAMA_Runtime_Memory_Policy.md) | Personal policy for keeping runtime memory temporary and low-authority |
 
 Governance priority:
 
 ```text
-Constitution > PAMA Stable Architecture > Deployment Spec > Memory Write Router > Runtime behavior
+Constitution > PAMA Stable Architecture > Deployment Spec > Memory Write Router / Root-Cause Fix Protocol / Runtime Memory Policy > Runtime behavior
 ```
 
 ### Memory Promotion Pipeline
@@ -199,11 +201,13 @@ Vault/
 | [PAMA V5.1 Stable](PAMA%20V5.1%20Stable.md) | 个人记忆完整架构与层级模型 |
 | [PAMA Deployment Spec v1.0](PAMA-Deployment-Spec-v1.0.md.md) | Markdown / Obsidian 落地规则、元数据和置信度字段 |
 | [PAMA Memory Write Router](PAMA_Memory_Write_Router.md) | 用户明确要求长期记忆时的强制写入路由规则 |
+| [PAMA Root-Cause Fix Protocol](PAMA_Root_Cause_Fix_Protocol.md) | 错误必须在源头层级修复的强制协议 |
+| [PAMA Runtime Memory Policy](PAMA_Runtime_Memory_Policy.md) | 运行时 memory 必须保持临时和低权威的个人策略 |
 
 治理优先级：
 
 ```text
-Constitution > PAMA Stable Architecture > Deployment Spec > Memory Write Router > Runtime behavior
+Constitution > PAMA Stable Architecture > Deployment Spec > Memory Write Router / Root-Cause Fix Protocol / Runtime Memory Policy > Runtime behavior
 ```
 
 ### 记忆晋升流水线

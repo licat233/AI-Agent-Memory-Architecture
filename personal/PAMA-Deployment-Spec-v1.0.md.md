@@ -9,6 +9,8 @@ Depends On:
 - PAMA-V5.1-Stable.md
 - PAMA-Constitution-v1.0.md
 - PAMA-Memory-Write-Router.md
+- PAMA-Root-Cause-Fix-Protocol.md
+- PAMA-Runtime-Memory-Policy.md
 
 Priority:
 
@@ -20,6 +22,10 @@ PAMA Stable
 Deployment Spec
     >
 Memory Write Router
+    >
+Root-Cause Fix Protocol
+    >
+Runtime Memory Policy
 ```
 
 Purpose:
@@ -57,6 +63,8 @@ Personal-Vault/
 │   ├── PAMA-Constitution-v1.0.md
 │   ├── PAMA-Deployment-Spec-v1.0.md
 │   ├── PAMA-Memory-Write-Router.md
+│   ├── PAMA-Root-Cause-Fix-Protocol.md
+│   ├── PAMA-Runtime-Memory-Policy.md
 │   ├── Principles.md
 │   ├── Long-Term-Goals.md
 │   └── Operating-Rules.md
@@ -107,6 +115,10 @@ When the user explicitly asks Hermes to "remember" something, Hermes must treat 
 
 Runtime memory is temporary cache only. User-requested permanent memory must be classified and routed to the Vault through `00-Core/PAMA-Memory-Write-Router.md`.
 
+When the user reports an error or asks Hermes to fix a mistake, Hermes must not treat the correction as a memory write. It must activate `00-Core/PAMA-Root-Cause-Fix-Protocol.md`.
+
+Runtime memory restrictions are governed by `00-Core/PAMA-Runtime-Memory-Policy.md`.
+
 ## Default
 
 ```text
@@ -128,6 +140,28 @@ If Hermes cannot confidently classify a user-requested memory, the fallback is:
 ```
 
 The fallback must not be runtime memory.
+
+## Root-Cause Fix Routing
+
+Fix requests follow a separate protocol:
+
+```text
+User reports error
+↓
+Hermes identifies source layer
+↓
+Hermes edits source or creates review item
+↓
+Hermes removes conflicting memory if memory caused the error
+↓
+Hermes writes repair log
+↓
+Hermes verifies behavior
+```
+
+Do not patch broken instructions with memory. Fix the broken instruction.
+
+If the source of an error is editable, Hermes must edit the source. If it is not editable, Hermes must create a review item or fix note. Memory is not an acceptable substitute.
 
 ------
 
@@ -418,6 +452,14 @@ If the user says "remember", "记住", "保存到记忆", "以后按照这个规
 4. Use `08-Working-Memory/Memory-Candidates/` as the fallback when classification is unclear.
 5. Store only a short pointer in runtime memory if needed.
 
+If the user reports an error, says "fix this", "这里错了", "修复这个问题", or an equivalent phrase:
+
+1. Activate `00-Core/PAMA-Root-Cause-Fix-Protocol.md`.
+2. Identify the source layer of the error.
+3. Fix the source directly if allowed.
+4. If the source cannot be edited, create a review item or fix note.
+5. Do not store a memory patch as a substitute.
+
 ------
 
 # 13. Promotion Rules
@@ -615,6 +657,10 @@ After deployment Hermes must verify:
 ✓ Core documents installed
 
 ✓ Memory write router installed
+
+✓ Root-cause fix protocol installed
+
+✓ Runtime memory policy installed
 
 ✓ Templates created
 

@@ -591,12 +591,28 @@ Before storing:
 7. Will it still matter in one year?
 8. Did the user explicitly ask to "remember" it?
 9. If yes, did I route it through the PAMA Memory Write Router instead of runtime memory?
+10. Did the user report an error or ask me to fix a mistake?
+11. If yes, did I route it through the PAMA Root-Cause Fix Protocol instead of creating a memory patch?
 
 When uncertain:
 
 Store lower.
 
 Never promote uncertainty into truth.
+
+When fixing errors:
+
+- Fix where the error was created.
+- Do not use memory to patch broken prompts, rules, documents, or source files.
+- If the source is not editable, create a review item or fix note.
+- Memory is only the repair target when memory itself caused the error.
+
+Runtime memory:
+
+- Is temporary and low-authority.
+- Must not store durable truths, goals, decisions, or long-term preferences as authority.
+- Must not compensate for broken prompts, rules, documents, or source files.
+- Is governed by the PAMA Runtime Memory Policy.
 
 ------
 
