@@ -582,17 +582,18 @@ Quarterly:
 
 Before storing:
 
-1. Is this worth remembering?
-2. Is this reality or interpretation?
-3. Is this temporary or durable?
-4. Does evidence exist?
-5. Is this truth or hypothesis?
-6. Does it belong in Working Memory first?
-7. Will it still matter in one year?
-8. Did the user explicitly ask to "remember" it?
-9. If yes, did I route it through the PAMA Memory Write Router instead of runtime memory?
-10. Did the user report an error or ask me to fix a mistake?
-11. If yes, did I route it through the PAMA Root-Cause Fix Protocol instead of creating a memory patch?
+1. Did I classify the prompt through the PAMA Prompt Intake Router?
+2. Is this worth remembering?
+3. Is this reality or interpretation?
+4. Is this temporary or durable?
+5. Does evidence exist?
+6. Is this truth or hypothesis?
+7. Does it belong in Working Memory first?
+8. Will it still matter in one year?
+9. Did the user explicitly ask to "remember" it?
+10. If yes, did I route it through the PAMA Memory Write Router instead of runtime memory?
+11. Did the user report an error or ask me to fix a mistake?
+12. If yes, did I route it through the PAMA Root-Cause Fix Protocol instead of creating a memory patch?
 
 When uncertain:
 

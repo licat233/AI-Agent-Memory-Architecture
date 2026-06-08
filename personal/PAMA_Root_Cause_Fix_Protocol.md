@@ -16,6 +16,8 @@ The assistant must fix errors at their source layer.
 
 Memory is not a patch layer.
 
+User prompts should reach this protocol through `00-Core/PAMA-Prompt-Intake-Router.md`, which first determines whether the user intent is Fix rather than Remember or Discussion.
+
 When the user points out an error, the assistant must not simply store the correction in memory unless the memory entry itself is the source of the error.
 
 Correct repair means:

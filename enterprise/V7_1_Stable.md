@@ -104,6 +104,8 @@ The knowledge base must converge.
 
 Enterprise memory architecture must solve problems at the source layer, not accumulate behavioral patches in runtime memory.
 
+Ambiguity must be resolved before persistence. Hermes must not spend excessive reasoning tokens guessing high-risk user intent when a concise clarification question would reduce risk.
+
 V7.1 Stable is designed around five principles:
 
 ```text
@@ -2424,6 +2426,8 @@ Properties:
 
 Formal memory must flow through a controlled pipeline.
 
+Before entering this pipeline, user prompts should pass through `00-Core/Prompt-Intake-Router.md` to classify intent, risk, and persistence level.
+
 When the user explicitly asks Hermes to "remember" something, Hermes must treat that request as a Memory Write Router event, not as a default runtime memory write.
 
 Runtime memory is cache only. User-requested permanent memory must be classified and routed to the Vault through `00-Core/Memory-Write-Router.md`.
@@ -4082,6 +4086,7 @@ Hermes-Operating-Protocol.md
 Source-of-Truth-Map.md
 Permission-Policy.md
 Retrieval-Rules.md
+Prompt-Intake-Router.md
 Memory-Write-Router.md
 Root-Cause-Fix-Protocol.md
 Runtime-Memory-Policy.md

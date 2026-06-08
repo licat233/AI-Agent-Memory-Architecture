@@ -8,6 +8,7 @@ Depends On:
 
 - PAMA-V5.1-Stable.md
 - PAMA-Constitution-v1.0.md
+- PAMA-Prompt-Intake-Router.md
 - PAMA-Memory-Write-Router.md
 - PAMA-Root-Cause-Fix-Protocol.md
 - PAMA-Runtime-Memory-Policy.md
@@ -20,6 +21,8 @@ Constitution
 PAMA Stable
     >
 Deployment Spec
+    >
+Prompt Intake Router
     >
 Memory Write Router
     >
@@ -62,6 +65,7 @@ Personal-Vault/
 │   ├── PAMA-V5.1-Stable.md
 │   ├── PAMA-Constitution-v1.0.md
 │   ├── PAMA-Deployment-Spec-v1.0.md
+│   ├── PAMA-Prompt-Intake-Router.md
 │   ├── PAMA-Memory-Write-Router.md
 │   ├── PAMA-Root-Cause-Fix-Protocol.md
 │   ├── PAMA-Runtime-Memory-Policy.md
@@ -110,6 +114,8 @@ No additional folders should be created without user approval.
 # 3. Default Memory Routing
 
 Hermes must determine destination before writing.
+
+Before routing memory, fixes, or persistent changes, Hermes must pass user prompts through `00-Core/PAMA-Prompt-Intake-Router.md` to classify intent, risk, and persistence level.
 
 When the user explicitly asks Hermes to "remember" something, Hermes must treat that request as a Memory Write Router event, not as a default runtime memory write.
 
@@ -655,6 +661,8 @@ After deployment Hermes must verify:
 ✓ Directory structure created
 
 ✓ Core documents installed
+
+✓ Prompt intake router installed
 
 ✓ Memory write router installed
 

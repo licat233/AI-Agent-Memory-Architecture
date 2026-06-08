@@ -16,6 +16,8 @@ When the user asks an AI assistant to remember something, the assistant must not
 
 Runtime memory is temporary cache only. The personal Markdown / Obsidian Vault is the durable memory system.
 
+User prompts should reach this router through `00-Core/PAMA-Prompt-Intake-Router.md`, which first determines whether the user intent is Remember, Fix, Discussion, Direct Task, Ambiguous, or High-Risk.
+
 In PAMA, "remember this" means:
 
 ```text

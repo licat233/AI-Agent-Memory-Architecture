@@ -16,6 +16,8 @@ When the user asks Hermes to remember something, Hermes must not write it to run
 
 Runtime memory is cache only. The Obsidian Vault is the only long-term memory and Source of Truth.
 
+User prompts should reach this router through `00-Core/Prompt-Intake-Router.md`, which first determines whether the user intent is Remember, Fix, Discussion, Direct Task, Ambiguous, or High-Risk.
+
 In ARMOR, "remember this" means:
 
 ```text
