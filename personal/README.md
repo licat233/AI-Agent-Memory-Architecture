@@ -15,6 +15,14 @@ Its purpose is not to flatter the user or remember every passing thought. Its pu
 
 **Current release:** PAMA V5.1 Stable
 
+### Architecture Overview
+
+![PAMA Personal AI Memory Architecture overview](../assets/pama-personal-architecture-overview.svg)
+
+### Mind Map
+
+![PAMA Personal AI Memory Architecture mind map](../assets/pama-personal-memory-mindmap.svg)
+
 ### Mission
 
 PAMA helps an AI assistant counter common human failure modes:
@@ -154,6 +162,14 @@ PAMA 是 AI Agent Memory Architecture 的个人版分支。它面向单个个人
 它的目标不是讨好用户，也不是记住每一个转瞬即逝的念头。它的目标是高保真地保存现实、注意力、决策、目标、复盘教训和经验证的个人真理。
 
 **当前版本：** PAMA V5.1 Stable
+
+### 架构总览图
+
+![PAMA 个人 AI 记忆架构总览图](../assets/pama-personal-architecture-overview.svg)
+
+### 架构思维导图
+
+![PAMA 个人 AI 记忆架构思维导图](../assets/pama-personal-memory-mindmap.svg)
 
 ### 使命
 
