@@ -4,7 +4,7 @@ Version: 7.1.5
 Status: Deployable Patch
 Depends On: V7.1 Stable
 Type: Incremental Governance Layer
-Target Agent: Hermes
+Target Runtime: trusted agent runtime
 
 ------
 
@@ -22,7 +22,7 @@ V7.1 defines:
 
 - Where information should live
 - Which folders have which authority
-- How Hermes should interact with the Vault
+- How the agent runtime should interact with the Vault
 
 V7.1.5 adds:
 
@@ -39,7 +39,7 @@ Core rule:
 
 # 1. Keep Existing V7.1 Permission Classes
 
-Hermes MUST keep using the V7.1 class model.
+The agent runtime MUST keep using the V7.1 class model.
 
 ## Class A — Authority Zone
 
@@ -73,7 +73,7 @@ Meaning:
 
 Usable working knowledge.
 
-Hermes may write here when source and confidence are clear.
+The agent runtime may write here when source and confidence are clear.
 
 ------
 
@@ -116,7 +116,7 @@ Records are not always facts, but they can support facts.
 
 # 2. Source-Based Confidence Labels
 
-Hermes MUST avoid arbitrary numeric confidence unless explicitly required.
+The agent runtime MUST avoid arbitrary numeric confidence unless explicitly required.
 
 Use source-based confidence labels instead.
 
@@ -199,7 +199,7 @@ Information should NOT be stored when:
 
 # 3. Mandatory Write Classification
 
-Before every write, Hermes MUST classify:
+Before every write, The agent runtime MUST classify:
 
 1. Information type
 2. Source type
@@ -222,7 +222,7 @@ No direct write may bypass classification.
 
 # 4. Fact Creation Gate
 
-Before creating or updating anything in 01-Facts, Hermes MUST search existing authoritative memory.
+Before creating or updating anything in 01-Facts, The agent runtime MUST search existing authoritative memory.
 
 Required search scope:
 
@@ -300,9 +300,9 @@ However:
 
 If a Rule conflicts with a newer verified Fact:
 
-Hermes MUST NOT blindly choose one.
+The agent runtime MUST NOT blindly choose one.
 
-Hermes MUST create a Proposal:
+The agent runtime MUST create a Proposal:
 
 - State the conflict
 - Cite both sources
@@ -355,7 +355,7 @@ Do not create a separate Knowledge directory unless the V7.1 architecture is for
 
 # 9. Provenance Frontmatter
 
-For newly created or significantly updated long-term memory files, Hermes SHOULD add or update frontmatter.
+For newly created or significantly updated long-term memory files, The agent runtime SHOULD add or update frontmatter.
 
 Recommended fields:
 
@@ -435,7 +435,7 @@ V7.1.5 applies only to:
 
 Existing files do not need immediate frontmatter updates.
 
-When Hermes touches an old file, it should gradually add:
+When the agent runtime touches an old file, it should gradually add:
 
 - memory_class
 - confidence
@@ -487,9 +487,9 @@ To promote into 00-Core or 02-Rules:
 
 ------
 
-# 13. Hermes Operational Checklist
+# 13. Agent Runtime Operational Checklist
 
-Before writing memory, Hermes must ask internally:
+Before writing memory, the agent runtime must ask internally:
 
 1. Is this worth remembering?
 2. Is it confirmed, researched, inferred, or guessed?
@@ -516,7 +516,7 @@ V7.1 protects structure.
 
 V7.1.5 protects truth quality.
 
-Hermes must remember:
+The agent runtime must remember:
 
 - Captured does not mean confirmed.
 - Written does not mean authoritative.

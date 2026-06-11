@@ -11,6 +11,8 @@
 
 ARMOR Enterprise AI Workspace is the enterprise branch of AI Agent Memory Architecture. It is built for teams that use AI agents to operate on business-critical memory: brand facts, product specifications, customer profiles, SOPs, research, meeting records, decisions, and project knowledge.
 
+ARMOR is not tied to a specific company or agent product. Any organization can adapt the structure, source-of-truth map, schemas, and review workflow to its own business domains.
+
 **Current release:** V7.1 Stable + V7.1.5 Governance Patch
 
 ### Who It Is For
@@ -129,7 +131,7 @@ The top-level structure is frozen. Add domain-specific folders inside the layers
 
 ### Agent Execution Layer
 
-ARMOR can be operated by any trusted agent runtime with file read/search/write/patch capability, including Hermes. The runtime is an executor, not an authority layer.
+ARMOR can be operated by any trusted agent runtime with file read/search/write/patch capability, including Hermes, Claude Code, Codex, Opencode, Cline, OpenHands, and custom agents. The runtime is an executor, not an authority layer.
 
 Use the runtime to read, search, draft, append records, create proposals, update allowed project files, and write execution logs. Do not use the runtime to bypass Class A protections, silently update Facts or Rules, treat Records as current Facts, or let runtime memory become durable business memory.
 
@@ -137,11 +139,11 @@ Recommended relationship:
 
 ```text
 ARMOR defines permission.
-Hermes or another trusted runtime executes allowed Vault operations.
+A trusted runtime executes allowed Vault operations.
 Human review approves authority-changing proposals.
 ```
 
-See [Hermes Adaptation Guide](hermes_adaptation_guide.md) for the ARMOR-native handoff locations, permission matrix, executor protocol, and execution log template.
+See [Agent Runtime Adaptation Guide](agent_runtime_adaptation_guide.md) for the ARMOR-native handoff locations, permission matrix, executor protocol, and execution log template.
 
 ### Lifecycle Rules
 
@@ -158,7 +160,7 @@ See [Hermes Adaptation Guide](hermes_adaptation_guide.md) for the ARMOR-native h
 ### Quick Start
 
 1. Create the frozen vault structure above.
-2. Set up core files such as `Core-Memory.md`, `Hermes-Operating-Protocol.md`, `Source-of-Truth-Map.md`, `Permission-Policy.md`, `Retrieval-Rules.md`, `Prompt-Intake-Router.md`, `Memory-Write-Router.md`, `Root-Cause-Fix-Protocol.md`, `Runtime-Memory-Policy.md`, `Lifecycle-Policy.md`, and `Governance-Patch-V715.md`.
+2. Set up core files such as `Core-Memory.md`, `Agent-Operating-Protocol.md`, `Source-of-Truth-Map.md`, `Permission-Policy.md`, `Retrieval-Rules.md`, `Prompt-Intake-Router.md`, `Memory-Write-Router.md`, `Root-Cause-Fix-Protocol.md`, `Runtime-Memory-Policy.md`, `Lifecycle-Policy.md`, and `Governance-Patch-V715.md`.
 3. Configure the AI agent's long-term memory path to this vault.
 4. Keep SQLite, embeddings, and runtime indexes as runtime-only infrastructure. They must not become the durable source of business truth.
 5. Create templates for records, proposals, rules, research, and reviewed insights under `70-Schemas/`.
@@ -174,7 +176,7 @@ See [Hermes Adaptation Guide](hermes_adaptation_guide.md) for the ARMOR-native h
 | [Memory Write Router](Memory_Write_Router.md) | Mandatory routing rules for user-requested permanent memory |
 | [Root-Cause Fix Protocol](Root_Cause_Fix_Protocol.md) | Mandatory protocol for fixing errors at their source layer |
 | [Runtime Memory Policy](Runtime_Memory_Policy.md) | Enterprise policy for keeping runtime memory low-authority and temporary |
-| [Hermes Adaptation Guide](hermes_adaptation_guide.md) | Practical guide for using Hermes or another trusted agent runtime as an ARMOR executor |
+| [Agent Runtime Adaptation Guide](agent_runtime_adaptation_guide.md) | Practical guide for using any trusted agent runtime as an ARMOR executor |
 
 ### Ultimate Principle
 
@@ -185,6 +187,8 @@ ARMOR does not optimize for remembering everything. It optimizes for preserving 
 ## 中文
 
 ARMOR Enterprise AI Workspace 是 AI Agent Memory Architecture 的企业版分支。它面向真实团队工作流中的 AI 智能体，用于治理业务关键记忆：品牌事实、产品参数、客户档案、SOP、研究资料、会议记录、决策和项目知识。
+
+ARMOR 不绑定某一家具体公司或某个智能体产品。任何组织都可以根据自己的业务领域，适配其目录结构、唯一事实源地图、Schema 和审查工作流。
 
 **当前版本：** V7.1 Stable + V7.1.5 Governance Patch
 
@@ -304,7 +308,7 @@ Vault/
 
 ### 执行层
 
-ARMOR 可以由任何具备文件读写/搜索/补丁能力的可信智能体运行时操作，包括 Hermes。运行时是执行器，不是权威层。
+ARMOR 可以由任何具备文件读写/搜索/补丁能力的可信智能体运行时操作，包括 Hermes、Claude Code、Codex、Opencode、Cline、OpenHands 和自定义智能体。运行时是执行器，不是权威层。
 
 可以用运行时读取、搜索、起草、追加记录、创建提案、更新允许修改的项目文件和写执行日志。不得用运行时绕过 Class A 保护、静默更新 Facts 或 Rules、把 Records 当当前事实，或让 runtime memory 变成持久业务记忆。
 
@@ -312,11 +316,11 @@ ARMOR 可以由任何具备文件读写/搜索/补丁能力的可信智能体运
 
 ```text
 ARMOR 定义权限。
-Hermes 或其他可信运行时执行被允许的 Vault 操作。
+可信运行时执行被允许的 Vault 操作。
 人类复核批准改变权威状态的提案。
 ```
 
-详见 [Hermes 适配指南](hermes_adaptation_guide.md)，其中包含 ARMOR 原生文件交接位置、权限矩阵、执行器协议和执行日志模板。
+详见 [智能体运行时适配指南](agent_runtime_adaptation_guide.md)，其中包含 ARMOR 原生文件交接位置、权限矩阵、执行器协议和执行日志模板。
 
 ### 生命周期规则
 
@@ -333,7 +337,7 @@ Hermes 或其他可信运行时执行被允许的 Vault 操作。
 ### 快速开始
 
 1. 创建上方冻结 Vault 结构。
-2. 建立核心文件，例如 `Core-Memory.md`、`Hermes-Operating-Protocol.md`、`Source-of-Truth-Map.md`、`Permission-Policy.md`、`Retrieval-Rules.md`、`Prompt-Intake-Router.md`、`Memory-Write-Router.md`、`Root-Cause-Fix-Protocol.md`、`Runtime-Memory-Policy.md`、`Lifecycle-Policy.md` 和 `Governance-Patch-V715.md`。
+2. 建立核心文件，例如 `Core-Memory.md`、`Agent-Operating-Protocol.md`、`Source-of-Truth-Map.md`、`Permission-Policy.md`、`Retrieval-Rules.md`、`Prompt-Intake-Router.md`、`Memory-Write-Router.md`、`Root-Cause-Fix-Protocol.md`、`Runtime-Memory-Policy.md`、`Lifecycle-Policy.md` 和 `Governance-Patch-V715.md`。
 3. 将 AI 智能体的长期记忆路径指向该 Vault。
 4. SQLite、Embedding 和运行时索引只能作为运行基础设施，不能成为持久业务真相来源。
 5. 在 `70-Schemas/` 下创建记录、提案、规则、研究和已验证洞察模板。
@@ -349,8 +353,7 @@ Hermes 或其他可信运行时执行被允许的 Vault 操作。
 | [Memory Write Router](Memory_Write_Router.md) | 用户明确要求长期记忆时的强制写入路由规则 |
 | [Root-Cause Fix Protocol](Root_Cause_Fix_Protocol.md) | 错误必须在源头层级修复的强制协议 |
 | [Runtime Memory Policy](Runtime_Memory_Policy.md) | 运行时 memory 必须保持低权威和临时性的企业策略 |
-| [Hermes Adaptation Guide](hermes_adaptation_guide.md) | Hermes 类智能体运行时适配指南 |
-|| [Hermes 适配指南](hermes_adaptation_guide.md) | 如何通过 ARMOR 原生文件交接让可信智能体运行时成为 Vault 执行器 |
+| [智能体运行时适配指南](agent_runtime_adaptation_guide.md) | 如何让可信智能体运行时成为 ARMOR Vault 执行器 |
 
 ### 终极原则
 

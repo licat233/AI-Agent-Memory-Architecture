@@ -2,13 +2,13 @@
 
 ## Version
 
-Version: V7.1 Stable  
-System: ARMOR AI Workspace  
-Primary Agent / Protocol: Hermes  
-Knowledge Runtime: Trusted agent runtime with direct Vault file access  
-Knowledge System: Obsidian Vault  
-Purpose: Long-term, stable, auditable, controllable AI workspace memory architecture  
-Status: Stable architecture for one-time deployment and continuous long-term use  
+Version: V7.1 Stable
+System: ARMOR AI Workspace
+Primary Runtime / Protocol: Trusted agent runtime
+Knowledge Runtime: Trusted agent runtime with direct Vault file access
+Knowledge System: Obsidian Vault
+Purpose: Long-term, stable, auditable, controllable AI workspace memory architecture
+Status: Stable architecture for one-time deployment and continuous long-term use
 Primary Upgrade from V7: Architecture stability principle, low-maintenance operations, Capture Track / Authority Track, conservative retrieval, automatic lifecycle rules, review-by-exception
 
 ---
@@ -20,7 +20,7 @@ Primary Upgrade from V7: Architecture stability principle, low-maintenance opera
 3. First Principle: SSOT
 4. System Roles
 5. Agent Runtime Model
-6. Hermes Operating Protocol
+6. Agent Runtime Operating Protocol
 7. Memory Model
 8. Capture Track and Authority Track
 9. Vault Structure
@@ -104,7 +104,7 @@ The knowledge base must converge.
 
 Enterprise memory architecture must solve problems at the source layer, not accumulate behavioral patches in runtime memory.
 
-Ambiguity must be resolved before persistence. Hermes must not spend excessive reasoning tokens guessing high-risk user intent when a concise clarification question would reduce risk.
+Ambiguity must be resolved before persistence. the agent runtime must not spend excessive reasoning tokens guessing high-risk user intent when a concise clarification question would reduce risk.
 
 V7.1 Stable is designed around five principles:
 
@@ -328,7 +328,7 @@ Capability does not equal permission.
 
 The agent runtime may technically allow writing files.
 
-Hermes may still be forbidden from modifying certain files by the Permission Model.
+The agent runtime may still be forbidden from modifying certain files by the Permission Model.
 
 The agent runtime is not:
 
@@ -340,13 +340,13 @@ The agent runtime is not:
 
 The agent runtime provides capability.
 
-Hermes protocol and Vault governance define permission.
+Agent runtime protocol and Vault governance define permission.
 
-## 4.3 Hermes
+## 4.3 Agent Runtime
 
 Role: Primary AI Workspace Agent / Operating Protocol
 
-Hermes can:
+The agent runtime can:
 
 - retrieve
 - analyze
@@ -363,7 +363,7 @@ Hermes can:
 - assist memory evaluation
 - assist schema validation
 
-Hermes must:
+The agent runtime must:
 
 - respect SSOT
 - classify knowledge before writing
@@ -382,8 +382,8 @@ Hermes must:
 Principle:
 
 ```text
-Hermes may capture, classify, summarize, archive, and propose.
-Hermes may not silently convert uncertain information into truth.
+The agent runtime may capture, classify, summarize, archive, and propose.
+The agent runtime may not silently convert uncertain information into truth.
 ```
 
 ## 4.4 Human Owner / Reviewer
@@ -426,7 +426,7 @@ Responsibilities, if assigned:
 - check archive leakage
 - assist project closeout
 
-If no dedicated Knowledge Steward exists, Hermes should automate most operational preparation, and the Human Owner should only review high-authority items.
+If no dedicated Knowledge Steward exists, the agent runtime should automate most operational preparation, and the Human Owner should only review high-authority items.
 
 ---
 
@@ -434,7 +434,7 @@ If no dedicated Knowledge Steward exists, Hermes should automate most operationa
 
 The agent runtime is the capability layer.
 
-Hermes is the protocol layer.
+The agent runtime is the protocol layer.
 
 The Vault is the memory layer.
 
@@ -443,7 +443,7 @@ Human review is the authority layer.
 ```text
 Runtime capability
 ↓
-Hermes protocol
+Agent runtime protocol
 ↓
 Permission model
 ↓
@@ -468,7 +468,7 @@ These must be defined by architecture and enforced by workflow, scripts, schemas
 
 ## 5.2 Plan Mode Policy
 
-Hermes must use Plan Mode or equivalent proposal workflow when working with:
+The agent runtime must use Plan Mode or equivalent proposal workflow when working with:
 
 - Core Memory
 - Source of Truth System
@@ -511,7 +511,7 @@ Update indexes if needed
 
 ## 5.3 `@mention` Policy
 
-For formal memory changes, Hermes should explicitly reference relevant authority files.
+For formal memory changes, the agent runtime should explicitly reference relevant authority files.
 
 Class A changes should reference:
 
@@ -551,13 +551,13 @@ Research promotion should reference:
 
 ---
 
-# 6. Hermes Operating Protocol
+# 6. Agent Runtime Operating Protocol
 
-Hermes follows the same sequence for every task.
+The agent runtime follows the same sequence for every task.
 
 ## 6.1 Start of Task
 
-Hermes determines:
+The agent runtime determines:
 
 ```text
 Is this execution only?
@@ -573,11 +573,11 @@ Is this audit or evaluation?
 
 If the task is temporary execution, no long-term memory is written.
 
-If long-term memory is involved, Hermes enters the Memory Write Pipeline.
+If long-term memory is involved, the agent runtime enters the Memory Write Pipeline.
 
 ## 6.2 Before Retrieval
 
-Hermes determines which layers are relevant:
+The agent runtime determines which layers are relevant:
 
 ```text
 Core?
@@ -606,7 +606,7 @@ Default retrieval excludes:
 
 ## 6.3 Before Writing
 
-Hermes must determine:
+The agent runtime must determine:
 
 ```text
 What type of knowledge is this?
@@ -617,13 +617,13 @@ Does this need source?
 Does this need review_date?
 Does this need expires_at?
 Does this need changelog?
-Can Hermes write directly?
-Should Hermes create a proposal?
+Can the agent runtime write directly?
+Should the agent runtime create a proposal?
 ```
 
 ## 6.4 After Writing
 
-Hermes must add appropriate metadata:
+The agent runtime must add appropriate metadata:
 
 - type
 - memory_layer
@@ -637,7 +637,7 @@ Hermes must add appropriate metadata:
 - related links where useful
 - changelog where required
 
-Hermes must avoid creating duplicate authority files.
+The agent runtime must avoid creating duplicate authority files.
 
 Unclear content goes to Inbox.
 
@@ -645,7 +645,7 @@ High-risk updates become proposals.
 
 ## 6.5 Before Answering with Memory
 
-Hermes must check:
+The agent runtime must check:
 
 ```text
 Did I use SSOT where available?
@@ -656,7 +656,7 @@ Is any memory stale?
 Do I need to cite memory sources?
 ```
 
-For high-risk answers, Hermes should report:
+For high-risk answers, the agent runtime should report:
 
 - authority files used
 - evidence records used
@@ -877,7 +877,7 @@ Includes:
 
 Properties:
 
-- Hermes can write freely or append
+- the agent runtime can write freely or append
 - low authority
 - not current truth
 - not included in default authoritative retrieval
@@ -1000,7 +1000,7 @@ Contains:
 
 - system principles
 - SSOT principle
-- Hermes behavior rules
+- Agent runtime behavior rules
 - permission model
 - retrieval rules
 - context packing rules
@@ -1025,7 +1025,7 @@ Core should not contain:
 ```text
 00-Core/
   Core-Memory.md
-  Hermes-Operating-Protocol.md
+  Agent-Operating-Protocol.md
   Source-of-Truth-Map.md
   Permission-Policy.md
   Retrieval-Rules.md
@@ -1075,25 +1075,25 @@ Example:
 | Knowledge | SSOT Location | Editable By | Review Required |
 |---|---|---|---|
 | Core principles | `00-Core/Core-Memory.md` | Proposal only | Yes |
-| Hermes behavior rules | `00-Core/Hermes-Operating-Protocol.md` | Proposal only | Yes |
+| Agent runtime behavior rules | `00-Core/Agent-Operating-Protocol.md` | Proposal only | Yes |
 | Retrieval rules | `00-Core/Retrieval-Rules.md` | Proposal only | Yes |
 | Brand positioning | `01-Facts/Brand/Positioning.md` | Proposal only | Yes |
 | Product facts | `01-Facts/Products/` | Proposal only | Yes |
 | Customer current profile | `01-Facts/Customers/{customer}/profile.md` | Proposal only | Yes |
-| Customer timeline | `01-Facts/Customers/{customer}/timeline/` | Hermes append | Review by exception |
+| Customer timeline | `01-Facts/Customers/{customer}/timeline/` | agent runtime append | Review by exception |
 | Decisions | `01-Facts/Decisions/` | Proposal or confirmed write | Yes |
 | Approved rules | `02-Rules/` | Proposal only | Yes |
-| Cases | `03-Insights/Cases/` | Hermes create | Review by exception |
+| Cases | `03-Insights/Cases/` | agent runtime create | Review by exception |
 | Learnings | `03-Insights/Learnings/` | Proposal for approval | Yes |
-| Research inbox | `04-Research/00-Inbox/` | Hermes write | No |
+| Research inbox | `04-Research/00-Inbox/` | agent runtime write | No |
 | Reviewed research | `04-Research/01-Reviewed/` | Proposal only | Yes |
-| Projects | `05-Projects/` | Hermes write | Closeout by lifecycle |
-| Records | `06-Records/` | Hermes append | No by default |
-| Drafts | `90-Drafts/` | Hermes write | No |
-| Inbox | `91-Inbox/` | Hermes write | No |
-| Logs | `92-Logs/` | Hermes write | No |
-| Proposals | `93-Proposals/` | Hermes write | Human decision |
-| Review queues | `94-Review-Queues/` | Hermes write | Review by exception |
+| Projects | `05-Projects/` | agent runtime write | Closeout by lifecycle |
+| Records | `06-Records/` | agent runtime append | No by default |
+| Drafts | `90-Drafts/` | agent runtime write | No |
+| Inbox | `91-Inbox/` | agent runtime write | No |
+| Logs | `92-Logs/` | agent runtime write | No |
+| Proposals | `93-Proposals/` | agent runtime write | Human decision |
+| Review queues | `94-Review-Queues/` | agent runtime write | Review by exception |
 | Archive | `99-Archive/` | Archive workflow | No default retrieval |
 
 ## 11.2 Source of Truth Registry
@@ -1186,7 +1186,7 @@ Brand/
 
 Brand facts are Class A.
 
-Hermes may only propose changes.
+The agent runtime may only propose changes.
 
 ## 12.2 Products
 
@@ -1204,7 +1204,7 @@ Example:
 Products/
   Armor-SEO.md
   Armor-AI.md
-  Hermes-Agent.md
+  Agent-Runtime.md
 ```
 
 Stores:
@@ -1351,7 +1351,7 @@ Rules describe how work should be done.
 
 Rules are Class A or high-control Class B.
 
-Hermes may propose changes but should not silently modify approved rules.
+The agent runtime may propose changes but should not silently modify approved rules.
 
 ## 13.1 Rule Requirements
 
@@ -1429,7 +1429,7 @@ A case should include:
 - related project
 - related customer
 
-Cases may be created by Hermes.
+Cases may be created by the agent runtime.
 
 Cases do not automatically become Learnings.
 
@@ -1498,7 +1498,7 @@ Location:
 04-Research/00-Inbox/
 ```
 
-Hermes may write freely.
+The agent runtime may write freely.
 
 Properties:
 
@@ -1986,7 +1986,7 @@ V7.1 Stable uses review by exception.
 
 Queues should not become large manual obligations.
 
-Hermes should generate queue entries, summaries, and recommended actions.
+The agent runtime should generate queue entries, summaries, and recommended actions.
 
 Human review focuses only on high-authority impact.
 
@@ -2266,7 +2266,7 @@ changelog required
 source required
 ```
 
-Hermes must not overwrite Class A files directly.
+The agent runtime must not overwrite Class A files directly.
 
 ## 26.2 Class B — Knowledge Assets
 
@@ -2284,7 +2284,7 @@ Includes:
 Policy:
 
 ```text
-Hermes may create or append
+The agent runtime may create or append
 key current-state changes require proposal
 learning approval requires review
 customer profile changes require review
@@ -2428,16 +2428,16 @@ Formal memory must flow through a controlled pipeline.
 
 Before entering this pipeline, user prompts should pass through `00-Core/Prompt-Intake-Router.md` to classify intent, risk, and persistence level.
 
-When the user explicitly asks Hermes to "remember" something, Hermes must treat that request as a Memory Write Router event, not as a default runtime memory write.
+When the user explicitly asks the agent runtime to "remember" something, the agent runtime must treat that request as a Memory Write Router event, not as a default runtime memory write.
 
 Runtime memory is cache only. User-requested permanent memory must be classified and routed to the Vault through `00-Core/Memory-Write-Router.md`.
 
-When the user reports an error or asks Hermes to fix a mistake, Hermes must not treat the correction as a memory write. It must activate `00-Core/Root-Cause-Fix-Protocol.md`.
+When the user reports an error or asks the agent runtime to fix a mistake, the agent runtime must not treat the correction as a memory write. It must activate `00-Core/Root-Cause-Fix-Protocol.md`.
 
 Runtime memory restrictions are governed by `00-Core/Runtime-Memory-Policy.md`.
 
 ```text
-Hermes through trusted agent runtime
+trusted agent runtime
 ↓
 Draft / Inbox / Project / Research Inbox / Record / Proposal
 ↓
@@ -2456,16 +2456,16 @@ Index / dashboard update where needed
 
 ## 28.1 Create
 
-Hermes creates content in allowed write areas.
+The agent runtime creates content in allowed write areas.
 
-For user-triggered memory requests, Hermes must first classify the candidate and select one of:
+For user-triggered memory requests, the agent runtime must first classify the candidate and select one of:
 
 - runtime-only
 - Vault capture
 - Vault authority
 - proposal-required
 
-If Hermes cannot confidently classify the memory, the fallback is:
+If the agent runtime cannot confidently classify the memory, the fallback is:
 
 ```text
 91-Inbox/Memory-Candidates/
@@ -2480,24 +2480,24 @@ Fix requests follow a separate protocol:
 ```text
 User reports error
 ↓
-Hermes identifies source layer
+The agent runtime identifies source layer
 ↓
-Hermes edits source or creates proposal
+The agent runtime edits source or creates proposal
 ↓
-Hermes removes conflicting memory if memory caused the error
+The agent runtime removes conflicting memory if memory caused the error
 ↓
-Hermes writes repair log
+The agent runtime writes repair log
 ↓
-Hermes verifies behavior
+The agent runtime verifies behavior
 ```
 
 Do not patch broken instructions with memory. Fix the broken instruction.
 
-If the source of an error is editable, Hermes must edit the source. If it is not editable, Hermes must create a fix proposal. Memory is not an acceptable substitute.
+If the source of an error is editable, the agent runtime must edit the source. If it is not editable, the agent runtime must create a fix proposal. Memory is not an acceptable substitute.
 
 ## 28.2 Triage
 
-Hermes classifies knowledge and recommends destination.
+The agent runtime classifies knowledge and recommends destination.
 
 ## 28.3 Review
 
@@ -2521,7 +2521,7 @@ If SSOT exists:
 
 # 29. Agent Write Rules
 
-Hermes must follow these rules.
+The agent runtime must follow these rules.
 
 ## 29.1 Determine Type
 
@@ -2544,9 +2544,9 @@ If authority exists, do not create another authority file.
 
 ## 29.3 Determine Permission
 
-Class A → proposal only  
-Class B → create/append with constraints  
-Class C → open write  
+Class A → proposal only
+Class B → create/append with constraints
+Class C → open write
 Class R → append-only
 
 ## 29.4 Determine Expiration
@@ -2785,7 +2785,7 @@ Tier 8: Raw research / drafts / archive only when explicitly needed
 
 ## 32.2 Packing Rules
 
-Hermes should not load the entire Vault.
+The agent runtime should not load the entire Vault.
 
 Default loading:
 
@@ -3354,7 +3354,7 @@ V7.1 Stable reduces maintenance through automatic lifecycle rules.
 ## 39.2 Inbox
 
 ```text
-14 days unclassified → Hermes auto-classifies if possible
+14 days unclassified → agent runtime auto-classifies if possible
 30 days unresolved → move to 99-Archive/Unsorted/ or keep as low-authority archived note
 ```
 
@@ -3482,9 +3482,9 @@ Humans only need to review:
 
 Humans should not manually manage every draft, log, raw research note, or record.
 
-## 41.2 Hermes Responsibilities
+## 41.2 Agent Runtime Responsibilities
 
-Hermes should automatically:
+The agent runtime should automatically:
 
 - classify new content
 - write records
@@ -3913,11 +3913,11 @@ Review cards should show:
 - source evidence
 - risk
 - affected files
-- Hermes recommendation
+- agent runtime recommendation
 
 The reviewer should not need to inspect the entire Vault.
 
-Hermes should prepare the context.
+The agent runtime should prepare the context.
 
 ---
 
@@ -4004,7 +4004,7 @@ V7.1 Stable minimizes operational burden.
 
 No required daily review.
 
-Hermes may write:
+The agent runtime may write:
 
 - records
 - drafts
@@ -4082,7 +4082,7 @@ Create Core files:
 
 ```text
 Core-Memory.md
-Hermes-Operating-Protocol.md
+Agent-Operating-Protocol.md
 Source-of-Truth-Map.md
 Permission-Policy.md
 Retrieval-Rules.md

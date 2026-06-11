@@ -5,16 +5,16 @@
 
 Version: 1.0
 Status: Stable
-Applies To: Hermes, trusted agent runtimes, ARMOR Enterprise AI Workspace
+Applies To: trusted agent runtimes, ARMOR Enterprise AI Workspace
 Depends On: V7.1 Stable + Memory Write Router + Root-Cause Fix Protocol + Runtime Memory Policy
 
 ---
 
 ## Purpose
 
-The Prompt Intake Router prevents Hermes from executing ambiguous user prompts incorrectly.
+The Prompt Intake Router prevents the agent runtime from executing ambiguous user prompts incorrectly.
 
-Hermes must classify the user's intent before performing any action that changes files, memory, rules, configurations, project state, source documents, or long-term records.
+The agent runtime must classify the user's intent before performing any action that changes files, memory, rules, configurations, project state, source documents, or long-term records.
 
 ---
 
@@ -22,7 +22,7 @@ Hermes must classify the user's intent before performing any action that changes
 
 Do not guess high-risk intent.
 
-If the prompt is ambiguous and the action may modify persistent state, Hermes must clarify before acting.
+If the prompt is ambiguous and the action may modify persistent state, the agent runtime must clarify before acting.
 
 Ambiguity must be resolved before persistence.
 
@@ -55,7 +55,7 @@ Route:
 
 ## Intent Types
 
-Hermes must classify every user request into one of the following:
+The agent runtime must classify every user request into one of the following:
 
 1. Direct Task Request
 2. Remember Request
@@ -70,7 +70,7 @@ Hermes must classify every user request into one of the following:
 
 ### Direct Task Request
 
-If the user clearly asks for a specific output or action, Hermes may execute.
+If the user clearly asks for a specific output or action, the agent runtime may execute.
 
 Examples:
 
@@ -80,27 +80,27 @@ Examples:
 
 ### Remember Request
 
-If the user asks Hermes to remember, store, save, or keep a rule, fact, preference, or project state, Hermes must activate:
+If the user asks the agent runtime to remember, store, save, or keep a rule, fact, preference, or project state, the agent runtime must activate:
 
 ```text
 00-Core/Memory-Write-Router.md
 ```
 
-Hermes must not write permanent information into runtime memory.
+The agent runtime must not write permanent information into runtime memory.
 
 ### Fix Request
 
-If the user reports an error, wrong behavior, wrong rule, wrong prompt, or incorrect source, Hermes must activate:
+If the user reports an error, wrong behavior, wrong rule, wrong prompt, or incorrect source, the agent runtime must activate:
 
 ```text
 00-Core/Root-Cause-Fix-Protocol.md
 ```
 
-Hermes must not store a correction in memory as a substitute for fixing the source.
+The agent runtime must not store a correction in memory as a substitute for fixing the source.
 
 ### Discussion / Exploration
 
-If the user asks for analysis, opinion, comparison, diagnosis, or design discussion, Hermes must not modify files or memory unless explicitly asked.
+If the user asks for analysis, opinion, comparison, diagnosis, or design discussion, the agent runtime must not modify files or memory unless explicitly asked.
 
 Examples:
 
@@ -123,17 +123,17 @@ Examples:
 - 修一下
 - 弄一下
 
-If low risk, Hermes may perform a safe minimal action.
+If low risk, the agent runtime may perform a safe minimal action.
 
-If high risk, Hermes must ask one concise clarification question.
+If high risk, the agent runtime must ask one concise clarification question.
 
 ### High-Risk Operation
 
-Hermes must ask for confirmation before:
+The agent runtime must ask for confirmation before:
 
 - deleting files
 - overwriting rules
-- changing SOUL.md
+- changing runtime startup/profile file
 - changing permission policy
 - changing source-of-truth rules
 - modifying system prompts
@@ -146,7 +146,7 @@ Hermes must ask for confirmation before:
 
 ## Confidence and Risk Matrix
 
-Hermes must internally classify:
+The agent runtime must internally classify:
 
 ```yaml
 intent_confidence: high | medium | low
@@ -164,7 +164,7 @@ operation_risk: low | medium | high
 
 ## Persistence Level
 
-Hermes must identify the persistence level before acting:
+The agent runtime must identify the persistence level before acting:
 
 | Level | Meaning | Confirmation Requirement |
 | --- | --- | --- |
@@ -172,23 +172,23 @@ Hermes must identify the persistence level before acting:
 | P1 | Draft or non-authoritative note | Usually no confirmation |
 | P2 | Normal project file | Depends on scope |
 | P3 | Authoritative facts, rules, or long-term memory | Confirmation or proposal |
-| P4 | Core, SOUL.md, permission policy, architecture, source-of-truth map | Confirmation or proposal required |
+| P4 | Core, runtime startup/profile file, permission policy, architecture, source-of-truth map | Confirmation or proposal required |
 
-If the target, scope, or persistence level is unclear, Hermes must clarify before persistence.
+If the target, scope, or persistence level is unclear, the agent runtime must clarify before persistence.
 
 ---
 
 ## Short Prompt Rule
 
-When the user input is very short and contains verbs such as "改", "修", "继续", "优化", "保存", "更新", "处理", "弄", "fix", "continue", "save", or "update", Hermes must run Ambiguous Command checks.
+When the user input is very short and contains verbs such as "改", "修", "继续", "优化", "保存", "更新", "处理", "弄", "fix", "continue", "save", or "update", the agent runtime must run Ambiguous Command checks.
 
-If the previous context contains high-authority documents, memory, rules, prompts, or architecture, Hermes must clarify rather than assume.
+If the previous context contains high-authority documents, memory, rules, prompts, or architecture, the agent runtime must clarify rather than assume.
 
 ---
 
 ## Safe Minimal Action
 
-When the prompt is ambiguous but low-risk, Hermes may perform the smallest reversible action.
+When the prompt is ambiguous but low-risk, the agent runtime may perform the smallest reversible action.
 
 Safe minimal actions include:
 
@@ -203,7 +203,7 @@ Safe minimal actions do not include:
 - editing source files
 - writing long-term memory
 - changing rules
-- modifying SOUL.md
+- modifying runtime startup/profile file
 - modifying Core files
 - deleting or overwriting files
 - changing project state
@@ -212,7 +212,7 @@ Safe minimal actions do not include:
 
 ## Clarification Rule
 
-When clarification is required, Hermes must ask one concise question with concrete options.
+When clarification is required, the agent runtime must ask one concise question with concrete options.
 
 Bad:
 
@@ -226,13 +226,13 @@ Good:
 你是要我修改当前回答，还是修改 Obsidian 里的规则文件？
 ```
 
-Hermes should avoid long speculative analysis when one clarification question would reduce risk.
+The agent runtime should avoid long speculative analysis when one clarification question would reduce risk.
 
 ---
 
 ## Required Intake Record
 
-For internal reasoning, Hermes should reduce intake to a short record:
+For internal reasoning, the agent runtime should reduce intake to a short record:
 
 ```yaml
 intent_type:

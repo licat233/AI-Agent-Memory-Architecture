@@ -5,20 +5,20 @@
 
 Version: 1.0
 Status: Stable
-Applies To: Hermes, trusted agent runtimes, ARMOR Enterprise AI Workspace
+Applies To: trusted agent runtimes, ARMOR Enterprise AI Workspace
 Depends On: V7.1 Stable + V7.1.5 Governance Patch + Memory Write Router
 
 ---
 
 ## Core Principle
 
-Hermes must fix errors at their source layer.
+The agent runtime must fix errors at their source layer.
 
 Memory is not a patch layer.
 
 User prompts should reach this protocol through `00-Core/Prompt-Intake-Router.md`, which first determines whether the user intent is Fix rather than Remember or Discussion.
 
-When the user points out an error, Hermes must not simply store the correction in memory unless the memory entry itself is the source of the error.
+When the user points out an error, the agent runtime must not simply store the correction in memory unless the memory entry itself is the source of the error.
 
 Correct repair means:
 
@@ -68,11 +68,11 @@ Fix is not Remember.
 
 ## Forbidden Behavior
 
-Hermes must not use memory as a patch for:
+The agent runtime must not use memory as a patch for:
 
 - wrong system prompts
 - wrong developer instructions
-- wrong SOUL.md rules
+- wrong runtime startup/profile file rules
 - wrong Core files
 - wrong permission policies
 - wrong retrieval rules
@@ -82,7 +82,7 @@ Hermes must not use memory as a patch for:
 - wrong customer facts
 - wrong SOPs
 
-Hermes must not respond with these as the primary fix:
+The agent runtime must not respond with these as the primary fix:
 
 - "I will remember this next time."
 - "I saved the correct version to memory."
@@ -95,7 +95,7 @@ These responses are acceptable only after the actual source has been fixed or a 
 
 ## Required Fix Flow
 
-When an error is reported, Hermes must:
+When an error is reported, the agent runtime must:
 
 1. Identify the error.
 2. Identify the source layer.
@@ -106,18 +106,18 @@ When an error is reported, Hermes must:
 7. Add a repair log after the source fix or proposal.
 8. Verify that the corrected source now produces the right behavior.
 
-Hermes must not claim the issue is fixed until the source has been changed or a fix proposal has been created.
+The agent runtime must not claim the issue is fixed until the source has been changed or a fix proposal has been created.
 
 ---
 
 ## Source Layer Priority
 
-When a conflict exists, Hermes must resolve the highest-authority source first.
+When a conflict exists, the agent runtime must resolve the highest-authority source first.
 
 | Priority | Source Layer | Correct Repair |
 | --- | --- | --- |
 | 1 | System Prompt / Developer Instruction | Update the prompt or escalate to the owner. |
-| 2 | SOUL.md | Edit SOUL.md if permitted, otherwise create proposal. |
+| 2 | runtime startup/profile file | Edit runtime startup/profile file if permitted, otherwise create proposal. |
 | 3 | ARMOR Core files | Create `93-Proposals/Core/` proposal. |
 | 4 | Permission Policy / Source-of-Truth Map / Retrieval Rules | Create `93-Proposals/Core/` proposal. |
 | 5 | Obsidian authoritative files | Update through permission model or create proposal. |
@@ -145,7 +145,7 @@ Memory must not be used to override wrong source instructions.
 
 ## Fallback Rule
 
-If Hermes cannot access or edit the source file, Hermes must:
+If the agent runtime cannot access or edit the source file, the agent runtime must:
 
 1. State that the root source cannot currently be modified.
 2. Create a proposal in `93-Proposals/Fixes/`.
@@ -157,7 +157,7 @@ If Hermes cannot access or edit the source file, Hermes must:
 
 ## Repair Log
 
-After fixing the source or creating a proposal, Hermes may create a repair log:
+After fixing the source or creating a proposal, the agent runtime may create a repair log:
 
 ```text
 92-Logs/Repair-Logs/YYYY-MM-DD-root-cause-fix.md
@@ -207,18 +207,18 @@ Forbidden repair:
 memory: User corrected that 1 + 1 = 2.
 ```
 
-### Wrong SOUL.md Rule
+### Wrong runtime startup/profile file Rule
 
 Wrong source:
 
 ```text
-SOUL.md: All customer data is public by default.
+runtime startup/profile file: All customer data is public by default.
 ```
 
 Correct repair:
 
 ```text
-Edit SOUL.md or create a proposal to make customer data private by default.
+Edit runtime startup/profile file or create a proposal to make customer data private by default.
 ```
 
 Forbidden repair:

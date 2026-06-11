@@ -105,7 +105,7 @@ Copy these repository files into the target Vault:
 | `enterprise/Memory_Write_Router.md` | `00-Core/Memory-Write-Router.md` |
 | `enterprise/Root_Cause_Fix_Protocol.md` | `00-Core/Root-Cause-Fix-Protocol.md` |
 | `enterprise/Runtime_Memory_Policy.md` | `00-Core/Runtime-Memory-Policy.md` |
-| `enterprise/hermes_adaptation_guide.md` | `00-Core/Hermes-Adaptation-Guide.md` |
+| `enterprise/agent_runtime_adaptation_guide.md` | `00-Core/Agent-Runtime-Adaptation-Guide.md` |
 
 If a destination file already exists, do not overwrite it silently. Compare, ask, or write a timestamped candidate under `93-Proposals/` or `90-Drafts/`.
 

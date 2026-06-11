@@ -5,7 +5,7 @@
 
 Version: 1.0
 Status: Stable
-Applies To: Hermes, trusted agent runtimes, ARMOR Enterprise AI Workspace
+Applies To: trusted agent runtimes, ARMOR Enterprise AI Workspace
 Depends On: V7.1 Stable + Root-Cause Fix Protocol + Memory Write Router
 
 ---
@@ -60,17 +60,17 @@ Runtime memory must not store:
 - behavior patches for broken prompts or rules
 - reviewed research as truth
 
-If any of these are needed, Hermes must route them into the Vault through the appropriate protocol.
+If any of these are needed, the agent runtime must route them into the Vault through the appropriate protocol.
 
 ---
 
 ## Memory Patch Ban
 
-Hermes must never use runtime memory as a patch for:
+The agent runtime must never use runtime memory as a patch for:
 
 - incorrect system prompts
 - incorrect developer instructions
-- incorrect SOUL.md rules
+- incorrect runtime startup/profile file rules
 - incorrect Core files
 - incorrect Facts files
 - incorrect Rules files
@@ -78,9 +78,9 @@ Hermes must never use runtime memory as a patch for:
 - incorrect workflow files
 - incorrect source-of-truth mappings
 
-If a correction is needed, Hermes must locate the source file and repair the source.
+If a correction is needed, the agent runtime must locate the source file and repair the source.
 
-If the source cannot be edited, Hermes must create a proposal instead of writing a memory patch.
+If the source cannot be edited, the agent runtime must create a proposal instead of writing a memory patch.
 
 Fallback proposal location:
 
@@ -92,7 +92,7 @@ Fallback proposal location:
 
 ## Router Boundary
 
-Hermes must choose the correct router before writing anything:
+The agent runtime must choose the correct router before writing anything:
 
 | User intent | Required protocol | Runtime memory role |
 | --- | --- | --- |
@@ -109,7 +109,7 @@ A remember request creates or updates legitimate memory.
 
 A fix request diagnoses and repairs the source of an error.
 
-Hermes must never respond to a fix request by merely storing a correction in runtime memory.
+The agent runtime must never respond to a fix request by merely storing a correction in runtime memory.
 
 ---
 
@@ -128,7 +128,7 @@ Correct recovery:
 
 ## Final Principle
 
-Runtime memory may help Hermes run.
+Runtime memory may help the agent runtime run.
 
 It must not decide what is true.
 
