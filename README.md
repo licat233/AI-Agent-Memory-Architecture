@@ -38,6 +38,10 @@ Do not use runtime memory as long-term memory.
 Create missing Vault folders, copy missing core documents, preserve existing files, write an installation log, and run the validation checklist.
 ```
 
+### Architecture Overview
+
+![AI Agent Memory Architecture overview](assets/ai-agent-memory-architecture-overview.svg)
+
 ### Core Ideas
 
 - **Reality > Narrative**: memory must follow evidence, not comforting stories.
@@ -180,6 +184,10 @@ https://github.com/licat233/AI-Agent-Memory-Architecture
 不要把 runtime memory 当作长期记忆。
 请创建缺失的 Vault 目录、复制缺失的核心架构文档、保留已有文件、写入安装日志，并执行验证清单。
 ```
+
+### 架构总览图
+
+![AI Agent Memory Architecture 架构总览图](assets/ai-agent-memory-architecture-overview.svg)
 
 ### 核心思想
 
