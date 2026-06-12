@@ -213,9 +213,39 @@ When unsure, store lower or create a proposal.
 
 Hermes may use Hindsight, SQLite, or built-in memory for runtime continuity, but authoritative memory should live in the ARMOR Vault. Use Hermes memory tools as pointer/cache infrastructure unless the user has explicitly configured a governed Vault-backed memory provider.
 
-### Claude Code / Codex / Opencode
+### Claude Code / Opencode
 
 Use direct file read/search/write/patch tools against the Vault. Do not create hidden memory stores that override the Vault. Log significant actions to `92-Logs/` and create proposals for authority-changing edits.
+
+### Codex
+
+Codex should connect to ARMOR as a file-based trusted executor.
+
+Recommended local setup:
+
+```text
+Codex reference:
+  ~/.codex/memory/reference_armor_vault.md
+
+Codex skill:
+  ~/.codex/skills/armor-enterprise-vault/SKILL.md
+
+Shared Vault:
+  /path/to/ARMOR-Vault
+```
+
+The Codex reference should record the Vault path, role boundaries, default retrieval rules, write classes, and required routers. The Codex skill should tell future Codex sessions when to activate the ARMOR workflow and which core Vault files to read first.
+
+Codex should treat its own local memory database, session history, logs, embeddings, and indexes as temporary runtime infrastructure. They may store task continuity or short pointers, but they must not store authoritative facts, rules, product truth, customer state, or architecture decisions as long-term memory.
+
+For shared Vault deployments, add the Vault path as a trusted Codex project when the user wants Codex to work there regularly:
+
+```toml
+[projects."/path/to/ARMOR-Vault"]
+trust_level = "trusted"
+```
+
+Codex must still follow the ARMOR permission model. Trusted project access grants file capability, not authority to modify Class A memory directly.
 
 ### Cline / OpenHands / Custom Agents
 

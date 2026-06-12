@@ -176,6 +176,15 @@ The runtime should:
 - use `00-Core/Root-Cause-Fix-Protocol.md` when correcting errors
 - use `00-Core/Runtime-Memory-Policy.md` to keep runtime memory temporary and low-authority
 
+For Codex, prefer a local reference plus a skill rather than writing durable facts into Codex runtime memory:
+
+```text
+~/.codex/memory/reference_armor_vault.md
+~/.codex/skills/armor-enterprise-vault/SKILL.md
+```
+
+The reference should point to the installed Vault, and the skill should instruct Codex to read the ARMOR routers and policies before memory-related writes.
+
 ---
 
 ## 7. Installation Log
