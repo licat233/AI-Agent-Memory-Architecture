@@ -132,11 +132,33 @@ Do not use runtime memory as long-term memory.
 Create missing Vault folders, copy missing core documents, preserve existing files, write an installation log, and run the validation checklist.
 ```
 
+### Updating
+
+Copy this prompt to your AI agent when an existing Vault needs to be aligned with the latest architecture:
+
+```text
+Please read and execute AGENT_UPDATE.md from this repository:
+https://github.com/licat233/AI-Agent-Memory-Architecture
+
+Help me update my existing AI Agent Memory Architecture Vault.
+Target architecture: AI Agent Memory Architecture v1.2.0.
+Default branch: ARMOR Enterprise V7.2 Stable unless I explicitly say PAMA Personal.
+Target Vault path: <paste your Vault or Markdown directory path here>
+Do not install any Obsidian UI plugin.
+Do not use runtime memory as long-term memory.
+Preserve user content and history.
+Archive superseded active files instead of deleting them.
+Update active Core, Indexes, runtime adaptation guides, routers, and governance files.
+Mark obsolete pending proposals as superseded when they point to retired files.
+Write an update log and run the validation checklist.
+```
+
 ### Documentation
 
 | Document | Description |
 | --- | --- |
 | [Agent Installation Guide](AGENT_INSTALL.md) | Instructions an AI agent can follow to install ARMOR or PAMA into a Vault |
+| [Agent Update Guide](AGENT_UPDATE.md) | Instructions an AI agent can follow to update an existing Vault and clean stale active files |
 | [Enterprise README](enterprise/README.md) | Enterprise overview, ARMOR quick start, permission model, lifecycle rules |
 | [ARMOR V7.2 Stable](enterprise/V7_2_Stable.md) | Full enterprise architecture specification |
 | [ARMOR V7.1.5 Governance Patch](enterprise/V7_1_5_Governance_Patch.md) | Governance layer carried forward into V7.2: confidence labels, fact creation gate, write quality rules |
@@ -283,11 +305,33 @@ https://github.com/licat233/AI-Agent-Memory-Architecture
 请创建缺失的 Vault 目录、复制缺失的核心架构文档、保留已有文件、写入安装日志，并执行验证清单。
 ```
 
+### 更新教程
+
+当已有 Vault 需要对齐到最新架构时，复制下面这段内容给你的 AI Agent：
+
+```text
+请阅读并执行这个仓库里的 AGENT_UPDATE.md：
+https://github.com/licat233/AI-Agent-Memory-Architecture
+
+请帮我更新现有的 AI Agent Memory Architecture Vault。
+目标架构：AI Agent Memory Architecture v1.2.0。
+默认分支：ARMOR Enterprise V7.2 Stable，除非我明确要求 PAMA Personal。
+目标 Vault 路径：<在这里粘贴你的 Vault 或 Markdown 目录路径>
+不要安装任何 Obsidian UI 插件。
+不要把 runtime memory 当作长期记忆。
+请保留用户内容和历史记录。
+请归档已被替代的活跃文件，而不是直接删除。
+请更新活跃的 Core、Indexes、运行时适配指南、路由器和治理文件。
+如果 pending proposal 指向已退役文件，请将其标记为 superseded 或改指向当前文件。
+请写入更新日志，并执行验证清单。
+```
+
 ### 文档索引
 
 | 文档 | 说明 |
 | --- | --- |
 | [Agent 安装指南](AGENT_INSTALL.md) | AI Agent 可直接执行的 ARMOR/PAMA Vault 安装说明 |
+| [Agent 更新指南](AGENT_UPDATE.md) | AI Agent 可直接执行的既有 Vault 更新与旧活跃文件清理说明 |
 | [企业版 README](enterprise/README.md) | 企业版总览、ARMOR 快速开始、权限模型、生命周期规则 |
 | [ARMOR V7.2 Stable](enterprise/V7_2_Stable.md) | 企业级完整架构规范 |
 | [ARMOR V7.1.5 Governance Patch](enterprise/V7_1_5_Governance_Patch.md) | 已并入 V7.2 的治理层：置信度标签、事实创建门禁、写入质量规则 |
