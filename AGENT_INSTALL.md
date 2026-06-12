@@ -121,6 +121,7 @@ Copy these repository files into the target Vault if missing:
 | `enterprise/Root_Cause_Fix_Protocol.md` | `00-Core/Root-Cause-Fix-Protocol.md` |
 | `enterprise/Runtime_Memory_Policy.md` | `00-Core/Runtime-Memory-Policy.md` |
 | `enterprise/agent_runtime_adaptation_guide.md` | `00-Core/Agent-Runtime-Adaptation-Guide.md` |
+| `enterprise/multi_agent_shared_vault_governance.md` | `00-Core/Multi-Agent-Shared-Vault-Governance.md` |
 
 If a destination file already exists, do not overwrite it. Preserve the file and create a candidate copy under:
 
@@ -175,6 +176,7 @@ The runtime should:
 - use `00-Core/Memory-Write-Router.md` before storing permanent memory
 - use `00-Core/Root-Cause-Fix-Protocol.md` when correcting errors
 - use `00-Core/Runtime-Memory-Policy.md` to keep runtime memory temporary and low-authority
+- use `00-Core/Multi-Agent-Shared-Vault-Governance.md` when multiple agents share the same Vault
 
 For Codex, prefer a local reference plus a skill rather than writing durable facts into Codex runtime memory:
 
@@ -184,6 +186,15 @@ For Codex, prefer a local reference plus a skill rather than writing durable fac
 ```
 
 The reference should point to the installed Vault, and the skill should instruct Codex to read the ARMOR routers and policies before memory-related writes.
+
+For multi-agent deployments, create starter namespaces when useful:
+
+```text
+91-Inbox/{agent-name}/
+92-Logs/{agent-name}/
+93-Proposals/{agent-name}/
+93-Proposals/Conflicts/
+```
 
 ---
 
@@ -232,6 +243,7 @@ Before reporting completion, verify:
 - No Obsidian UI plugin was installed.
 - The installation log exists.
 - The user knows which path to point their AI agent at.
+- Multi-agent deployments have a namespace and conflict policy.
 
 ---
 

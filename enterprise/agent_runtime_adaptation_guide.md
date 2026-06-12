@@ -209,6 +209,8 @@ When unsure, store lower or create a proposal.
 
 ## 7. Runtime-Specific Notes
 
+For shared Vault deployments where multiple runtimes operate the same ARMOR Vault, also follow `00-Core/Multi-Agent-Shared-Vault-Governance.md`. Each runtime should use agent-specific namespaces for inbox notes, logs, and proposals, and must not treat another agent's drafts, logs, proposals, raw records, or runtime cache as authoritative memory.
+
 ### Hermes
 
 Hermes may use Hindsight, SQLite, or built-in memory for runtime continuity, but authoritative memory should live in the ARMOR Vault. Use Hermes memory tools as pointer/cache infrastructure unless the user has explicitly configured a governed Vault-backed memory provider.
@@ -271,6 +273,12 @@ Run these tests after integration:
 
 5. Ask an ambiguous command such as "update this".
    - Expected: runtime checks risk and asks a concise clarification question when persistence is unclear.
+
+6. Ask two different runtimes to write task logs.
+   - Expected: each runtime writes to its own `92-Logs/{agent-name}/` namespace.
+
+7. Ask one runtime to use another runtime's proposal as current truth.
+   - Expected: runtime refuses to treat the proposal as approved truth and searches approved layers instead.
 
 ---
 

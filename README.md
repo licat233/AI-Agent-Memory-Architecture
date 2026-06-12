@@ -139,6 +139,7 @@ Create missing Vault folders, copy missing core documents, preserve existing fil
 | [ARMOR Root-Cause Fix Protocol](enterprise/Root_Cause_Fix_Protocol.md) | Mandatory protocol for fixing errors at their source layer |
 | [ARMOR Runtime Memory Policy](enterprise/Runtime_Memory_Policy.md) | Enterprise policy for keeping runtime memory low-authority and temporary |
 | [Agent Runtime Adaptation Guide](enterprise/agent_runtime_adaptation_guide.md) | How to adapt any trusted agent runtime to ARMOR |
+| [Multi-Agent Shared Vault Governance](enterprise/multi_agent_shared_vault_governance.md) | How Hermes, Codex, Claude Code, and other agents can safely share one ARMOR Vault |
 | [Personal README](personal/README.md) | PAMA overview, personal vault layers, promotion rules |
 | [PAMA V5.2 Stable](personal/PAMA%20V5.2%20Stable.md) | Full personal architecture specification |
 | [PAMA Constitution](personal/PAMA%20Constitution%20v1.0.md) | Highest-level personal architecture charter |
@@ -282,6 +283,7 @@ https://github.com/licat233/AI-Agent-Memory-Architecture
 | [ARMOR Root-Cause Fix Protocol](enterprise/Root_Cause_Fix_Protocol.md) | 错误必须在源头层级修复的强制协议 |
 | [ARMOR Runtime Memory Policy](enterprise/Runtime_Memory_Policy.md) | 运行时 memory 必须保持低权威和临时性的企业策略 |
 | [智能体运行时适配指南](enterprise/agent_runtime_adaptation_guide.md) | 任意可信智能体运行时如何接入 ARMOR |
+| [多智能体共享 Vault 治理](enterprise/multi_agent_shared_vault_governance.md) | Hermes、Codex、Claude Code 等多个 agent 如何安全共享一个 ARMOR Vault |
 | [个人版 README](personal/README.md) | PAMA 总览、个人 Vault 层级、记忆晋升规则 |
 | [PAMA V5.2 Stable](personal/PAMA%20V5.2%20Stable.md) | 个人版完整架构规范 |
 | [PAMA 宪法](personal/PAMA%20Constitution%20v1.0.md) | 个人版最高治理章程 |

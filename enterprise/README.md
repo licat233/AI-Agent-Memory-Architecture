@@ -153,7 +153,7 @@ See [Agent Runtime Adaptation Guide](agent_runtime_adaptation_guide.md) for the 
 ### Quick Start
 
 1. Create the frozen vault structure above.
-2. Set up core files such as `Core-Memory.md`, `Agent-Operating-Protocol.md`, `Source-of-Truth-Map.md`, `Permission-Policy.md`, `Retrieval-Rules.md`, `Prompt-Intake-Router.md`, `Memory-Write-Router.md`, `Root-Cause-Fix-Protocol.md`, `Runtime-Memory-Policy.md`, `Lifecycle-Policy.md`, and `Governance-Patch-V715.md`.
+2. Set up core files such as `Core-Memory.md`, `Agent-Operating-Protocol.md`, `Source-of-Truth-Map.md`, `Permission-Policy.md`, `Retrieval-Rules.md`, `Prompt-Intake-Router.md`, `Memory-Write-Router.md`, `Root-Cause-Fix-Protocol.md`, `Runtime-Memory-Policy.md`, `Lifecycle-Policy.md`, `Governance-Patch-V715.md`, and `Multi-Agent-Shared-Vault-Governance.md`.
 3. Configure the AI agent's long-term memory path to this vault.
 4. Keep SQLite, embeddings, and runtime indexes as runtime-only infrastructure. They must not become the durable source of business truth.
 5. Create templates for records, proposals, rules, research, and reviewed insights under `70-Schemas/`.
@@ -170,6 +170,7 @@ See [Agent Runtime Adaptation Guide](agent_runtime_adaptation_guide.md) for the 
 | [Root-Cause Fix Protocol](Root_Cause_Fix_Protocol.md) | Mandatory protocol for fixing errors at their source layer |
 | [Runtime Memory Policy](Runtime_Memory_Policy.md) | Enterprise policy for keeping runtime memory low-authority and temporary |
 | [Agent Runtime Adaptation Guide](agent_runtime_adaptation_guide.md) | Practical guide for using any trusted agent runtime as an ARMOR executor |
+| [Multi-Agent Shared Vault Governance](multi_agent_shared_vault_governance.md) | Governance policy for multiple trusted agents sharing one ARMOR Vault |
 
 ### Ultimate Principle
 
