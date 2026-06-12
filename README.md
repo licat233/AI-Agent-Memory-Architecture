@@ -157,6 +157,7 @@ Write an update log and run the validation checklist.
 
 | Document | Description |
 | --- | --- |
+| [Architecture Overview](ARCHITECTURE.md) | Single-file architecture orientation for AI agents before reading deeper specs |
 | [Agent Installation Guide](AGENT_INSTALL.md) | Instructions an AI agent can follow to install ARMOR or PAMA into a Vault |
 | [Agent Update Guide](AGENT_UPDATE.md) | Instructions an AI agent can follow to update an existing Vault and clean stale active files |
 | [Enterprise README](enterprise/README.md) | Enterprise overview, ARMOR quick start, permission model, lifecycle rules |
@@ -330,6 +331,7 @@ https://github.com/licat233/AI-Agent-Memory-Architecture
 
 | 文档 | 说明 |
 | --- | --- |
+| [架构总览](ARCHITECTURE.md) | AI Agent 阅读细分规范前应先读的单文件架构说明 |
 | [Agent 安装指南](AGENT_INSTALL.md) | AI Agent 可直接执行的 ARMOR/PAMA Vault 安装说明 |
 | [Agent 更新指南](AGENT_UPDATE.md) | AI Agent 可直接执行的既有 Vault 更新与旧活跃文件清理说明 |
 | [企业版 README](enterprise/README.md) | 企业版总览、ARMOR 快速开始、权限模型、生命周期规则 |
