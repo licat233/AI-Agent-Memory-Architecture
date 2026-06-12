@@ -243,7 +243,7 @@ Only use these if the user explicitly asks.
 
 Install PAMA instead of ARMOR when the user explicitly asks for personal memory, personal reality tracking, personal decisions, goals, or attention review.
 
-Use the personal files under `personal/` and create the PAMA directory structure described in `personal/README.md` and `personal/PAMA V5.1 Stable.md`.
+Use the personal files under `personal/` and create the PAMA directory structure described in `personal/README.md` and `personal/PAMA V5.2 Stable.md`.
 
 ### Both
 

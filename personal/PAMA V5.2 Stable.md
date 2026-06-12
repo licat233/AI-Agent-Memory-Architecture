@@ -1,11 +1,12 @@
-# PAMA V5.1 Stable
+# PAMA V5.2 Stable
 
 ## Personal AI Memory Architecture
 
-Version: 5.1 Stable
+Version: 5.2 Stable
 Status: Production Ready
 Target: Personal AI Agent Systems
-Designed For: Hermes, Claude Code, Cline, OpenHands, AI Assistants
+Designed For: trusted agent runtimes and AI assistants with direct Vault file access
+Primary Upgrade from V5.1: product-neutral trusted-runtime support, English-only agent-facing specifications, runtime-memory boundaries, prompt intake routing, memory write routing, and root-cause fix protocol alignment
 
 ------
 
