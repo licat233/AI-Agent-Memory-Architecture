@@ -138,12 +138,12 @@ Remember: I prefer direct, specific technical advice with minimal preamble.
 Assistant should classify:
 
 ```yaml
-type: preference
-confidence: medium
-destination: 08-Working-Memory/Memory-Candidates/
-possible_promotion: 05-Truth/Preferences/
-review_required: true
-runtime_memory: short pointer only
+type: "preference"
+confidence: "medium"
+destination: "08-Working-Memory/Memory-Candidates/"
+possible_promotion: "05-Truth/Preferences/"
+write_policy: "review_required"
+runtime_memory: "short pointer only"
 ```
 
 If this preference is repeatedly confirmed, it may be promoted through `07-Reviews/` into `05-Truth/Preferences/`.

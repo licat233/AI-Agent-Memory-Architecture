@@ -4,6 +4,32 @@ All notable changes to AI Agent Memory Architecture are recorded here.
 
 This project uses project-level semantic versions for repository releases. Architecture branch names such as ARMOR Enterprise V7.2 Stable and PAMA Personal V5.3 Stable may remain unchanged across patch releases when the update adds templates, guides, or maintenance documentation without changing the stable architecture boundary.
 
+## [v1.3.0] - 2026-06-23
+
+### Added
+
+- Added `FRONTMATTER_STANDARD.md` as the project-level source of truth for Markdown frontmatter.
+- Added a reusable Frontmatter Registry template under `shared/frontmatter/`.
+- Added canonical ARMOR and PAMA directory-to-frontmatter mappings.
+- Added legacy field migration rules for `memory_class`, `created_at`, `target_layer`, `review_required`, `default_truth_retrieval`, and numeric authority labels.
+
+### Changed
+
+- Unified ARMOR and PAMA frontmatter vocabulary around `memory_layer`, `permission_class`, `authority`, `confidence`, and `write_policy`.
+- Updated enterprise and personal multi-agent governance examples to use canonical fields.
+- Updated ARMOR and PAMA execution templates to generate compliant frontmatter.
+- Added installation and update mappings for the Frontmatter Standard and Registry.
+- Bumped project version from `v1.2.4` to `v1.3.0`.
+- Updated architecture overview diagrams to show AI Agent Memory Architecture `v1.3.0`.
+- Kept ARMOR Enterprise at `V7.2 Stable` and PAMA Personal at `V5.3 Stable`; the frozen top-level architecture boundaries are unchanged.
+
+### Governance Notes
+
+- Frontmatter describes memory but does not grant authority.
+- Organization-specific SEO, product-platform, website, and skill fields belong in the installed Vault Registry, not the public core standard.
+- New files use canonical fields immediately; existing files migrate lazily when meaningfully updated.
+- Logs, records, decisions, and archives should not be mass-rewritten merely to remove legacy field names.
+
 ## [v1.2.4] - 2026-06-13
 
 ### Added

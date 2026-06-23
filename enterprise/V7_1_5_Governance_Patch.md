@@ -355,41 +355,66 @@ Do not create a separate Knowledge directory unless the V7.2 architecture is for
 
 # 9. Provenance Frontmatter
 
-For newly created or significantly updated long-term memory files, The agent runtime SHOULD add or update frontmatter.
+For newly created or significantly updated long-term memory files, the agent runtime SHOULD add or update frontmatter.
 
-Recommended fields:
+The canonical standard is:
+
+```text
+00-Core/Frontmatter-Standard.md
+```
+
+The installed ARMOR field registry is:
+
+```text
+70-Schemas/Frontmatter-Registry.md
+```
+
+Recommended provenance and governance fields:
 
 ```yaml
-memory_class: A | B | C | R
-confidence: high | medium | low
-source_type: user_confirmed | official_doc | system_observed | research | ai_inference | record
-source: ""
-created: YYYY-MM-DD
-updated: YYYY-MM-DD
-reviewed: YYYY-MM-DD
-expires: YYYY-MM-DD | none
-ssot_checked: true | false
+permission_class: "A"
+confidence: "high"
+source_type: "user_confirmed"
+source_ref: "user confirmation or source path"
+created: "YYYY-MM-DD"
+updated: "YYYY-MM-DD"
+review_date: "YYYY-MM-DD"
+expires_at: "YYYY-MM-DD"
+retrieval_scope: "default"
 ```
 
 Minimum required for Facts:
 
 ```yaml
-memory_class: A
-confidence: high
-source_type:
-source:
-updated:
-ssot_checked: true
+type: "fact"
+memory_layer: "facts"
+status: "active"
+authority: "ssot"
+write_policy: "review_required"
+permission_class: "A"
+confidence: "high"
+source_type: "user_confirmed"
+source_ref: "source reference"
+created: "YYYY-MM-DD"
+updated: "YYYY-MM-DD"
+tags: []
 ```
 
 Minimum required for Insights / Reviewed Research:
 
 ```yaml
-memory_class: B
-confidence: medium
-source_type:
-source:
-updated:
+type: "insight"
+memory_layer: "insights"
+status: "active"
+authority: "approved"
+write_policy: "review_required"
+permission_class: "B"
+confidence: "medium"
+source_type: "research"
+source_ref: "source reference"
+created: "YYYY-MM-DD"
+updated: "YYYY-MM-DD"
+tags: []
 ```
 
 ------
@@ -437,11 +462,13 @@ Existing files do not need immediate frontmatter updates.
 
 When the agent runtime touches an old file, it should gradually add:
 
-- memory_class
+- permission_class when ARMOR write classification is needed
+- memory_layer
 - confidence
 - source_type
+- source_ref
 - updated
-- expires if needed
+- expires_at if needed
 
 This is lazy migration.
 

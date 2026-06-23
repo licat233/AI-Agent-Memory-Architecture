@@ -1,9 +1,19 @@
 ---
-authority: low
-status: active
-source_type: agent_observation
-memory_role: candidate_findings
-default_truth_retrieval: false
+type: "execution_findings"
+memory_layer: "projects"
+status: "candidate"
+authority: "provisional"
+write_policy: "open"
+created: "YYYY-MM-DD"
+updated: "YYYY-MM-DD"
+tags:
+  - "project-execution"
+  - "candidate-findings"
+author_agent: "Agent-Name"
+confidence: "low"
+source_type: "agent_observation"
+permission_class: "B"
+retrieval_scope: "project_scoped"
 ---
 
 # Findings

@@ -163,11 +163,12 @@ See [Project Execution Workflow](Project_Execution_Workflow.md) for the template
 ### Quick Start
 
 1. Create the frozen vault structure above.
-2. Set up core files such as `Core-Memory.md`, `Agent-Operating-Protocol.md`, `Source-of-Truth-Map.md`, `Permission-Policy.md`, `Retrieval-Rules.md`, `Prompt-Intake-Router.md`, `Memory-Write-Router.md`, `Root-Cause-Fix-Protocol.md`, `Runtime-Memory-Policy.md`, `Lifecycle-Policy.md`, `Governance-Patch-V715.md`, and `Multi-Agent-Shared-Vault-Governance.md`.
+2. Set up core files such as `Core-Memory.md`, `Source-of-Truth-Map.md`, `Permission-Policy.md`, `Retrieval-Rules.md`, `Prompt-Intake-Router.md`, `Memory-Write-Router.md`, `Root-Cause-Fix-Protocol.md`, `Runtime-Memory-Policy.md`, `Frontmatter-Standard.md`, `Lifecycle-Policy.md`, `Governance-Patch-V715.md`, and `Multi-Agent-Shared-Vault-Governance.md`.
 3. Configure the AI agent's long-term memory path to this vault.
 4. Keep SQLite, embeddings, and runtime indexes as runtime-only infrastructure. They must not become the durable source of business truth.
 5. Create templates for records, proposals, rules, research, reviewed insights, and optional project execution files under `70-Schemas/`.
-6. Let agents capture into low-authority layers and require proposals for authority-changing edits.
+6. Install `Frontmatter-Standard.md` in `00-Core/` and maintain `70-Schemas/Frontmatter-Registry.md`.
+7. Let agents capture into low-authority layers and require proposals for authority-changing edits.
 
 ### Documents
 
@@ -181,6 +182,7 @@ See [Project Execution Workflow](Project_Execution_Workflow.md) for the template
 | [Runtime Memory Policy](Runtime_Memory_Policy.md) | Enterprise policy for keeping runtime memory low-authority and temporary |
 | [Agent Runtime Adaptation Guide](agent_runtime_adaptation_guide.md) | Practical guide for using any trusted agent runtime as an ARMOR executor |
 | [Multi-Agent Shared Vault Governance](multi_agent_shared_vault_governance.md) | Governance policy for multiple trusted agents sharing one ARMOR Vault |
+| [Frontmatter Standard](../FRONTMATTER_STANDARD.md) | Canonical metadata fields, YAML rules, ARMOR directory defaults, registry, and migration policy |
 | [Project Execution Workflow](Project_Execution_Workflow.md) | Optional low-authority task execution templates for complex project work |
 | [Agent Project Execution Prompt](Agent_Project_Execution_Prompt.md) | Copy-ready prompt snippets for configuring agents to use project execution templates |
 

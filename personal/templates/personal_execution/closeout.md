@@ -1,9 +1,18 @@
 ---
-authority: medium
-status: candidate
-source_type: agent_summary
-memory_role: personal_execution_closeout
-default_truth_retrieval: review_scoped
+type: "execution_closeout"
+memory_layer: "working_memory"
+status: "candidate"
+authority: "reference"
+write_policy: "review_required"
+created: "YYYY-MM-DD"
+updated: "YYYY-MM-DD"
+tags:
+  - "personal-execution"
+  - "closeout"
+author_agent: "Agent-Name"
+confidence: "medium"
+source_type: "agent_observation"
+retrieval_scope: "review_scoped"
 user_confirmed: false
 ---
 

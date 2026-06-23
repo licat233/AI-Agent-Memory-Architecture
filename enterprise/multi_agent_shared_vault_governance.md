@@ -115,37 +115,57 @@ Trusted file access grants capability, not authority.
 
 Every new agent-created Vault file should include frontmatter unless the target file format forbids it.
 
-Recommended minimum:
+The canonical field names, values, YAML formatting, directory defaults, and migration rules are defined by:
+
+```text
+00-Core/Frontmatter-Standard.md
+```
+
+Installed ARMOR Vaults should maintain the field registry at:
+
+```text
+70-Schemas/Frontmatter-Registry.md
+```
+
+Recommended minimum for a low-authority agent-created file:
 
 ```yaml
 ---
-author_agent: Codex
-created_at: 2026-06-12
-source_type: user_request | agent_observation | document | meeting | research | tool_output
-source_ref:
-confidence: high | medium | low
-authority: low | medium | high
-status: draft | candidate | proposal | approved | archived
-target_layer: 91-Inbox
-review_required: false
+type: "note"
+memory_layer: "inbox"
+status: "draft"
+authority: "none"
+write_policy: "open"
+created: "2026-06-23"
+updated: "2026-06-23"
+tags:
+  - "agent-created"
+author_agent: "Codex"
+confidence: "low"
+permission_class: "C"
+retrieval_scope: "excluded"
 ---
 ```
 
 For append-only records, also include:
 
 ```yaml
-record_type: meeting | transcript | customer_feedback | source_evidence | execution_trace
-evidence_role: raw_evidence
+record_type: "meeting"
+evidence_role: "raw_evidence"
+source_type: "internal_record"
+source_ref: "06-Records/Meetings/source.md"
 ```
 
 For proposals, also include:
 
 ```yaml
-proposal_target:
-proposal_type: fact_update | rule_update | core_policy_change | architecture_change | conflict_resolution
-review_owner:
-decision: pending
+proposal_target: "01-Facts/target.md"
+proposal_type: "fact_update"
+review_owner: "human"
+decision: "pending"
 ```
+
+Do not use legacy aliases such as `created_at`, `target_layer`, `review_required`, `memory_class`, or `default_truth_retrieval` in new files.
 
 ---
 
@@ -230,12 +250,22 @@ Conflict note minimum content:
 
 ```yaml
 ---
-author_agent: Codex
-status: proposal
-proposal_type: conflict_resolution
-review_required: true
-target_file:
-conflict_detected_at: 2026-06-12
+type: "conflict"
+memory_layer: "proposals"
+status: "pending"
+authority: "none"
+write_policy: "open"
+created: "2026-06-23"
+updated: "2026-06-23"
+tags:
+  - "conflict"
+author_agent: "Codex"
+confidence: "high"
+permission_class: "C"
+retrieval_scope: "excluded"
+proposal_type: "conflict_resolution"
+target_file: "path/to/conflicting-file.md"
+conflict_detected_at: "2026-06-23"
 ---
 ```
 

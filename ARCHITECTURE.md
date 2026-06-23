@@ -7,7 +7,7 @@ Read this first when you need to understand, install, update, operate, or audit 
 Current release alignment:
 
 ```text
-AI Agent Memory Architecture v1.2.4
+AI Agent Memory Architecture v1.3.0
 ARMOR Enterprise V7.2 Stable
 PAMA Personal V5.3 Stable
 ```
@@ -392,7 +392,39 @@ Rules:
 - Conflicts between agents should become proposals or conflict notes.
 - Authority files must not be directly edited just because an agent has file access.
 
-## 13. Installation Mental Model
+## 13. Frontmatter Governance
+
+All managed Markdown memory files should follow `FRONTMATTER_STANDARD.md`.
+
+The standard separates:
+
+```text
+Universal Core fields
+Conditional Governance fields
+Domain Profile fields
+Tool or Skill Extension fields
+```
+
+Canonical concepts must remain distinct:
+
+```text
+memory_layer      = where memory belongs
+permission_class  = ARMOR write class A/B/C/R
+authority         = truth or knowledge authority
+confidence        = epistemic confidence
+write_policy      = modification policy
+```
+
+Installed registries:
+
+```text
+ARMOR: 70-Schemas/Frontmatter-Registry.md
+PAMA:  00-Core/Frontmatter-Registry.md
+```
+
+New files use canonical fields immediately. Existing files migrate lazily when meaningfully updated. Logs, records, and archives are not mass-rewritten merely to remove legacy field names.
+
+## 14. Installation Mental Model
 
 Use `AGENT_INSTALL.md` when the target Vault does not yet have the architecture.
 
@@ -413,7 +445,7 @@ ARMOR Enterprise V7.2 Stable
 
 Use PAMA only when the user explicitly wants a personal memory architecture.
 
-## 14. Update Mental Model
+## 15. Update Mental Model
 
 Use `AGENT_UPDATE.md` when the Vault already exists.
 
@@ -434,9 +466,9 @@ Clean active truth.
 
 Preserve historical evidence.
 
-## 15. Common Retired Active Files
+## 16. Common Retired Active Files
 
-For v1.2.4 / ARMOR V7.2 and PAMA V5.3, these old active files or concepts should not remain active:
+For v1.3.0 / ARMOR V7.2 and PAMA V5.3, these old active files or concepts should not remain active:
 
 | Retired Active File or Concept | Current Replacement | Action |
 | --- | --- | --- |
@@ -446,10 +478,11 @@ For v1.2.4 / ARMOR V7.2 and PAMA V5.3, these old active files or concepts should
 | `80-Indexes/V7-1-Index.md` | `80-Indexes/Architecture-Index.md` | Archive old active index |
 | Claudian or Obsidian UI executor plugin support | Direct trusted runtime file access | Archive old execution guides |
 | Runtime memory as long-term memory | Vault as durable memory | Update active policy |
+| Multiple conflicting frontmatter standards | `FRONTMATTER_STANDARD.md` + installed Registry | Preserve domain extensions, migrate canonical fields lazily |
 
 Historical mentions in `06-Records/`, `92-Logs/`, `99-Archive/`, or superseded proposals are acceptable when clearly historical.
 
-## 16. Which File Should An Agent Read Next?
+## 17. Which File Should An Agent Read Next?
 
 Use this routing table after reading this document.
 
@@ -457,6 +490,7 @@ Use this routing table after reading this document.
 | --- | --- |
 | First-time install | `AGENT_INSTALL.md` |
 | Existing Vault update | `AGENT_UPDATE.md` |
+| Frontmatter fields or migration | `FRONTMATTER_STANDARD.md` |
 | Enterprise architecture details | `enterprise/V7_2_Stable.md` |
 | Personal architecture details | `personal/PAMA V5.3 Stable.md` |
 | Runtime integration | `enterprise/agent_runtime_adaptation_guide.md` |
@@ -467,7 +501,7 @@ Use this routing table after reading this document.
 | Ambiguous or risky command | Prompt Intake Router for the selected branch |
 | Runtime memory question | Runtime Memory Policy for the selected branch |
 
-## 17. Final Operating Summary
+## 18. Final Operating Summary
 
 If you remember nothing else, remember this:
 

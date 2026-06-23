@@ -2,7 +2,7 @@
 
 > Copy-ready prompt snippets for agents that should use the PAMA lightweight personal execution workflow.
 >
-> Applies to: AI Agent Memory Architecture v1.2.4, PAMA Personal V5.3 Stable.
+> Applies to: AI Agent Memory Architecture v1.3.0, PAMA Personal V5.3 Stable.
 
 ## Purpose
 
@@ -97,7 +97,7 @@ Use this in a Codex project `AGENTS.md`:
 ```md
 ## PAMA Personal Execution Workflow
 
-For complex PAMA personal work, use the lightweight personal execution templates from AI Agent Memory Architecture v1.2.4.
+For complex PAMA personal work, use the lightweight personal execution templates from AI Agent Memory Architecture v1.3.0.
 
 For goal-tied tasks, create execution files under `04-Goals/<goal-name>/Execution/YYYY-MM-DD-<task-slug>/`.
 

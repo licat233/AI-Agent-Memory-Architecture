@@ -1,9 +1,18 @@
 ---
-authority: low
-status: active
-source_type: agent_execution
-memory_role: personal_execution_log
-default_truth_retrieval: false
+type: "execution_log"
+memory_layer: "working_memory"
+status: "working"
+authority: "none"
+write_policy: "append_only"
+created: "YYYY-MM-DD"
+updated: "YYYY-MM-DD"
+tags:
+  - "personal-execution"
+  - "progress"
+author_agent: "Agent-Name"
+confidence: "high"
+source_type: "system_observed"
+retrieval_scope: "excluded"
 user_confirmed: false
 ---
 

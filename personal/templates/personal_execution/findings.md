@@ -1,9 +1,18 @@
 ---
-authority: low
-status: active
-source_type: agent_observation
-memory_role: personal_candidate_findings
-default_truth_retrieval: false
+type: "execution_findings"
+memory_layer: "working_memory"
+status: "candidate"
+authority: "provisional"
+write_policy: "open"
+created: "YYYY-MM-DD"
+updated: "YYYY-MM-DD"
+tags:
+  - "personal-execution"
+  - "candidate-findings"
+author_agent: "Agent-Name"
+confidence: "low"
+source_type: "agent_observation"
+retrieval_scope: "excluded"
 user_confirmed: false
 ---
 

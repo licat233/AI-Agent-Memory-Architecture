@@ -1,9 +1,19 @@
 ---
-authority: medium
-status: candidate
-source_type: agent_summary
-memory_role: execution_closeout
-default_truth_retrieval: project_scoped
+type: "project_closeout"
+memory_layer: "projects"
+status: "candidate"
+authority: "reference"
+write_policy: "review_required"
+created: "YYYY-MM-DD"
+updated: "YYYY-MM-DD"
+tags:
+  - "project-execution"
+  - "closeout"
+author_agent: "Agent-Name"
+confidence: "medium"
+source_type: "agent_observation"
+permission_class: "B"
+retrieval_scope: "project_scoped"
 ---
 
 # Closeout

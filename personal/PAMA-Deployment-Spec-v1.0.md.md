@@ -224,17 +224,47 @@ Destination:
 
 # 4. Required Frontmatter
 
-All new memory items should include:
+All new memory items should follow:
+
+```text
+00-Core/Frontmatter-Standard.md
+```
+
+Installed PAMA Vaults should keep the field registry at:
+
+```text
+00-Core/Frontmatter-Registry.md
+```
+
+Agents must consult both files before adding new metadata fields. Organization-specific or tool-specific fields must be registered rather than added ad hoc.
+
+Minimum universal fields:
 
 ```yaml
 ---
-created:
-updated:
-type:
-confidence:
-source:
-status:
+type: "note"
+memory_layer: "working_memory"
+status: "working"
+authority: "none"
+write_policy: "open"
+created: "YYYY-MM-DD"
+updated: "YYYY-MM-DD"
+tags: []
 ---
+```
+
+Agent-created knowledge claims should also include:
+
+```yaml
+author_agent: "Codex"
+confidence: "low"
+```
+
+Source-backed memory should also include:
+
+```yaml
+source_type: "user_confirmed"
+source_ref: "source reference"
 ```
 
 ------
@@ -295,12 +325,17 @@ Template:
 
 ```yaml
 ---
-type: reality
-created:
-updated:
-confidence: high
-source:
-status: active
+type: "reality"
+memory_layer: "reality"
+status: "active"
+authority: "approved"
+write_policy: "review_required"
+created: "YYYY-MM-DD"
+updated: "YYYY-MM-DD"
+tags: []
+confidence: "high"
+source_type: "system_observed"
+source_ref: "evidence reference"
 ---
 
 # Event
@@ -324,12 +359,17 @@ Template:
 
 ```yaml
 ---
-type: decision
-created:
-updated:
-confidence: high
-source:
-status: active
+type: "decision"
+memory_layer: "decisions"
+status: "active"
+authority: "reference"
+write_policy: "review_required"
+created: "YYYY-MM-DD"
+updated: "YYYY-MM-DD"
+tags: []
+confidence: "high"
+source_type: "user_confirmed"
+source_ref: "decision source"
 ---
 
 # Context
@@ -384,12 +424,18 @@ Template:
 
 ```yaml
 ---
-type: truth
-created:
-updated:
-confidence: high
-source:
-status: active
+type: "truth"
+memory_layer: "truth"
+status: "approved"
+authority: "ssot"
+write_policy: "proposal_required"
+created: "YYYY-MM-DD"
+updated: "YYYY-MM-DD"
+tags: []
+confidence: "high"
+source_type: "user_confirmed"
+source_ref: "review or evidence reference"
+user_confirmed: true
 ---
 
 # Statement

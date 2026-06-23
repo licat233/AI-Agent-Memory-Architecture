@@ -133,19 +133,34 @@ No agent may promote material into `05-Truth/` without user approval or an expli
 
 Every new agent-created PAMA file should include frontmatter unless the target file format forbids it.
 
-Recommended minimum:
+The canonical field names, values, YAML formatting, directory defaults, and migration rules are defined by:
+
+```text
+00-Core/Frontmatter-Standard.md
+```
+
+Installed PAMA Vaults should maintain the field registry at:
+
+```text
+00-Core/Frontmatter-Registry.md
+```
+
+Recommended minimum for a low-authority agent-created working file:
 
 ```yaml
 ---
-author_agent: Codex
-created_at: 2026-06-12
-source_type: user_request | agent_observation | document | conversation | review | tool_output
-source_ref:
-confidence: high | medium | low
-authority: low | medium | high
-status: working | candidate | review | approved | archived
-target_layer: 08-Working-Memory
-review_required: false
+type: "note"
+memory_layer: "working_memory"
+status: "working"
+authority: "none"
+write_policy: "open"
+created: "2026-06-23"
+updated: "2026-06-23"
+tags:
+  - "agent-created"
+author_agent: "Codex"
+confidence: "low"
+retrieval_scope: "excluded"
 user_confirmed: false
 ---
 ```
@@ -156,16 +171,18 @@ For truth candidates, also include:
 truth_candidate: true
 evidence_count:
 contradicting_evidence:
-review_gate: weekly | monthly | explicit_user_approval
+review_gate: "explicit_user_approval"
 ```
 
 For goal or decision changes, also include:
 
 ```yaml
-change_type: goal_update | decision_update | decision_feedback | priority_change
-review_owner: user
-decision: pending
+change_type: "goal_update"
+review_owner: "user"
+decision: "pending"
 ```
+
+Do not use legacy aliases such as `created_at`, `target_layer`, `review_required`, `memory_class`, or `default_truth_retrieval` in new files.
 
 ---
 
@@ -248,11 +265,20 @@ Conflict review minimum content:
 
 ```yaml
 ---
-author_agent: Codex
-status: review
-review_required: true
-target_file:
-conflict_detected_at: 2026-06-12
+type: "conflict_review"
+memory_layer: "reviews"
+status: "pending"
+authority: "none"
+write_policy: "review_required"
+created: "2026-06-23"
+updated: "2026-06-23"
+tags:
+  - "conflict"
+author_agent: "Codex"
+confidence: "high"
+retrieval_scope: "review_scoped"
+target_file: "path/to/conflicting-file.md"
+conflict_detected_at: "2026-06-23"
 user_decision_required: true
 ---
 ```

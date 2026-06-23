@@ -206,6 +206,15 @@ In shared Vault deployments, direct writes should use agent-specific namespaces 
 
 Every runtime should have a stable `agent_name`. New files created by an agent should include `author_agent: {agent-name}` in frontmatter unless the target file format forbids frontmatter.
 
+Before adding or changing frontmatter fields, the runtime must read:
+
+```text
+00-Core/Frontmatter-Standard.md
+70-Schemas/Frontmatter-Registry.md
+```
+
+The runtime must not invent aliases or organization-specific fields outside the installed Registry.
+
 Proposal or explicit human approval required:
 
 - `00-Core/`

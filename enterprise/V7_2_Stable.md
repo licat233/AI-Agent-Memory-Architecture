@@ -629,13 +629,19 @@ The agent runtime must add appropriate metadata:
 - memory_layer
 - status
 - authority
-- source
+- source_type and source_ref when source-backed
+- author_agent and confidence when agent-created
+- permission_class for governed ARMOR files
+- created
 - updated
 - write_policy
+- tags
 - sensitivity where needed
 - review_date or expires_at where needed
 - related links where useful
 - changelog where required
+
+Canonical field names, values, YAML formatting, directory defaults, and migration rules are defined by `00-Core/Frontmatter-Standard.md`. Installed ARMOR Vaults should maintain `70-Schemas/Frontmatter-Registry.md`.
 
 The agent runtime must avoid creating duplicate authority files.
 
@@ -1118,7 +1124,7 @@ knowledge_domain: products
 ssot_root: 01-Facts/Products/
 file_pattern: "{Product-Name}.md"
 permission_class: A
-write_policy: proposal_only
+write_policy: proposal_required
 required_schema: product.schema.yml
 required_review: true
 default_retrieval: true
@@ -2688,7 +2694,7 @@ final_score =
 + authority_weight
 + ssot_weight
 + task_match_weight
-+ source_quality_weight
++ source_reliability_weight
 + freshness_weight
 + project_relevance_weight
 + backlink_weight
@@ -2983,9 +2989,10 @@ type:
 memory_layer:
 status:
 authority:
-source:
-updated:
 write_policy:
+created:
+updated:
+tags:
 ```
 
 ## 34.2 Extended Metadata
@@ -2994,11 +3001,13 @@ Use when applicable:
 
 ```yaml
 owner:
-created:
 review_date:
 expires_at:
 confidence:
-source_quality:
+author_agent:
+source_type:
+source_ref:
+permission_class:
 approved_by:
 reviewer:
 last_verified:
@@ -3076,16 +3085,17 @@ authority: raw
 authority: none
 ```
 
-### source_quality
+### source_type
 
 ```yaml
-source_quality: user_confirmed
-source_quality: primary_source
-source_quality: internal_record
-source_quality: external_official
-source_quality: external_secondary
-source_quality: ai_generated
-source_quality: unknown
+source_type: user_confirmed
+source_type: official_document
+source_type: internal_record
+source_type: system_observed
+source_type: research
+source_type: agent_observation
+source_type: agent_inference
+source_type: tool_output
 ```
 
 ### write_policy
@@ -3095,7 +3105,7 @@ write_policy: review_required
 write_policy: append_only
 write_policy: open
 write_policy: read_only
-write_policy: proposal_only
+write_policy: proposal_required
 ```
 
 ### sensitivity
@@ -3122,28 +3132,29 @@ retrieval_scope: excluded
 
 ```yaml
 ---
-type: product
-memory_layer: facts
-status: active
-authority: ssot
-owner: human
-created: 2026-01-01
-updated: 2026-06-05
-review_date: 2026-12-01
-source:
-  - founder-confirmed
-source_quality: user_confirmed
-confidence: high
-write_policy: review_required
-approved_by: human
-sensitivity: internal
-retrieval_scope: default
-schema: product.schema.yml
-related:
-  - 02-Rules/SEO/SEO-Content-Rule.md
-  - 03-Insights/Cases/Example-Case.md
+type: "product"
+memory_layer: "facts"
+status: "active"
+authority: "ssot"
+write_policy: "review_required"
+created: "2026-01-01"
+updated: "2026-06-05"
 tags:
-  - product
+  - "product"
+owner: "human"
+review_date: "2026-12-01"
+source_type: "user_confirmed"
+source_ref:
+  - "founder-confirmed"
+confidence: "high"
+permission_class: "A"
+approved_by: "human"
+sensitivity: "internal"
+retrieval_scope: "default"
+schema: "product.schema.yml"
+related:
+  - "02-Rules/SEO/SEO-Content-Rule.md"
+  - "03-Insights/Cases/Example-Case.md"
 ---
 ```
 
@@ -3179,7 +3190,7 @@ Recommended schemas:
 Check for:
 
 - missing required metadata
-- missing source
+- missing source_type or source_ref where authority depends on evidence
 - missing owner where required
 - invalid authority
 - invalid memory_layer
@@ -3212,10 +3223,13 @@ required:
   - memory_layer
   - status
   - authority
-  - updated
-  - source
-  - source_quality
   - write_policy
+  - created
+  - updated
+  - tags
+  - source_type
+  - source_ref
+  - permission_class
   - review_date
   - approved_by
 rules:
@@ -3223,6 +3237,7 @@ rules:
   memory_layer: facts
   authority: ssot
   write_policy: review_required
+  permission_class: A
   changelog_required: true
 ```
 
@@ -3707,16 +3722,23 @@ Recommended templates:
 
 ```markdown
 ---
-type: proposal
-memory_layer: proposal
-status: pending
-authority: none
-source:
-updated:
-write_policy: open
-proposal_type:
-target_file:
-risk:
+type: "proposal"
+memory_layer: "proposals"
+status: "pending"
+authority: "none"
+write_policy: "open"
+created: "YYYY-MM-DD"
+updated: "YYYY-MM-DD"
+tags: []
+author_agent: "Agent-Name"
+confidence: "medium"
+source_type: "user_confirmed"
+source_ref: "request or evidence reference"
+permission_class: "C"
+retrieval_scope: "excluded"
+proposal_type: "fact_update"
+target_file: "path/to/target.md"
+risk: "medium"
 ---
 
 # Proposal: {Title}
@@ -3749,17 +3771,19 @@ risk:
 
 ```markdown
 ---
-type: record
-memory_layer: records
-status: active
-authority: raw
-source:
-source_quality: internal_record
-created:
-updated:
-write_policy: append_only
-sensitivity: internal
-retrieval_scope: evidence_only
+type: "record"
+memory_layer: "records"
+status: "active"
+authority: "raw"
+write_policy: "append_only"
+created: "YYYY-MM-DD"
+updated: "YYYY-MM-DD"
+tags: []
+source_type: "internal_record"
+source_ref: "source reference"
+permission_class: "R"
+sensitivity: "internal"
+retrieval_scope: "evidence_only"
 ---
 
 # {Date} {Source} {Topic}
@@ -3784,17 +3808,20 @@ retrieval_scope: evidence_only
 
 ```markdown
 ---
-type: rule
-memory_layer: rules
-status: active
-authority: approved
-source:
-source_quality:
-owner:
-updated:
-review_date:
-write_policy: review_required
-retrieval_scope: default
+type: "rule"
+memory_layer: "rules"
+status: "active"
+authority: "approved"
+write_policy: "proposal_required"
+created: "YYYY-MM-DD"
+updated: "YYYY-MM-DD"
+tags: []
+source_type: "user_confirmed"
+source_ref: "source reference"
+permission_class: "A"
+owner: "human"
+review_date: "YYYY-MM-DD"
+retrieval_scope: "default"
 ---
 
 # Rule: {Name}

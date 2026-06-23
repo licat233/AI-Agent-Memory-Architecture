@@ -1,9 +1,19 @@
 ---
-authority: low
-status: active
-source_type: agent_execution
-memory_role: execution_log
-default_truth_retrieval: false
+type: "execution_log"
+memory_layer: "projects"
+status: "active"
+authority: "none"
+write_policy: "append_only"
+created: "YYYY-MM-DD"
+updated: "YYYY-MM-DD"
+tags:
+  - "project-execution"
+  - "progress"
+author_agent: "Agent-Name"
+confidence: "high"
+source_type: "system_observed"
+permission_class: "B"
+retrieval_scope: "project_scoped"
 ---
 
 # Progress

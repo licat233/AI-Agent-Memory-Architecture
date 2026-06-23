@@ -1,9 +1,18 @@
 ---
-authority: low
-status: active
-source_type: agent_execution
-memory_role: personal_execution_plan
-default_truth_retrieval: false
+type: "execution_plan"
+memory_layer: "working_memory"
+status: "working"
+authority: "none"
+write_policy: "open"
+created: "YYYY-MM-DD"
+updated: "YYYY-MM-DD"
+tags:
+  - "personal-execution"
+  - "task-plan"
+author_agent: "Agent-Name"
+confidence: "medium"
+source_type: "agent_observation"
+retrieval_scope: "excluded"
 user_confirmed: false
 ---
 

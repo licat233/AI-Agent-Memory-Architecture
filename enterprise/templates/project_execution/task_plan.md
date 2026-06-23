@@ -1,9 +1,19 @@
 ---
-authority: low
-status: active
-source_type: agent_execution
-memory_role: execution_plan
-default_truth_retrieval: false
+type: "execution_plan"
+memory_layer: "projects"
+status: "active"
+authority: "none"
+write_policy: "open"
+created: "YYYY-MM-DD"
+updated: "YYYY-MM-DD"
+tags:
+  - "project-execution"
+  - "task-plan"
+author_agent: "Agent-Name"
+confidence: "medium"
+source_type: "agent_observation"
+permission_class: "B"
+retrieval_scope: "project_scoped"
 ---
 
 # Task Plan

@@ -19,7 +19,7 @@ How do I align an existing Vault with the latest architecture without leaving st
 Current target:
 
 ```text
-AI Agent Memory Architecture v1.2.4
+AI Agent Memory Architecture v1.3.0
 ARMOR Enterprise V7.2 Stable
 PAMA Personal V5.3 Stable
 ```
@@ -47,7 +47,7 @@ Please read and execute AGENT_UPDATE.md from this repository:
 https://github.com/licat233/AI-Agent-Memory-Architecture
 
 Help me update my existing AI Agent Memory Architecture Vault.
-Target architecture: AI Agent Memory Architecture v1.2.4.
+Target architecture: AI Agent Memory Architecture v1.3.0.
 Default branch: ARMOR Enterprise V7.2 Stable unless I explicitly say PAMA Personal.
 Target Vault path: <paste your Vault or Markdown directory path here>
 
@@ -69,6 +69,8 @@ Before changing files, read:
 README.md
 AGENT_INSTALL.md
 AGENT_UPDATE.md
+FRONTMATTER_STANDARD.md
+shared/frontmatter/Frontmatter-Registry-Template.md
 ```
 
 For ARMOR updates, also read:
@@ -121,6 +123,8 @@ Then read any installed version markers:
 ```text
 00-Core/Installed-Memory-Architecture.md
 00-Core/Core-Document-Index.md
+00-Core/Frontmatter-Standard.md
+70-Schemas/Frontmatter-Registry.md
 00-Core/Core-Memory.md
 80-Indexes/Architecture-Index.md
 80-Indexes/README.md
@@ -178,15 +182,28 @@ For PAMA, active Core should include the PAMA equivalents:
 00-Core/PAMA_Memory_Write_Router.md
 00-Core/PAMA_Root_Cause_Fix_Protocol.md
 00-Core/PAMA_Runtime_Memory_Policy.md
+00-Core/Frontmatter-Standard.md
+00-Core/Frontmatter-Registry.md
 ```
 
 Preserve Vault-local policies that are still valid, but update their references to current active files.
+
+Sync the canonical frontmatter files:
+
+| Branch | Source | Destination |
+| --- | --- | --- |
+| ARMOR | `FRONTMATTER_STANDARD.md` | `00-Core/Frontmatter-Standard.md` |
+| ARMOR | `shared/frontmatter/Frontmatter-Registry-Template.md` | `70-Schemas/Frontmatter-Registry.md` |
+| PAMA | `FRONTMATTER_STANDARD.md` | `00-Core/Frontmatter-Standard.md` |
+| PAMA | `shared/frontmatter/Frontmatter-Registry-Template.md` | `00-Core/Frontmatter-Registry.md` |
+
+If a Registry already exists, preserve its approved domain and tool fields. Merge canonical changes through a proposal or explicit human approval instead of replacing organization-specific entries.
 
 ### 4. Sync Active Indexes
 
 Active indexes should point to the current architecture.
 
-For ARMOR v1.2.4 / V7.2, prefer:
+For ARMOR v1.3.0 / V7.2, prefer:
 
 ```text
 80-Indexes/Architecture-Index.md
@@ -257,6 +274,14 @@ Profile-Skills-Architecture
 V7.1 Stable
 AI Agent Memory Architecture v1.1.0
 PAMA Personal V5.2
+memory_class
+created_at
+target_layer
+review_required
+default_truth_retrieval
+authority: high
+authority: medium
+authority: low
 ```
 
 Classify each hit:
@@ -340,11 +365,13 @@ Run these checks:
 7. Pending proposals do not target retired active files.
 8. Optional project execution templates exist or were intentionally skipped.
 9. Update log exists.
+10. Frontmatter Standard and branch Registry exist.
+11. New templates use canonical field names.
 ```
 
 ## Version-Specific Cleanup Notes
 
-### v1.2.4 / ARMOR Enterprise V7.2 Stable + PAMA Personal V5.3 Stable
+### v1.3.0 / ARMOR Enterprise V7.2 Stable + PAMA Personal V5.3 Stable
 
 Current active replacements:
 
@@ -355,8 +382,15 @@ Current active replacements:
 | `00-Core/Profile-Skills-Architecture.md` | Runtime-local Hermes documentation, not ARMOR Core | Archive or move outside active Core |
 | `80-Indexes/V7-1-Index.md` | `80-Indexes/Architecture-Index.md` | Archive old active index |
 | Claudian or Obsidian UI executor plugin support | Direct trusted runtime file access | Archive old execution guides |
-| `AI Agent Memory Architecture v1.1.0`, `v1.2.0`, `v1.2.1`, `v1.2.2`, or `v1.2.3` as current version | `AI Agent Memory Architecture v1.2.4` | Update active version markers |
+| `AI Agent Memory Architecture v1.1.0` through `v1.2.4` as current version | `AI Agent Memory Architecture v1.3.0` | Update active version markers |
 | `PAMA Personal V5.2` as current version | `PAMA Personal V5.3 Stable` | Update active version markers |
+| Branch-specific or runtime-specific frontmatter rules | `00-Core/Frontmatter-Standard.md` + installed Registry | Preserve approved domain fields, migrate canonical fields lazily |
+| `memory_class` | `permission_class` or `memory_layer` | Inspect meaning before migration |
+| `created_at` | `created` | Migrate on meaningful update |
+| `target_layer` | `memory_layer` | Normalize directory layer value |
+| `review_required` | `write_policy` or `review_date` | Convert based on intent |
+| `default_truth_retrieval` | `retrieval_scope` | Normalize retrieval behavior |
+| `authority: high/medium/low` | Canonical authority vocabulary | Resolve from evidence and review state |
 
 Expected active ARMOR entry points:
 

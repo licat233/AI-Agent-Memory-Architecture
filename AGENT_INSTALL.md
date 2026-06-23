@@ -65,6 +65,8 @@ The installer should be run from a local checkout of this repository or from a l
 
 ```text
 README.md
+FRONTMATTER_STANDARD.md
+shared/frontmatter/Frontmatter-Registry-Template.md
 enterprise/
 personal/
 ```
@@ -122,6 +124,8 @@ Copy these repository files into the target Vault if missing:
 | `enterprise/Runtime_Memory_Policy.md` | `00-Core/Runtime-Memory-Policy.md` |
 | `enterprise/agent_runtime_adaptation_guide.md` | `00-Core/Agent-Runtime-Adaptation-Guide.md` |
 | `enterprise/multi_agent_shared_vault_governance.md` | `00-Core/Multi-Agent-Shared-Vault-Governance.md` |
+| `FRONTMATTER_STANDARD.md` | `00-Core/Frontmatter-Standard.md` |
+| `shared/frontmatter/Frontmatter-Registry-Template.md` | `70-Schemas/Frontmatter-Registry.md` |
 
 If a destination file already exists, do not overwrite it. Preserve the file and create a candidate copy under:
 
@@ -204,6 +208,7 @@ The runtime should:
 - use `00-Core/Root-Cause-Fix-Protocol.md` when correcting errors
 - use `00-Core/Runtime-Memory-Policy.md` to keep runtime memory temporary and low-authority
 - use `00-Core/Multi-Agent-Shared-Vault-Governance.md` when multiple agents share the same Vault
+- use `00-Core/Frontmatter-Standard.md` and the installed Frontmatter Registry before adding metadata fields
 
 For Codex, prefer a local reference plus a skill rather than writing durable facts into Codex runtime memory:
 
@@ -237,7 +242,7 @@ The log should include:
 
 ```yaml
 architecture: ARMOR
-project_version: v1.2.4
+project_version: v1.3.0
 version: V7.2 Stable
 installed_at: YYYY-MM-DD
 source_repository: AI-Agent-Memory-Architecture
@@ -261,6 +266,7 @@ Before reporting completion, verify:
 - The target Vault exists.
 - Required ARMOR top-level directories exist.
 - Core architecture documents were copied or preserved.
+- The Frontmatter Standard and Frontmatter Registry were copied or preserved.
 - Optional project execution templates were copied or preserved.
 - Existing user files were not overwritten silently.
 - `93-Proposals/` exists.
@@ -290,6 +296,8 @@ For PAMA multi-agent deployments, also copy:
 | Source | Destination |
 | --- | --- |
 | `personal/PAMA_Multi_Agent_Shared_Vault_Governance.md` | `00-Core/PAMA-Multi-Agent-Shared-Vault-Governance.md` |
+| `FRONTMATTER_STANDARD.md` | `00-Core/Frontmatter-Standard.md` |
+| `shared/frontmatter/Frontmatter-Registry-Template.md` | `00-Core/Frontmatter-Registry.md` |
 
 Copy optional PAMA personal execution templates if missing:
 
