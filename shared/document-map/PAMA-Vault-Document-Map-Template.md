@@ -18,7 +18,7 @@ retrieval_scope: "default"
 Installed architecture:
 
 ```text
-AI Agent Memory Architecture v1.4.0
+AI Agent Memory Architecture v1.5.0
 PAMA Personal V5.3 Stable
 ```
 
@@ -107,4 +107,4 @@ Do not update it for every new Reality event, working note, or review.
 
 | Date | Change | Source | Approved By |
 | --- | --- | --- | --- |
-| YYYY-MM-DD | Document map installed | AI Agent Memory Architecture v1.4.0 | user |
+| YYYY-MM-DD | Document map installed | AI Agent Memory Architecture v1.5.0 | user |

@@ -91,6 +91,7 @@ The user decides what becomes durable personal truth.
 | [PAMA Multi-Agent Shared Vault Governance](PAMA_Multi_Agent_Shared_Vault_Governance.md) | Governance policy for multiple trusted agents sharing one PAMA Vault |
 | [Frontmatter Standard](../FRONTMATTER_STANDARD.md) | Canonical metadata fields, YAML rules, PAMA directory defaults, registry, and migration policy |
 | [Document Map Standard](../DOCUMENT_MAP_STANDARD.md) | Static PAMA navigation, dynamic review registry, agent reading order, and map maintenance |
+| [Template Automation Guide](../TEMPLATE_AUTOMATION_GUIDE.md) | Plain, official Obsidian Templates, and optional Templater configuration |
 | [PAMA Personal Execution Workflow](Personal_Execution_Workflow.md) | Optional low-authority execution templates for complex personal tasks, goals, and reviews |
 | [Agent Personal Execution Prompt](Agent_Personal_Execution_Prompt.md) | Copy-ready prompt snippets for configuring agents to use personal execution templates |
 
@@ -144,6 +145,7 @@ Before writing or promoting memory, the AI agent should ask:
 9. In shared-agent deployments, use `PAMA_Multi_Agent_Shared_Vault_Governance.md` and agent-specific namespaces.
 10. Install `Frontmatter-Standard.md` and `Frontmatter-Registry.md` in `00-Core/`.
 11. Install `Vault-Document-Map.md` in `00-Core/` and `Document-Registry.base` in `07-Reviews/`.
+12. Install one note-type template profile under `08-Working-Memory/Templates/Note-Types/`.
 
 ### Ultimate Principle
 

@@ -19,7 +19,7 @@ How do I align an existing Vault with the latest architecture without leaving st
 Current target:
 
 ```text
-AI Agent Memory Architecture v1.4.0
+AI Agent Memory Architecture v1.5.0
 ARMOR Enterprise V7.2 Stable
 PAMA Personal V5.3 Stable
 ```
@@ -47,7 +47,7 @@ Please read and execute AGENT_UPDATE.md from this repository:
 https://github.com/licat233/AI-Agent-Memory-Architecture
 
 Help me update my existing AI Agent Memory Architecture Vault.
-Target architecture: AI Agent Memory Architecture v1.4.0.
+Target architecture: AI Agent Memory Architecture v1.5.0.
 Default branch: ARMOR Enterprise V7.2 Stable unless I explicitly say PAMA Personal.
 Target Vault path: <paste your Vault or Markdown directory path here>
 
@@ -73,6 +73,8 @@ FRONTMATTER_STANDARD.md
 shared/frontmatter/Frontmatter-Registry-Template.md
 DOCUMENT_MAP_STANDARD.md
 shared/document-map/
+TEMPLATE_AUTOMATION_GUIDE.md
+shared/templates/
 ```
 
 For ARMOR updates, also read:
@@ -130,6 +132,7 @@ Then read any installed version markers:
 00-Core/Document-Map-Standard.md
 80-Indexes/Vault-Document-Map.md
 80-Indexes/Document-Registry.base
+00-Core/Template-Automation-Guide.md
 00-Core/Core-Memory.md
 80-Indexes/README.md
 ```
@@ -191,6 +194,7 @@ For PAMA, active Core should include the PAMA equivalents:
 00-Core/Document-Map-Standard.md
 00-Core/Vault-Document-Map.md
 07-Reviews/Document-Registry.base
+00-Core/Template-Automation-Guide.md
 ```
 
 Preserve Vault-local policies that are still valid, but update their references to current active files.
@@ -219,11 +223,36 @@ Sync the Document Map files:
 
 Preserve Vault-local domain routing in an existing static map. Correct retired entry points and architecture versions without replacing valid organization-specific sections.
 
+Sync the Template Automation Guide:
+
+```text
+TEMPLATE_AUTOMATION_GUIDE.md
+→ 00-Core/Template-Automation-Guide.md
+```
+
+Identify the active template profile before replacing templates:
+
+```text
+Plain Markdown
+Obsidian Core Templates
+Templater
+```
+
+Preserve one active syntax profile. Do not mix unresolved `{{date}}` and `<% tp.* %>` expressions.
+
+When Templater is active:
+
+- preserve reviewed organization-specific templates
+- update canonical frontmatter fields
+- keep system commands disabled unless explicitly approved
+- keep user scripts and startup templates empty unless reviewed
+- verify folder mappings point to existing templates
+
 ### 4. Sync Active Indexes
 
 Active indexes should point to the current architecture.
 
-For ARMOR v1.4.0 / V7.2, prefer:
+For ARMOR v1.5.0 / V7.2, prefer:
 
 ```text
 80-Indexes/Vault-Document-Map.md
@@ -390,11 +419,13 @@ Run these checks:
 11. New templates use canonical field names.
 12. Static Vault Map links point to current entry files.
 13. Dynamic Document Registry parses as valid YAML.
+14. Active templates use one syntax profile.
+15. Rendered templates produce valid canonical frontmatter.
 ```
 
 ## Version-Specific Cleanup Notes
 
-### v1.4.0 / ARMOR Enterprise V7.2 Stable + PAMA Personal V5.3 Stable
+### v1.5.0 / ARMOR Enterprise V7.2 Stable + PAMA Personal V5.3 Stable
 
 Current active replacements:
 
@@ -405,7 +436,7 @@ Current active replacements:
 | `00-Core/Profile-Skills-Architecture.md` | Runtime-local Hermes documentation, not ARMOR Core | Archive or move outside active Core |
 | `80-Indexes/V7-1-Index.md` or old architecture index | `80-Indexes/Vault-Document-Map.md` | Archive or supersede old active index |
 | Claudian or Obsidian UI executor plugin support | Direct trusted runtime file access | Archive old execution guides |
-| `AI Agent Memory Architecture v1.1.0` through `v1.3.0` as current version | `AI Agent Memory Architecture v1.4.0` | Update active version markers |
+| `AI Agent Memory Architecture v1.1.0` through `v1.4.0` as current version | `AI Agent Memory Architecture v1.5.0` | Update active version markers |
 | `PAMA Personal V5.2` as current version | `PAMA Personal V5.3 Stable` | Update active version markers |
 | Branch-specific or runtime-specific frontmatter rules | `00-Core/Frontmatter-Standard.md` + installed Registry | Preserve approved domain fields, migrate canonical fields lazily |
 | `memory_class` | `permission_class` or `memory_layer` | Inspect meaning before migration |
@@ -415,6 +446,9 @@ Current active replacements:
 | `default_truth_retrieval` | `retrieval_scope` | Normalize retrieval behavior |
 | `authority: high/medium/low` | Canonical authority vocabulary | Resolve from evidence and review state |
 | No stable Vault navigation entry | Static Vault Map + dynamic Document Registry | Install branch-specific map files |
+| Mixed template syntaxes | One selected Plain/Core/Templater profile | Preserve one active profile |
+| Templater installed but auto-trigger disabled | Safe Templater settings | Enable only after mappings and templates validate |
+| Legacy template frontmatter | Canonical `FRONTMATTER_STANDARD.md` fields | Update templates; migrate existing notes lazily |
 
 Expected active ARMOR entry points:
 

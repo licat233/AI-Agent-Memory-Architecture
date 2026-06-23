@@ -5,7 +5,7 @@ This document defines how an AI Agent Memory Architecture Vault should expose it
 Current alignment:
 
 ```text
-AI Agent Memory Architecture v1.4.0
+AI Agent Memory Architecture v1.5.0
 ARMOR Enterprise V7.2 Stable
 PAMA Personal V5.3 Stable
 ```

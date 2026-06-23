@@ -19,7 +19,7 @@ retrieval_scope: "default"
 Installed architecture:
 
 ```text
-AI Agent Memory Architecture v1.4.0
+AI Agent Memory Architecture v1.5.0
 ARMOR Enterprise V7.2 Stable
 ```
 
@@ -117,4 +117,4 @@ Do not update it for every new Fact, Record, Draft, or Log.
 
 | Date | Change | Source | Approved By |
 | --- | --- | --- | --- |
-| YYYY-MM-DD | Document map installed | AI Agent Memory Architecture v1.4.0 | human |
+| YYYY-MM-DD | Document map installed | AI Agent Memory Architecture v1.5.0 | human |

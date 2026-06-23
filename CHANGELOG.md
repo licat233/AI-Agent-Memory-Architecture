@@ -4,6 +4,32 @@ All notable changes to AI Agent Memory Architecture are recorded here.
 
 This project uses project-level semantic versions for repository releases. Architecture branch names such as ARMOR Enterprise V7.2 Stable and PAMA Personal V5.3 Stable may remain unchanged across patch releases when the update adds templates, guides, or maintenance documentation without changing the stable architecture boundary.
 
+## [v1.5.0] - 2026-06-23
+
+### Added
+
+- Added `TEMPLATE_AUTOMATION_GUIDE.md` as the project-level template configuration standard.
+- Added canonical ARMOR and PAMA template sets for:
+  - Plain Markdown
+  - Obsidian Core Templates
+  - optional Templater automation
+- Added reusable Templater folder-mapping examples for both architecture branches.
+
+### Changed
+
+- Added template-profile installation, update, validation, and agent runtime guidance.
+- Standardized generated template frontmatter on `FRONTMATTER_STANDARD.md`.
+- Bumped project version from `v1.4.0` to `v1.5.0`.
+- Updated architecture overview diagrams to show AI Agent Memory Architecture `v1.5.0`.
+- Kept ARMOR Enterprise at `V7.2 Stable` and PAMA Personal at `V5.3 Stable`; the frozen top-level architecture boundaries are unchanged.
+
+### Governance Notes
+
+- Templates aid file creation but never grant truth authority.
+- Plain Markdown remains the portable default; Obsidian Core Templates and Templater are optional profiles.
+- One active syntax profile should be used per installed template folder.
+- Templater system commands, user scripts, and startup templates remain disabled by default.
+
 ## [v1.4.0] - 2026-06-23
 
 ### Added

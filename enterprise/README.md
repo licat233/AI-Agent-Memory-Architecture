@@ -169,7 +169,8 @@ See [Project Execution Workflow](Project_Execution_Workflow.md) for the template
 5. Create templates for records, proposals, rules, research, reviewed insights, and optional project execution files under `70-Schemas/`.
 6. Install `Frontmatter-Standard.md` in `00-Core/` and maintain `70-Schemas/Frontmatter-Registry.md`.
 7. Install `Vault-Document-Map.md` and `Document-Registry.base` in `80-Indexes/`.
-8. Let agents capture into low-authority layers and require proposals for authority-changing edits.
+8. Install one template profile under `70-Schemas/Templates/`: Plain, Obsidian Core Templates, or Templater.
+9. Let agents capture into low-authority layers and require proposals for authority-changing edits.
 
 ### Documents
 
@@ -185,6 +186,7 @@ See [Project Execution Workflow](Project_Execution_Workflow.md) for the template
 | [Multi-Agent Shared Vault Governance](multi_agent_shared_vault_governance.md) | Governance policy for multiple trusted agents sharing one ARMOR Vault |
 | [Frontmatter Standard](../FRONTMATTER_STANDARD.md) | Canonical metadata fields, YAML rules, ARMOR directory defaults, registry, and migration policy |
 | [Document Map Standard](../DOCUMENT_MAP_STANDARD.md) | Static Vault navigation, dynamic Base registry, agent reading order, and map maintenance |
+| [Template Automation Guide](../TEMPLATE_AUTOMATION_GUIDE.md) | Plain, official Obsidian Templates, and optional Templater configuration |
 | [Project Execution Workflow](Project_Execution_Workflow.md) | Optional low-authority task execution templates for complex project work |
 | [Agent Project Execution Prompt](Agent_Project_Execution_Prompt.md) | Copy-ready prompt snippets for configuring agents to use project execution templates |
 

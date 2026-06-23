@@ -7,7 +7,7 @@ Read this first when you need to understand, install, update, operate, or audit 
 Current release alignment:
 
 ```text
-AI Agent Memory Architecture v1.4.0
+AI Agent Memory Architecture v1.5.0
 ARMOR Enterprise V7.2 Stable
 PAMA Personal V5.3 Stable
 ```
@@ -467,7 +467,25 @@ The map is navigation, not authority. Agents must open the underlying authority 
 
 See `DOCUMENT_MAP_STANDARD.md`.
 
-## 15. Installation Mental Model
+## 15. Template Profiles
+
+Templates are creation aids, not authority sources.
+
+The project ships three mutually exclusive syntax profiles:
+
+| Profile | Best For | Runtime Requirement |
+| --- | --- | --- |
+| Plain Markdown | AI agents and portable Markdown workspaces | None |
+| Obsidian Core Templates | Manual insertion in Obsidian | Official Templates core plugin |
+| Templater | Folder-based automatic templates | Optional reviewed community plugin |
+
+Install one active profile per template folder. Do not mix unresolved Plain, `{{date}}`, and `<% tp.* %>` variables.
+
+Templater must keep system commands disabled by default. Automatic file creation still follows the Frontmatter Standard, routers, permission classes, and human approval requirements.
+
+See `TEMPLATE_AUTOMATION_GUIDE.md`.
+
+## 16. Installation Mental Model
 
 Use `AGENT_INSTALL.md` when the target Vault does not yet have the architecture.
 
@@ -488,7 +506,7 @@ ARMOR Enterprise V7.2 Stable
 
 Use PAMA only when the user explicitly wants a personal memory architecture.
 
-## 16. Update Mental Model
+## 17. Update Mental Model
 
 Use `AGENT_UPDATE.md` when the Vault already exists.
 
@@ -509,9 +527,9 @@ Clean active truth.
 
 Preserve historical evidence.
 
-## 17. Common Retired Active Files
+## 18. Common Retired Active Files
 
-For v1.4.0 / ARMOR V7.2 and PAMA V5.3, these old active files or concepts should not remain active:
+For v1.5.0 / ARMOR V7.2 and PAMA V5.3, these old active files or concepts should not remain active:
 
 | Retired Active File or Concept | Current Replacement | Action |
 | --- | --- | --- |
@@ -523,10 +541,11 @@ For v1.4.0 / ARMOR V7.2 and PAMA V5.3, these old active files or concepts should
 | Runtime memory as long-term memory | Vault as durable memory | Update active policy |
 | Multiple conflicting frontmatter standards | `FRONTMATTER_STANDARD.md` + installed Registry | Preserve domain extensions, migrate canonical fields lazily |
 | No stable Vault navigation entry | `DOCUMENT_MAP_STANDARD.md` + static map + dynamic registry | Install branch-specific map files |
+| Mixed template syntaxes or legacy template frontmatter | `TEMPLATE_AUTOMATION_GUIDE.md` + one selected profile | Preserve one active profile and normalize templates |
 
 Historical mentions in `06-Records/`, `92-Logs/`, `99-Archive/`, or superseded proposals are acceptable when clearly historical.
 
-## 18. Which File Should An Agent Read Next?
+## 19. Which File Should An Agent Read Next?
 
 Use this routing table after reading this document.
 
@@ -536,6 +555,7 @@ Use this routing table after reading this document.
 | Existing Vault update | `AGENT_UPDATE.md` |
 | Frontmatter fields or migration | `FRONTMATTER_STANDARD.md` |
 | Vault navigation or document discovery | `DOCUMENT_MAP_STANDARD.md` |
+| Template installation or automation | `TEMPLATE_AUTOMATION_GUIDE.md` |
 | Enterprise architecture details | `enterprise/V7_2_Stable.md` |
 | Personal architecture details | `personal/PAMA V5.3 Stable.md` |
 | Runtime integration | `enterprise/agent_runtime_adaptation_guide.md` |
@@ -546,7 +566,7 @@ Use this routing table after reading this document.
 | Ambiguous or risky command | Prompt Intake Router for the selected branch |
 | Runtime memory question | Runtime Memory Policy for the selected branch |
 
-## 19. Final Operating Summary
+## 20. Final Operating Summary
 
 If you remember nothing else, remember this:
 

@@ -69,6 +69,8 @@ FRONTMATTER_STANDARD.md
 shared/frontmatter/Frontmatter-Registry-Template.md
 DOCUMENT_MAP_STANDARD.md
 shared/document-map/
+TEMPLATE_AUTOMATION_GUIDE.md
+shared/templates/
 enterprise/
 personal/
 ```
@@ -131,6 +133,7 @@ Copy these repository files into the target Vault if missing:
 | `DOCUMENT_MAP_STANDARD.md` | `00-Core/Document-Map-Standard.md` |
 | `shared/document-map/ARMOR-Vault-Document-Map-Template.md` | `80-Indexes/Vault-Document-Map.md` |
 | `shared/document-map/Document-Registry.base` | `80-Indexes/Document-Registry.base` |
+| `TEMPLATE_AUTOMATION_GUIDE.md` | `00-Core/Template-Automation-Guide.md` |
 
 If a destination file already exists, do not overwrite it. Preserve the file and create a candidate copy under:
 
@@ -178,6 +181,46 @@ Recommended use inside a Vault:
 ```
 
 Execution files are low-authority working materials. Candidate long-term memory found during execution must be routed through the normal ARMOR workflow before it can become current truth.
+
+### 5.5 Install Note-Type Templates
+
+Install Plain Markdown templates by default:
+
+```text
+shared/templates/armor/plain/
+→ 70-Schemas/Templates/
+```
+
+Plain templates have no plugin dependency and are usable by AI agents and scripts.
+
+If the user explicitly chooses Obsidian's official Templates core plugin, copy:
+
+```text
+shared/templates/armor/obsidian-core/
+→ 70-Schemas/Templates/
+```
+
+If the user explicitly chooses Templater and it is already installed or the user approves installation, copy:
+
+```text
+shared/templates/armor/templater/
+→ 70-Schemas/Templates/
+```
+
+Then configure:
+
+```text
+Template folder location: 70-Schemas/Templates
+Trigger Templater on new file creation: enabled
+Folder Templates: enabled
+System Commands: disabled
+User Scripts: disabled by default
+Startup Templates: empty
+```
+
+Use `shared/templates/templater/armor-folder-templates.json` as the recommended Folder Templates mapping.
+
+Do not mix Plain, Core Templates, and Templater syntax in the same active template files.
 
 ---
 
@@ -249,7 +292,7 @@ The log should include:
 
 ```yaml
 architecture: ARMOR
-project_version: v1.4.0
+project_version: v1.5.0
 version: V7.2 Stable
 installed_at: YYYY-MM-DD
 source_repository: AI-Agent-Memory-Architecture
@@ -275,6 +318,7 @@ Before reporting completion, verify:
 - Core architecture documents were copied or preserved.
 - The Frontmatter Standard and Frontmatter Registry were copied or preserved.
 - The Document Map Standard, static Vault Map, and dynamic Document Registry were copied or preserved.
+- The Template Automation Guide and one active template profile were copied or intentionally skipped.
 - Optional project execution templates were copied or preserved.
 - Existing user files were not overwritten silently.
 - `93-Proposals/` exists.
@@ -311,6 +355,7 @@ For PAMA multi-agent deployments, also copy:
 | `DOCUMENT_MAP_STANDARD.md` | `00-Core/Document-Map-Standard.md` |
 | `shared/document-map/PAMA-Vault-Document-Map-Template.md` | `00-Core/Vault-Document-Map.md` |
 | `shared/document-map/Document-Registry.base` | `07-Reviews/Document-Registry.base` |
+| `TEMPLATE_AUTOMATION_GUIDE.md` | `00-Core/Template-Automation-Guide.md` |
 
 Copy optional PAMA personal execution templates if missing:
 
@@ -324,6 +369,19 @@ Copy optional PAMA personal execution templates if missing:
 | `personal/templates/personal_execution/closeout.md` | `08-Working-Memory/Templates/Personal-Execution/closeout.md` |
 
 These templates are optional execution aids for complex personal tasks, goals, and reviews. They do not create a new authority layer and must not bypass the PAMA Memory Write Router, Root-Cause Fix Protocol, review gates, or user approval.
+
+Install Plain PAMA note-type templates by default:
+
+```text
+shared/templates/pama/plain/
+→ 08-Working-Memory/Templates/Note-Types/
+```
+
+For the official Templates core plugin, use `shared/templates/pama/obsidian-core/`.
+
+For Templater, use `shared/templates/pama/templater/` and the recommended mapping in `shared/templates/templater/pama-folder-templates.json`.
+
+Do not automatically install Templater or enable system commands.
 
 Recommended use inside a PAMA Vault:
 

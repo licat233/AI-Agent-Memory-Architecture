@@ -2,7 +2,7 @@
 
 > Copy-ready prompt snippets for agents that should use the ARMOR lightweight project execution workflow.
 >
-> Applies to: AI Agent Memory Architecture v1.4.0, ARMOR Enterprise V7.2 Stable.
+> Applies to: AI Agent Memory Architecture v1.5.0, ARMOR Enterprise V7.2 Stable.
 
 ## Purpose
 
@@ -92,7 +92,7 @@ Use this in a Codex project `AGENTS.md`:
 ```md
 ## ARMOR Project Execution Workflow
 
-For complex ARMOR project work, use the lightweight project execution templates from AI Agent Memory Architecture v1.4.0.
+For complex ARMOR project work, use the lightweight project execution templates from AI Agent Memory Architecture v1.5.0.
 
 Create execution files under `05-Projects/<project-name>/Execution/YYYY-MM-DD-<task-slug>/`.
 
