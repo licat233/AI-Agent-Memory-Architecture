@@ -12,7 +12,7 @@ It applies to:
 Current alignment:
 
 ```text
-AI Agent Memory Architecture v1.3.0
+AI Agent Memory Architecture v1.4.0
 ARMOR Enterprise V7.2 Stable
 PAMA Personal V5.3 Stable
 ```

@@ -168,7 +168,8 @@ See [Project Execution Workflow](Project_Execution_Workflow.md) for the template
 4. Keep SQLite, embeddings, and runtime indexes as runtime-only infrastructure. They must not become the durable source of business truth.
 5. Create templates for records, proposals, rules, research, reviewed insights, and optional project execution files under `70-Schemas/`.
 6. Install `Frontmatter-Standard.md` in `00-Core/` and maintain `70-Schemas/Frontmatter-Registry.md`.
-7. Let agents capture into low-authority layers and require proposals for authority-changing edits.
+7. Install `Vault-Document-Map.md` and `Document-Registry.base` in `80-Indexes/`.
+8. Let agents capture into low-authority layers and require proposals for authority-changing edits.
 
 ### Documents
 
@@ -183,6 +184,7 @@ See [Project Execution Workflow](Project_Execution_Workflow.md) for the template
 | [Agent Runtime Adaptation Guide](agent_runtime_adaptation_guide.md) | Practical guide for using any trusted agent runtime as an ARMOR executor |
 | [Multi-Agent Shared Vault Governance](multi_agent_shared_vault_governance.md) | Governance policy for multiple trusted agents sharing one ARMOR Vault |
 | [Frontmatter Standard](../FRONTMATTER_STANDARD.md) | Canonical metadata fields, YAML rules, ARMOR directory defaults, registry, and migration policy |
+| [Document Map Standard](../DOCUMENT_MAP_STANDARD.md) | Static Vault navigation, dynamic Base registry, agent reading order, and map maintenance |
 | [Project Execution Workflow](Project_Execution_Workflow.md) | Optional low-authority task execution templates for complex project work |
 | [Agent Project Execution Prompt](Agent_Project_Execution_Prompt.md) | Copy-ready prompt snippets for configuring agents to use project execution templates |
 

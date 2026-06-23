@@ -238,6 +238,15 @@ Installed PAMA Vaults should keep the field registry at:
 
 Agents must consult both files before adding new metadata fields. Organization-specific or tool-specific fields must be registered rather than added ad hoc.
 
+PAMA navigation files should be installed at:
+
+```text
+00-Core/Vault-Document-Map.md
+07-Reviews/Document-Registry.base
+```
+
+The static map provides stable reading order and routing. The dynamic registry provides metadata-driven review views. Neither replaces Reality, Decisions, Goals, Truth, the Constitution, or user approval.
+
 Minimum universal fields:
 
 ```yaml

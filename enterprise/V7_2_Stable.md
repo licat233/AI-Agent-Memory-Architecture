@@ -1757,6 +1757,8 @@ Recommended files:
 
 ```text
 80-Indexes/
+  Vault-Document-Map.md
+  Document-Registry.base
   Products.md
   Customers.md
   Active-Projects.md
@@ -1768,6 +1770,12 @@ Recommended files:
   Duplicate-Candidates.md
   Deprecated-Knowledge.md
 ```
+
+`Vault-Document-Map.md` defines stable entry points, authority boundaries, reading order, and task routing.
+
+`Document-Registry.base` provides metadata-driven views of current authority, review candidates, expiration, proposals, memory layers, and historical files.
+
+Both are navigation references. Underlying authority files remain the source of truth.
 
 Indexes point to truth.
 

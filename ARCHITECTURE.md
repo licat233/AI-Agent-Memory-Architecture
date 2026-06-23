@@ -7,7 +7,7 @@ Read this first when you need to understand, install, update, operate, or audit 
 Current release alignment:
 
 ```text
-AI Agent Memory Architecture v1.3.0
+AI Agent Memory Architecture v1.4.0
 ARMOR Enterprise V7.2 Stable
 PAMA Personal V5.3 Stable
 ```
@@ -424,7 +424,50 @@ PAMA:  00-Core/Frontmatter-Registry.md
 
 New files use canonical fields immediately. Existing files migrate lazily when meaningfully updated. Logs, records, and archives are not mass-rewritten merely to remove legacy field names.
 
-## 14. Installation Mental Model
+## 14. Document Map
+
+Every installed Vault should expose:
+
+```text
+Static Vault Map
+Dynamic Document Registry
+```
+
+The static map explains:
+
+- architecture entry points
+- top-level layers
+- authority boundaries
+- agent reading order
+- task-to-document routing
+- retrieval defaults and exclusions
+
+The dynamic `.base` registry uses canonical frontmatter to show:
+
+- current authority
+- files needing review
+- expiring documents
+- proposals and conflicts
+- documents grouped by memory layer
+- historical files
+
+Recommended locations:
+
+```text
+ARMOR:
+  80-Indexes/Vault-Document-Map.md
+  80-Indexes/Document-Registry.base
+
+PAMA:
+  00-Core/Vault-Document-Map.md
+  07-Reviews/Document-Registry.base
+```
+
+The map is navigation, not authority. Agents must open the underlying authority files before answering or writing.
+
+See `DOCUMENT_MAP_STANDARD.md`.
+
+## 15. Installation Mental Model
 
 Use `AGENT_INSTALL.md` when the target Vault does not yet have the architecture.
 
@@ -445,7 +488,7 @@ ARMOR Enterprise V7.2 Stable
 
 Use PAMA only when the user explicitly wants a personal memory architecture.
 
-## 15. Update Mental Model
+## 16. Update Mental Model
 
 Use `AGENT_UPDATE.md` when the Vault already exists.
 
@@ -466,23 +509,24 @@ Clean active truth.
 
 Preserve historical evidence.
 
-## 16. Common Retired Active Files
+## 17. Common Retired Active Files
 
-For v1.3.0 / ARMOR V7.2 and PAMA V5.3, these old active files or concepts should not remain active:
+For v1.4.0 / ARMOR V7.2 and PAMA V5.3, these old active files or concepts should not remain active:
 
 | Retired Active File or Concept | Current Replacement | Action |
 | --- | --- | --- |
 | `00-Core/Hermes-V71-Adaptation-Guide.md` | `00-Core/Agent-Runtime-Adaptation-Guide.md` | Archive old active file |
 | `00-Core/Hermes-Operating-Protocol.md` | Routers + runtime adaptation + multi-agent governance | Archive old active file |
 | `00-Core/Profile-Skills-Architecture.md` | Runtime-local Hermes documentation | Archive or move outside active Core |
-| `80-Indexes/V7-1-Index.md` | `80-Indexes/Architecture-Index.md` | Archive old active index |
+| `80-Indexes/V7-1-Index.md` or another old architecture index | `80-Indexes/Vault-Document-Map.md` | Archive or supersede old active index |
 | Claudian or Obsidian UI executor plugin support | Direct trusted runtime file access | Archive old execution guides |
 | Runtime memory as long-term memory | Vault as durable memory | Update active policy |
 | Multiple conflicting frontmatter standards | `FRONTMATTER_STANDARD.md` + installed Registry | Preserve domain extensions, migrate canonical fields lazily |
+| No stable Vault navigation entry | `DOCUMENT_MAP_STANDARD.md` + static map + dynamic registry | Install branch-specific map files |
 
 Historical mentions in `06-Records/`, `92-Logs/`, `99-Archive/`, or superseded proposals are acceptable when clearly historical.
 
-## 17. Which File Should An Agent Read Next?
+## 18. Which File Should An Agent Read Next?
 
 Use this routing table after reading this document.
 
@@ -491,6 +535,7 @@ Use this routing table after reading this document.
 | First-time install | `AGENT_INSTALL.md` |
 | Existing Vault update | `AGENT_UPDATE.md` |
 | Frontmatter fields or migration | `FRONTMATTER_STANDARD.md` |
+| Vault navigation or document discovery | `DOCUMENT_MAP_STANDARD.md` |
 | Enterprise architecture details | `enterprise/V7_2_Stable.md` |
 | Personal architecture details | `personal/PAMA V5.3 Stable.md` |
 | Runtime integration | `enterprise/agent_runtime_adaptation_guide.md` |
@@ -501,7 +546,7 @@ Use this routing table after reading this document.
 | Ambiguous or risky command | Prompt Intake Router for the selected branch |
 | Runtime memory question | Runtime Memory Policy for the selected branch |
 
-## 18. Final Operating Summary
+## 19. Final Operating Summary
 
 If you remember nothing else, remember this:
 

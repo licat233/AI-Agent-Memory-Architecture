@@ -67,6 +67,8 @@ The installer should be run from a local checkout of this repository or from a l
 README.md
 FRONTMATTER_STANDARD.md
 shared/frontmatter/Frontmatter-Registry-Template.md
+DOCUMENT_MAP_STANDARD.md
+shared/document-map/
 enterprise/
 personal/
 ```
@@ -126,6 +128,9 @@ Copy these repository files into the target Vault if missing:
 | `enterprise/multi_agent_shared_vault_governance.md` | `00-Core/Multi-Agent-Shared-Vault-Governance.md` |
 | `FRONTMATTER_STANDARD.md` | `00-Core/Frontmatter-Standard.md` |
 | `shared/frontmatter/Frontmatter-Registry-Template.md` | `70-Schemas/Frontmatter-Registry.md` |
+| `DOCUMENT_MAP_STANDARD.md` | `00-Core/Document-Map-Standard.md` |
+| `shared/document-map/ARMOR-Vault-Document-Map-Template.md` | `80-Indexes/Vault-Document-Map.md` |
+| `shared/document-map/Document-Registry.base` | `80-Indexes/Document-Registry.base` |
 
 If a destination file already exists, do not overwrite it. Preserve the file and create a candidate copy under:
 
@@ -209,6 +214,8 @@ The runtime should:
 - use `00-Core/Runtime-Memory-Policy.md` to keep runtime memory temporary and low-authority
 - use `00-Core/Multi-Agent-Shared-Vault-Governance.md` when multiple agents share the same Vault
 - use `00-Core/Frontmatter-Standard.md` and the installed Frontmatter Registry before adding metadata fields
+- read `80-Indexes/Vault-Document-Map.md` before broad Vault discovery
+- use `80-Indexes/Document-Registry.base` or targeted search to locate candidate files
 
 For Codex, prefer a local reference plus a skill rather than writing durable facts into Codex runtime memory:
 
@@ -242,7 +249,7 @@ The log should include:
 
 ```yaml
 architecture: ARMOR
-project_version: v1.3.0
+project_version: v1.4.0
 version: V7.2 Stable
 installed_at: YYYY-MM-DD
 source_repository: AI-Agent-Memory-Architecture
@@ -267,6 +274,7 @@ Before reporting completion, verify:
 - Required ARMOR top-level directories exist.
 - Core architecture documents were copied or preserved.
 - The Frontmatter Standard and Frontmatter Registry were copied or preserved.
+- The Document Map Standard, static Vault Map, and dynamic Document Registry were copied or preserved.
 - Optional project execution templates were copied or preserved.
 - Existing user files were not overwritten silently.
 - `93-Proposals/` exists.
@@ -278,6 +286,8 @@ Before reporting completion, verify:
 - The installation log exists.
 - The user knows which path to point their AI agent at.
 - Multi-agent deployments have a namespace and conflict policy.
+- The static Vault Map points to current entry files.
+- The dynamic Document Registry parses as valid YAML.
 
 ---
 
@@ -298,6 +308,9 @@ For PAMA multi-agent deployments, also copy:
 | `personal/PAMA_Multi_Agent_Shared_Vault_Governance.md` | `00-Core/PAMA-Multi-Agent-Shared-Vault-Governance.md` |
 | `FRONTMATTER_STANDARD.md` | `00-Core/Frontmatter-Standard.md` |
 | `shared/frontmatter/Frontmatter-Registry-Template.md` | `00-Core/Frontmatter-Registry.md` |
+| `DOCUMENT_MAP_STANDARD.md` | `00-Core/Document-Map-Standard.md` |
+| `shared/document-map/PAMA-Vault-Document-Map-Template.md` | `00-Core/Vault-Document-Map.md` |
+| `shared/document-map/Document-Registry.base` | `07-Reviews/Document-Registry.base` |
 
 Copy optional PAMA personal execution templates if missing:
 
@@ -363,9 +376,10 @@ After installation, report:
 1. Installed architecture: ARMOR Enterprise AI Workspace.
 2. Target Vault path.
 3. Core documents copied.
-4. Existing files preserved or candidate files created.
-5. Installation log path.
-6. The next instruction the user's AI agent should follow.
+4. Document Map and Registry locations.
+5. Existing files preserved or candidate files created.
+6. Installation log path.
+7. The next instruction the user's AI agent should follow.
 
 Keep the response concise. Do not claim that memory has been promoted into truth unless the appropriate review or proposal process happened.
 

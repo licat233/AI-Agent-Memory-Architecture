@@ -19,7 +19,7 @@ How do I align an existing Vault with the latest architecture without leaving st
 Current target:
 
 ```text
-AI Agent Memory Architecture v1.3.0
+AI Agent Memory Architecture v1.4.0
 ARMOR Enterprise V7.2 Stable
 PAMA Personal V5.3 Stable
 ```
@@ -47,7 +47,7 @@ Please read and execute AGENT_UPDATE.md from this repository:
 https://github.com/licat233/AI-Agent-Memory-Architecture
 
 Help me update my existing AI Agent Memory Architecture Vault.
-Target architecture: AI Agent Memory Architecture v1.3.0.
+Target architecture: AI Agent Memory Architecture v1.4.0.
 Default branch: ARMOR Enterprise V7.2 Stable unless I explicitly say PAMA Personal.
 Target Vault path: <paste your Vault or Markdown directory path here>
 
@@ -71,6 +71,8 @@ AGENT_INSTALL.md
 AGENT_UPDATE.md
 FRONTMATTER_STANDARD.md
 shared/frontmatter/Frontmatter-Registry-Template.md
+DOCUMENT_MAP_STANDARD.md
+shared/document-map/
 ```
 
 For ARMOR updates, also read:
@@ -125,8 +127,10 @@ Then read any installed version markers:
 00-Core/Core-Document-Index.md
 00-Core/Frontmatter-Standard.md
 70-Schemas/Frontmatter-Registry.md
+00-Core/Document-Map-Standard.md
+80-Indexes/Vault-Document-Map.md
+80-Indexes/Document-Registry.base
 00-Core/Core-Memory.md
-80-Indexes/Architecture-Index.md
 80-Indexes/README.md
 ```
 
@@ -184,6 +188,9 @@ For PAMA, active Core should include the PAMA equivalents:
 00-Core/PAMA_Runtime_Memory_Policy.md
 00-Core/Frontmatter-Standard.md
 00-Core/Frontmatter-Registry.md
+00-Core/Document-Map-Standard.md
+00-Core/Vault-Document-Map.md
+07-Reviews/Document-Registry.base
 ```
 
 Preserve Vault-local policies that are still valid, but update their references to current active files.
@@ -199,14 +206,28 @@ Sync the canonical frontmatter files:
 
 If a Registry already exists, preserve its approved domain and tool fields. Merge canonical changes through a proposal or explicit human approval instead of replacing organization-specific entries.
 
+Sync the Document Map files:
+
+| Branch | Source | Destination |
+| --- | --- | --- |
+| ARMOR | `DOCUMENT_MAP_STANDARD.md` | `00-Core/Document-Map-Standard.md` |
+| ARMOR | `shared/document-map/ARMOR-Vault-Document-Map-Template.md` | `80-Indexes/Vault-Document-Map.md` |
+| ARMOR | `shared/document-map/Document-Registry.base` | `80-Indexes/Document-Registry.base` |
+| PAMA | `DOCUMENT_MAP_STANDARD.md` | `00-Core/Document-Map-Standard.md` |
+| PAMA | `shared/document-map/PAMA-Vault-Document-Map-Template.md` | `00-Core/Vault-Document-Map.md` |
+| PAMA | `shared/document-map/Document-Registry.base` | `07-Reviews/Document-Registry.base` |
+
+Preserve Vault-local domain routing in an existing static map. Correct retired entry points and architecture versions without replacing valid organization-specific sections.
+
 ### 4. Sync Active Indexes
 
 Active indexes should point to the current architecture.
 
-For ARMOR v1.3.0 / V7.2, prefer:
+For ARMOR v1.4.0 / V7.2, prefer:
 
 ```text
-80-Indexes/Architecture-Index.md
+80-Indexes/Vault-Document-Map.md
+80-Indexes/Document-Registry.base
 80-Indexes/README.md
 ```
 
@@ -367,11 +388,13 @@ Run these checks:
 9. Update log exists.
 10. Frontmatter Standard and branch Registry exist.
 11. New templates use canonical field names.
+12. Static Vault Map links point to current entry files.
+13. Dynamic Document Registry parses as valid YAML.
 ```
 
 ## Version-Specific Cleanup Notes
 
-### v1.3.0 / ARMOR Enterprise V7.2 Stable + PAMA Personal V5.3 Stable
+### v1.4.0 / ARMOR Enterprise V7.2 Stable + PAMA Personal V5.3 Stable
 
 Current active replacements:
 
@@ -380,9 +403,9 @@ Current active replacements:
 | `00-Core/Hermes-V71-Adaptation-Guide.md` | `00-Core/Agent-Runtime-Adaptation-Guide.md` | Archive old active file |
 | `00-Core/Hermes-Operating-Protocol.md` | Generic routers + runtime adaptation + multi-agent governance | Archive old active file |
 | `00-Core/Profile-Skills-Architecture.md` | Runtime-local Hermes documentation, not ARMOR Core | Archive or move outside active Core |
-| `80-Indexes/V7-1-Index.md` | `80-Indexes/Architecture-Index.md` | Archive old active index |
+| `80-Indexes/V7-1-Index.md` or old architecture index | `80-Indexes/Vault-Document-Map.md` | Archive or supersede old active index |
 | Claudian or Obsidian UI executor plugin support | Direct trusted runtime file access | Archive old execution guides |
-| `AI Agent Memory Architecture v1.1.0` through `v1.2.4` as current version | `AI Agent Memory Architecture v1.3.0` | Update active version markers |
+| `AI Agent Memory Architecture v1.1.0` through `v1.3.0` as current version | `AI Agent Memory Architecture v1.4.0` | Update active version markers |
 | `PAMA Personal V5.2` as current version | `PAMA Personal V5.3 Stable` | Update active version markers |
 | Branch-specific or runtime-specific frontmatter rules | `00-Core/Frontmatter-Standard.md` + installed Registry | Preserve approved domain fields, migrate canonical fields lazily |
 | `memory_class` | `permission_class` or `memory_layer` | Inspect meaning before migration |
@@ -391,6 +414,7 @@ Current active replacements:
 | `review_required` | `write_policy` or `review_date` | Convert based on intent |
 | `default_truth_retrieval` | `retrieval_scope` | Normalize retrieval behavior |
 | `authority: high/medium/low` | Canonical authority vocabulary | Resolve from evidence and review state |
+| No stable Vault navigation entry | Static Vault Map + dynamic Document Registry | Install branch-specific map files |
 
 Expected active ARMOR entry points:
 
@@ -399,7 +423,8 @@ Expected active ARMOR entry points:
 00-Core/Installed-Memory-Architecture.md
 00-Core/Agent-Runtime-Adaptation-Guide.md
 00-Core/Multi-Agent-Shared-Vault-Governance.md
-80-Indexes/Architecture-Index.md
+80-Indexes/Vault-Document-Map.md
+80-Indexes/Document-Registry.base
 ```
 
 Retain historical mentions in:

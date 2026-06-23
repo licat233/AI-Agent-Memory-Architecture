@@ -215,6 +215,14 @@ Before adding or changing frontmatter fields, the runtime must read:
 
 The runtime must not invent aliases or organization-specific fields outside the installed Registry.
 
+Before broad Vault discovery, the runtime should read:
+
+```text
+80-Indexes/Vault-Document-Map.md
+```
+
+Use `80-Indexes/Document-Registry.base` or targeted search to identify candidate documents, then open the underlying authority files before answering or writing. The map and registry are navigation references, not authority.
+
 Proposal or explicit human approval required:
 
 - `00-Core/`
