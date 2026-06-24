@@ -72,7 +72,7 @@ shared/document-map/
 TEMPLATE_AUTOMATION_GUIDE.md
 shared/templates/
 enterprise/
-personal/
+archive/personal/ (historical only)
 ```
 
 If the repository is not available locally, ask the user to provide the path or clone:
@@ -251,6 +251,7 @@ Examples:
 The runtime should:
 
 - point its long-term memory or workspace path to the installed Vault
+- install the Agent Vault Bootstrap Rule from `AGENT_VAULT_BOOTSTRAP_RULE.md` into the runtime's durable startup instructions
 - use `00-Core/Prompt-Intake-Router.md` before ambiguous, high-risk, fix, or remember requests
 - use `00-Core/Memory-Write-Router.md` before storing permanent memory
 - use `00-Core/Root-Cause-Fix-Protocol.md` when correcting errors
@@ -259,6 +260,8 @@ The runtime should:
 - use `00-Core/Frontmatter-Standard.md` and the installed Frontmatter Registry before adding metadata fields
 - read `80-Indexes/Vault-Document-Map.md` before broad Vault discovery
 - use `80-Indexes/Document-Registry.base` or targeted search to locate candidate files
+
+The bootstrap rule must tell the runtime where the installed Vault Map lives and that broad Vault-wide keyword search is not the default retrieval strategy.
 
 For Codex, prefer a local reference plus a skill rather than writing durable facts into Codex runtime memory:
 
@@ -339,87 +342,17 @@ Before reporting completion, verify:
 
 Only use these if the user explicitly asks.
 
-### Personal / PAMA
+### Archived Personal / PAMA
 
-Install PAMA instead of ARMOR when the user explicitly asks for personal memory, personal reality tracking, personal decisions, goals, or attention review.
-
-Use the personal files under `personal/` and create the PAMA directory structure described in `personal/README.md` and `personal/PAMA V5.3 Stable.md`.
-
-For PAMA multi-agent deployments, also copy:
-
-| Source | Destination |
-| --- | --- |
-| `personal/PAMA_Multi_Agent_Shared_Vault_Governance.md` | `00-Core/PAMA-Multi-Agent-Shared-Vault-Governance.md` |
-| `FRONTMATTER_STANDARD.md` | `00-Core/Frontmatter-Standard.md` |
-| `shared/frontmatter/Frontmatter-Registry-Template.md` | `00-Core/Frontmatter-Registry.md` |
-| `DOCUMENT_MAP_STANDARD.md` | `00-Core/Document-Map-Standard.md` |
-| `shared/document-map/PAMA-Vault-Document-Map-Template.md` | `00-Core/Vault-Document-Map.md` |
-| `shared/document-map/Document-Registry.base` | `07-Reviews/Document-Registry.base` |
-| `TEMPLATE_AUTOMATION_GUIDE.md` | `00-Core/Template-Automation-Guide.md` |
-
-Copy optional PAMA personal execution templates if missing:
-
-| Source | Destination |
-| --- | --- |
-| `personal/Personal_Execution_Workflow.md` | `08-Working-Memory/Templates/Personal-Execution/Personal-Execution-Workflow.md` |
-| `personal/Agent_Personal_Execution_Prompt.md` | `08-Working-Memory/Templates/Personal-Execution/Agent-Personal-Execution-Prompt.md` |
-| `personal/templates/personal_execution/task_plan.md` | `08-Working-Memory/Templates/Personal-Execution/task_plan.md` |
-| `personal/templates/personal_execution/findings.md` | `08-Working-Memory/Templates/Personal-Execution/findings.md` |
-| `personal/templates/personal_execution/progress.md` | `08-Working-Memory/Templates/Personal-Execution/progress.md` |
-| `personal/templates/personal_execution/closeout.md` | `08-Working-Memory/Templates/Personal-Execution/closeout.md` |
-
-These templates are optional execution aids for complex personal tasks, goals, and reviews. They do not create a new authority layer and must not bypass the PAMA Memory Write Router, Root-Cause Fix Protocol, review gates, or user approval.
-
-Install Plain PAMA note-type templates by default:
+PAMA Personal V5.3 Stable is archived under:
 
 ```text
-shared/templates/pama/plain/
-→ 08-Working-Memory/Templates/Note-Types/
+archive/personal/PAMA-Personal-v5.3-Stable/
 ```
 
-For the official Templates core plugin, use `shared/templates/pama/obsidian-core/`.
+Do not install PAMA as part of the active default architecture. Use the archive only for historical reference or manual recovery.
 
-For Templater, use `shared/templates/pama/templater/` and the recommended mapping in `shared/templates/templater/pama-folder-templates.json`.
-
-Do not automatically install Templater or enable system commands.
-
-Recommended use inside a PAMA Vault:
-
-```text
-04-Goals/<goal-name>/Execution/YYYY-MM-DD-<task-slug>/
-  task_plan.md
-  findings.md
-  progress.md
-  closeout.md
-
-08-Working-Memory/Execution/YYYY-MM-DD-<task-slug>/  # fallback when no goal is clear
-```
-
-Create starter namespaces when useful:
-
-```text
-08-Working-Memory/{agent-name}/
-08-Working-Memory/Memory-Candidates/{agent-name}/
-08-Working-Memory/Fix-Candidates/{agent-name}/
-08-Working-Memory/Logs/{agent-name}/
-07-Reviews/{agent-name}/
-07-Reviews/Promotion-Candidates/
-07-Reviews/Conflict-Reviews/
-```
-
-PAMA shared Vault deployments must preserve user sovereignty. Agents must not directly promote material into `05-Truth/`, rewrite goals, or change major decisions without explicit user approval or a review decision.
-
-### Both
-
-If the user asks for both enterprise and personal memory, recommend separate Vault roots:
-
-```text
-Memory-Vaults/
-  ARMOR-Enterprise/
-  PAMA-Personal/
-```
-
-Do not mix `01-Facts/` and `01-Reality/` in one top-level Vault unless the user explicitly approves a custom combined architecture.
+If a user explicitly asks to revive PAMA, stop and explain that PAMA is archived. Create a proposal or release plan before restoring it into the active install path.
 
 ### Custom Runtime
 

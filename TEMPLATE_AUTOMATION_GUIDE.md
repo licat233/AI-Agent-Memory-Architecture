@@ -7,7 +7,6 @@ Current alignment:
 ```text
 AI Agent Memory Architecture v1.5.0
 ARMOR Enterprise V7.2 Stable
-PAMA Personal V5.3 Stable
 ```
 
 ## 1. Principle
@@ -40,13 +39,8 @@ shared/templates/
     plain/
     obsidian-core/
     templater/
-  pama/
-    plain/
-    obsidian-core/
-    templater/
   templater/
     armor-folder-templates.json
-    pama-folder-templates.json
 ```
 
 ## 4. Installation Locations
@@ -55,12 +49,6 @@ Recommended ARMOR location:
 
 ```text
 70-Schemas/Templates/
-```
-
-Recommended PAMA location:
-
-```text
-08-Working-Memory/Templates/Note-Types/
 ```
 
 Keep only one active syntax profile in an installed template folder. Mixing `{{date}}` and `<% tp.date.now() %>` in the same active template causes unresolved placeholders.
@@ -146,17 +134,6 @@ Recommended ARMOR folder rules:
 | `90-Drafts` | `General-Template.md` |
 | `91-Inbox` | `General-Template.md` |
 | `93-Proposals` | `Proposal-Template.md` |
-
-Recommended PAMA folder rules:
-
-| Folder | Template |
-| --- | --- |
-| `01-Reality` | `Reality-Template.md` |
-| `03-Decisions` | `Decision-Template.md` |
-| `04-Goals` | `Goal-Template.md` |
-| `05-Truth` | `Truth-Candidate-Template.md` |
-| `07-Reviews` | `Review-Template.md` |
-| `08-Working-Memory` | `Working-Memory-Template.md` |
 
 Use explicit folder rules instead of a root `/` catch-all. This prevents templates from being applied to schema, attachment, archive, or plugin-managed files unintentionally.
 

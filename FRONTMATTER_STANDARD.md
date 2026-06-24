@@ -5,7 +5,6 @@ This document is the project-level source of truth for Markdown frontmatter in A
 It applies to:
 
 - ARMOR Enterprise Vaults
-- PAMA Personal Vaults
 - trusted agent runtimes
 - templates, schemas, and organization-specific extensions
 
@@ -14,7 +13,6 @@ Current alignment:
 ```text
 AI Agent Memory Architecture v1.5.0
 ARMOR Enterprise V7.2 Stable
-PAMA Personal V5.3 Stable
 ```
 
 ## 1. Purpose
@@ -39,7 +37,7 @@ Authority still comes from the architecture, evidence, review state, and human a
 ## 2. Governing Principles
 
 1. Use one canonical field name for one concept.
-2. Keep core fields stable across ARMOR and PAMA.
+2. Keep core fields stable across ARMOR-managed files.
 3. Add domain fields only through a registry.
 4. Store uncertain information lower instead of inflating metadata.
 5. Apply the standard immediately to new files and lazily to old files.
@@ -156,7 +154,6 @@ Use these fields only when the content needs them.
 | `sensitivity` | enum | Data sensitivity |
 | `owner` | string | Human or role responsible for the content |
 | `approved_by` | string | Human or delegated reviewer who approved authority |
-| `user_confirmed` | boolean | PAMA confirmation signal |
 
 Recommended source types:
 
@@ -320,24 +317,7 @@ Double quotes are a portability convention. Unquoted YAML strings can be valid, 
 
 Directory defaults are starting points. A registered schema may narrow them.
 
-## 10. PAMA Directory Defaults
-
-| Directory | Typical `type` | `memory_layer` | `authority` | `write_policy` |
-| --- | --- | --- | --- | --- |
-| `00-Core/` | `core` | `core` | `ssot` | `proposal_required` |
-| `01-Reality/` | `reality` | `reality` | `approved` or `raw` | `review_required` or `append_only` |
-| `02-Attention/` | `attention` | `attention` | `reference` | `append_only` |
-| `03-Decisions/` | `decision` | `decisions` | `approved` or `reference` | `review_required` |
-| `04-Goals/` | `goal` | `goals` | `approved` | `review_required` |
-| `05-Truth/` | `truth` | `truth` | `ssot` | `proposal_required` |
-| `06-Meta/` | `hypothesis` | `meta` | `provisional` | `open` |
-| `07-Reviews/` | `review` | `reviews` | `reference` or `approved` | `review_required` |
-| `08-Working-Memory/` | `note` | `working_memory` | `none` or `provisional` | `open` |
-| `99-Archive/` | preserve original | `archive` | preserve or demote | `read_only` |
-
-PAMA does not use ARMOR permission classes unless a local hybrid deployment explicitly adopts them.
-
-## 11. File-Type Profiles
+## 10. File-Type Profiles
 
 ### Append-Only Record
 
@@ -374,20 +354,7 @@ expires_at: "2026-12-23"
 retrieval_scope: "default"
 ```
 
-### PAMA Truth Candidate
-
-Also use:
-
-```yaml
-truth_candidate: true
-user_confirmed: false
-review_gate: "explicit_user_approval"
-retrieval_scope: "review_scoped"
-```
-
-Truth candidates remain low-authority until approved.
-
-## 12. Registry and Extensions
+## 11. Registry and Extensions
 
 Every installed Vault should have a frontmatter registry.
 
@@ -395,7 +362,6 @@ Recommended installation:
 
 ```text
 ARMOR: 70-Schemas/Frontmatter-Registry.md
-PAMA:  00-Core/Frontmatter-Registry.md
 ```
 
 The registry records:
@@ -467,8 +433,8 @@ Validation severity:
 
 | File Class | Failure Behavior |
 | --- | --- |
-| ARMOR Class A or PAMA Core/Truth | Block direct write; create proposal or correction candidate |
-| ARMOR Class B or reviewed PAMA memory | Write only as draft/candidate or mark `needs_review` |
+| ARMOR Class A | Block direct write; create proposal or correction candidate |
+| ARMOR Class B | Write only as draft/candidate or mark `needs_review` |
 | Low-authority working file | Allow write and queue metadata cleanup |
 | Append-only evidence | Preserve urgent evidence and mark metadata incomplete |
 
@@ -497,26 +463,6 @@ retrieval_scope: "excluded"
 ```
 
 This candidate must not be treated as an approved Fact until reviewed.
-
-### PAMA Working Note
-
-```yaml
----
-type: "note"
-memory_layer: "working_memory"
-status: "working"
-authority: "none"
-write_policy: "open"
-created: "2026-06-23"
-updated: "2026-06-23"
-tags:
-  - "decision-candidate"
-author_agent: "Claude-Code"
-confidence: "low"
-user_confirmed: false
-retrieval_scope: "excluded"
----
-```
 
 ## 16. Final Rule
 

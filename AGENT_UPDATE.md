@@ -21,7 +21,6 @@ Current target:
 ```text
 AI Agent Memory Architecture v1.5.0
 ARMOR Enterprise V7.2 Stable
-PAMA Personal V5.3 Stable
 ```
 
 ## Core Principle
@@ -48,7 +47,7 @@ https://github.com/licat233/AI-Agent-Memory-Architecture
 
 Help me update my existing AI Agent Memory Architecture Vault.
 Target architecture: AI Agent Memory Architecture v1.5.0.
-Default branch: ARMOR Enterprise V7.2 Stable unless I explicitly say PAMA Personal.
+Default branch: ARMOR Enterprise V7.2 Stable.
 Target Vault path: <paste your Vault or Markdown directory path here>
 
 Do not install any Obsidian UI plugin.
@@ -91,19 +90,7 @@ enterprise/Root_Cause_Fix_Protocol.md
 enterprise/Runtime_Memory_Policy.md
 ```
 
-For PAMA updates, also read:
-
-```text
-personal/README.md
-personal/PAMA V5.3 Stable.md
-personal/PAMA_Multi_Agent_Shared_Vault_Governance.md
-personal/PAMA_Prompt_Intake_Router.md
-personal/PAMA_Memory_Write_Router.md
-personal/PAMA_Root_Cause_Fix_Protocol.md
-personal/PAMA_Runtime_Memory_Policy.md
-personal/Personal_Execution_Workflow.md
-personal/Agent_Personal_Execution_Prompt.md
-```
+PAMA Personal V5.3 Stable is archived under `archive/personal/PAMA-Personal-v5.3-Stable/` and is not part of the active update path.
 
 ## Update Workflow
 
@@ -180,22 +167,7 @@ For ARMOR, active Core should include:
 00-Core/Core-Document-Index.md
 ```
 
-For PAMA, active Core should include the PAMA equivalents:
-
-```text
-00-Core/PAMA V5.3 Stable.md
-00-Core/PAMA_Multi_Agent_Shared_Vault_Governance.md
-00-Core/PAMA_Prompt_Intake_Router.md
-00-Core/PAMA_Memory_Write_Router.md
-00-Core/PAMA_Root_Cause_Fix_Protocol.md
-00-Core/PAMA_Runtime_Memory_Policy.md
-00-Core/Frontmatter-Standard.md
-00-Core/Frontmatter-Registry.md
-00-Core/Document-Map-Standard.md
-00-Core/Vault-Document-Map.md
-07-Reviews/Document-Registry.base
-00-Core/Template-Automation-Guide.md
-```
+Do not add PAMA Core equivalents during normal updates. They belong to the archived personal branch.
 
 Preserve Vault-local policies that are still valid, but update their references to current active files.
 
@@ -205,8 +177,6 @@ Sync the canonical frontmatter files:
 | --- | --- | --- |
 | ARMOR | `FRONTMATTER_STANDARD.md` | `00-Core/Frontmatter-Standard.md` |
 | ARMOR | `shared/frontmatter/Frontmatter-Registry-Template.md` | `70-Schemas/Frontmatter-Registry.md` |
-| PAMA | `FRONTMATTER_STANDARD.md` | `00-Core/Frontmatter-Standard.md` |
-| PAMA | `shared/frontmatter/Frontmatter-Registry-Template.md` | `00-Core/Frontmatter-Registry.md` |
 
 If a Registry already exists, preserve its approved domain and tool fields. Merge canonical changes through a proposal or explicit human approval instead of replacing organization-specific entries.
 
@@ -217,11 +187,17 @@ Sync the Document Map files:
 | ARMOR | `DOCUMENT_MAP_STANDARD.md` | `00-Core/Document-Map-Standard.md` |
 | ARMOR | `shared/document-map/ARMOR-Vault-Document-Map-Template.md` | `80-Indexes/Vault-Document-Map.md` |
 | ARMOR | `shared/document-map/Document-Registry.base` | `80-Indexes/Document-Registry.base` |
-| PAMA | `DOCUMENT_MAP_STANDARD.md` | `00-Core/Document-Map-Standard.md` |
-| PAMA | `shared/document-map/PAMA-Vault-Document-Map-Template.md` | `00-Core/Vault-Document-Map.md` |
-| PAMA | `shared/document-map/Document-Registry.base` | `07-Reviews/Document-Registry.base` |
 
 Preserve Vault-local domain routing in an existing static map. Correct retired entry points and architecture versions without replacing valid organization-specific sections.
+
+Sync the agent runtime bootstrap rule:
+
+```text
+AGENT_VAULT_BOOTSTRAP_RULE.md
+→ each agent's durable startup instructions, system prompt, profile rule file, project instruction file, or equivalent runtime configuration
+```
+
+The update is not complete if agents can access the Vault but do not know to open the installed Vault Map before broad search.
 
 Sync the Template Automation Guide:
 
@@ -284,18 +260,7 @@ For ARMOR, copy the optional project execution templates if they are missing:
 
 These files are low-authority execution templates only. They must not be treated as Core policy, Facts, Rules, or a replacement for the ARMOR routers.
 
-For PAMA, copy the optional personal execution templates if they are missing:
-
-```text
-08-Working-Memory/Templates/Personal-Execution/Personal-Execution-Workflow.md
-08-Working-Memory/Templates/Personal-Execution/Agent-Personal-Execution-Prompt.md
-08-Working-Memory/Templates/Personal-Execution/task_plan.md
-08-Working-Memory/Templates/Personal-Execution/findings.md
-08-Working-Memory/Templates/Personal-Execution/progress.md
-08-Working-Memory/Templates/Personal-Execution/closeout.md
-```
-
-These files are low-authority execution templates only. They must not be treated as Reality, Decisions, Goals source of truth, Truth, Core policy, or a replacement for PAMA routers and reviews.
+Do not copy archived PAMA personal execution templates during normal updates.
 
 ### 6. Clean Active References
 
@@ -389,7 +354,7 @@ For ARMOR shared Vaults, use the agent namespace:
 92-Logs/{Agent-Name}/YYYY-MM-DD-architecture-update.md
 ```
 
-For PAMA shared Vaults, use the configured PAMA agent log or review namespace.
+For archived PAMA shared Vaults, use the configured historical PAMA agent log or review namespace only when explicitly performing archival maintenance.
 
 The update log should include:
 
@@ -425,7 +390,7 @@ Run these checks:
 
 ## Version-Specific Cleanup Notes
 
-### v1.5.0 / ARMOR Enterprise V7.2 Stable + PAMA Personal V5.3 Stable
+### v1.5.0 / ARMOR Enterprise V7.2 Stable
 
 Current active replacements:
 
@@ -437,7 +402,7 @@ Current active replacements:
 | `80-Indexes/V7-1-Index.md` or old architecture index | `80-Indexes/Vault-Document-Map.md` | Archive or supersede old active index |
 | Claudian or Obsidian UI executor plugin support | Direct trusted runtime file access | Archive old execution guides |
 | `AI Agent Memory Architecture v1.1.0` through `v1.4.0` as current version | `AI Agent Memory Architecture v1.5.0` | Update active version markers |
-| `PAMA Personal V5.2` as current version | `PAMA Personal V5.3 Stable` | Update active version markers |
+| `PAMA Personal` active install path | Archived PAMA branch | Move active PAMA material out of the current install path |
 | Branch-specific or runtime-specific frontmatter rules | `00-Core/Frontmatter-Standard.md` + installed Registry | Preserve approved domain fields, migrate canonical fields lazily |
 | `memory_class` | `permission_class` or `memory_layer` | Inspect meaning before migration |
 | `created_at` | `created` | Migrate on meaningful update |

@@ -221,6 +221,8 @@ Before broad Vault discovery, the runtime should read:
 80-Indexes/Vault-Document-Map.md
 ```
 
+The runtime's durable startup instructions should include the Agent Vault Bootstrap Rule from `AGENT_VAULT_BOOTSTRAP_RULE.md`, so the runtime knows to open the installed Vault Map before broad search.
+
 Use `80-Indexes/Document-Registry.base` or targeted search to identify candidate documents, then open the underlying authority files before answering or writing. The map and registry are navigation references, not authority.
 
 When creating a new Markdown file, the runtime should use the matching active template under `70-Schemas/Templates/`. It must replace Plain, Core Templates, or Templater variables with literal values before writing. Do not write unresolved template expressions into normal memory files.

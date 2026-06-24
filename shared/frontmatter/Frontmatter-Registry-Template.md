@@ -6,7 +6,6 @@ Recommended location:
 
 ```text
 ARMOR: 70-Schemas/Frontmatter-Registry.md
-PAMA:  00-Core/Frontmatter-Registry.md
 ```
 
 Project standard:
@@ -49,7 +48,6 @@ Project standard:
 | `sensitivity` | Conditional Governance | enum | Sensitive content | Architecture |
 | `owner` | Conditional Governance | string | Owned knowledge | Architecture |
 | `approved_by` | Conditional Governance | string | Approved authority | Architecture |
-| `user_confirmed` | Conditional Governance | boolean | PAMA confirmation state | PAMA |
 
 ## Domain Profile Registry
 
@@ -89,9 +87,6 @@ Delete the example row when the first real field is registered.
 | ARMOR Fact | Universal Core + source fields + `permission_class` | review/security fields | Candidate until reviewed |  |
 | ARMOR Record | Universal Core + source fields + `permission_class` | `record_type`, `sensitivity` | `authority: raw` |  |
 | ARMOR Proposal | Universal Core + proposal fields + `permission_class` | reviewer fields | `authority: none` |  |
-| PAMA Reality | Universal Core + source fields | `user_confirmed` | Evidence determines `raw` or `approved` |  |
-| PAMA Truth | Universal Core + source fields + `user_confirmed` | review fields | User approval required for `ssot` |  |
-| PAMA Working Memory | Universal Core | agent attribution fields | `authority: none` or `provisional` |  |
 
 ## Change Log
 

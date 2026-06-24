@@ -7,7 +7,6 @@ Current alignment:
 ```text
 AI Agent Memory Architecture v1.5.0
 ARMOR Enterprise V7.2 Stable
-PAMA Personal V5.3 Stable
 ```
 
 ## 1. Purpose
@@ -50,16 +49,7 @@ Recommended ARMOR locations:
 80-Indexes/Document-Registry.base
 ```
 
-Recommended PAMA locations:
-
-```text
-00-Core/Vault-Document-Map.md
-07-Reviews/Document-Registry.base
-```
-
 ARMOR places navigation in its dedicated index layer.
-
-PAMA keeps the stable map near Core and the dynamic registry in Reviews so the personal top-level architecture remains unchanged.
 
 ## 4. Static Vault Map Requirements
 
@@ -101,7 +91,7 @@ authority: "reference"
 
 A map is navigation, not truth authority.
 
-When a map conflicts with Core policy, a Fact, a Rule, a reviewed PAMA Truth, or another branch SSOT:
+When a map conflicts with Core policy, a Fact, a Rule, or another branch SSOT:
 
 ```text
 The underlying authority file wins.
@@ -111,6 +101,8 @@ The map must be corrected.
 Do not resolve a conflict by treating the map as a replacement authority file.
 
 ## 6. Agent Startup Use
+
+The installed map only helps if the runtime knows to open it. Each agent that can access the Vault should have the `AGENT_VAULT_BOOTSTRAP_RULE.md` startup rule installed in its durable instruction layer.
 
 An agent entering a Vault should:
 
@@ -158,24 +150,6 @@ tags:
   - "vault-map"
   - "navigation"
 permission_class: "B"
-retrieval_scope: "default"
----
-```
-
-Recommended PAMA map:
-
-```yaml
----
-type: "index"
-memory_layer: "core"
-status: "active"
-authority: "reference"
-write_policy: "review_required"
-created: "YYYY-MM-DD"
-updated: "YYYY-MM-DD"
-tags:
-  - "vault-map"
-  - "navigation"
 retrieval_scope: "default"
 ---
 ```

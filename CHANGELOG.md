@@ -4,6 +4,19 @@ All notable changes to AI Agent Memory Architecture are recorded here.
 
 This project uses project-level semantic versions for repository releases. Architecture branch names such as ARMOR Enterprise V7.2 Stable and PAMA Personal V5.3 Stable may remain unchanged across patch releases when the update adds templates, guides, or maintenance documentation without changing the stable architecture boundary.
 
+## Unreleased
+
+### Added
+
+- Added `AGENT_VAULT_BOOTSTRAP_RULE.md`, a copy-ready startup rule that tells agents where to enter installed ARMOR Vaults before broad search.
+
+### Changed
+
+- Linked the bootstrap rule from the README, installation guide, update guide, Document Map Standard, and enterprise runtime adaptation guide.
+- Clarified that Document Maps need a durable agent startup instruction to prevent agents from defaulting to broad Vault-wide keyword search.
+- Archived PAMA Personal V5.3 Stable under `archive/personal/PAMA-Personal-v5.3-Stable/`.
+- Removed PAMA from the active install and update path so the maintained project line is ARMOR Enterprise focused.
+
 ## [v1.5.0] - 2026-06-23
 
 ### Added

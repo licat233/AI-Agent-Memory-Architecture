@@ -9,7 +9,6 @@ Current release alignment:
 ```text
 AI Agent Memory Architecture v1.5.0
 ARMOR Enterprise V7.2 Stable
-PAMA Personal V5.3 Stable
 ```
 
 ## 1. What This Project Is
@@ -64,22 +63,17 @@ The goal is to preserve memory that is:
 - authority-labeled
 - honest about uncertainty
 
-## 3. Two Architecture Branches
+## 3. Active Architecture Branch
 
 | Branch | Version | Use Case | Human Authority |
 | --- | --- | --- | --- |
 | ARMOR Enterprise | V7.2 Stable | Teams, companies, business operations, brand/product/customer/project knowledge | Human owner or reviewer approves high-authority changes |
-| PAMA Personal | V5.3 Stable | One person's reality tracking, goals, decisions, attention, and durable personal truth | The user remains sovereign |
 
-Use ARMOR when the Vault represents an organization or team.
-
-Use PAMA when the Vault represents one person's life, reality, decisions, goals, and personal truth.
-
-Do not mix the two top-level structures in one Vault unless the human explicitly designs a hybrid.
+PAMA Personal V5.3 Stable has been archived under `archive/personal/PAMA-Personal-v5.3-Stable/` and is no longer part of the active install or update path.
 
 ## 4. Universal Principles
 
-These principles apply to both ARMOR and PAMA.
+These principles apply to the active ARMOR architecture.
 
 | Principle | Meaning |
 | --- | --- |
@@ -91,21 +85,19 @@ These principles apply to both ARMOR and PAMA.
 | Runtime memory is not long-term memory | SQLite, embeddings, caches, session summaries, and indexes are infrastructure only. |
 | Archive instead of erase | Preserve historical context while removing stale active files from current truth paths. |
 
-## 5. Shared Governance Pattern
+## 5. Governance Pattern
 
-ARMOR and PAMA use different names, but they share one pattern.
-
-| Layer Type | ARMOR Example | PAMA Example | Role |
-| --- | --- | --- | --- |
-| Core governance | `00-Core/` | `00-Core/` | Architecture, permission, retrieval, routing, runtime policy |
-| Current truth | `01-Facts/`, `02-Rules/` | `01-Reality/`, `05-Truth/` | Stable facts, rules, reality, durable principles |
-| Validated learning | `03-Insights/` | `03-Decisions/`, `07-Reviews/` | Lessons, decisions, reviews, patterns |
-| Research and uncertainty | `04-Research/` | `06-Meta/` | External knowledge, hypotheses, assumptions |
-| Active work | `05-Projects/` | `04-Goals/`, `08-Working-Memory/` | Current execution and short-term work |
-| Evidence | `06-Records/` | `01-Reality/` records | Raw source material, not automatic truth |
-| Operations | `70-Schemas/`, `80-Indexes/`, `81-Dashboards/` | Templates and review files | Validation, navigation, audits |
-| Low-authority capture | `90-Drafts/`, `91-Inbox/`, `92-Logs/`, `93-Proposals/` | `08-Working-Memory/` | Fast capture, proposals, logs, pending review |
-| Archive | `99-Archive/` | `99-Archive/` | Deprecated, expired, superseded, or historical memory |
+| Layer Type | ARMOR Example | Role |
+| --- | --- | --- |
+| Core governance | `00-Core/` | Architecture, permission, retrieval, routing, runtime policy |
+| Current truth | `01-Facts/`, `02-Rules/` | Stable facts, rules, and approved standards |
+| Validated learning | `03-Insights/` | Lessons, decisions, reviews, patterns |
+| Research and uncertainty | `04-Research/` | External knowledge, hypotheses, assumptions |
+| Active work | `05-Projects/` | Current execution and project workspaces |
+| Evidence | `06-Records/` | Raw source material, not automatic truth |
+| Operations | `70-Schemas/`, `80-Indexes/`, `81-Dashboards/` | Validation, navigation, audits |
+| Low-authority capture | `90-Drafts/`, `91-Inbox/`, `92-Logs/`, `93-Proposals/` | Fast capture, proposals, logs, pending review |
+| Archive | `99-Archive/` | Deprecated, expired, superseded, or historical memory |
 
 ## 6. ARMOR Enterprise At A Glance
 
@@ -179,60 +171,7 @@ An ARMOR Vault should expose these active Core entry points:
 
 If an installed Vault still has active files such as `Hermes-V71-Adaptation-Guide.md`, `Hermes-Operating-Protocol.md`, `Profile-Skills-Architecture.md`, or `80-Indexes/V7-1-Index.md`, treat them as likely superseded active files and follow `AGENT_UPDATE.md`.
 
-## 7. PAMA Personal At A Glance
-
-PAMA is the personal branch.
-
-It is designed for one human user's long-term memory:
-
-- objective reality
-- attention and time audits
-- decisions and later feedback
-- goals and direction
-- durable personal truth
-- uncertain interpretations
-- periodic reviews
-- active working memory
-
-### PAMA Vault Structure
-
-```text
-Vault/
-├── 00-Core/                  # Constitution, architecture, deployment rules
-├── 01-Reality/               # Objective events, metrics, evidence
-├── 02-Attention/             # Time and energy audit
-├── 03-Decisions/             # Decision records and feedback
-├── 04-Goals/                 # Long-term and short-term goals
-├── 05-Truth/                 # Verified principles and durable preferences
-├── 06-Meta/                  # Hypotheses, interpretations, assumptions
-├── 07-Reviews/               # Weekly, monthly, quarterly reviews
-├── 08-Working-Memory/        # Temporary or uncertain working memory
-└── 99-Archive/               # Deprecated or historical memory
-```
-
-### PAMA Governance Priority
-
-```text
-Constitution
-  > PAMA Stable Architecture
-  > Deployment Spec
-  > Prompt Intake Router / Memory Write Router / Root-Cause Fix Protocol / Runtime Memory Policy / Multi-Agent Shared Vault Governance
-  > runtime behavior
-```
-
-### PAMA Write Discipline
-
-Do not promote passing thoughts into `05-Truth/`.
-
-Do not treat `06-Meta/` as reality.
-
-Do not treat `08-Working-Memory/` as durable truth.
-
-Do not override user sovereignty.
-
-Use reviews as the promotion gate.
-
-## 8. Runtime Model
+## 7. Runtime Model
 
 Supported runtime examples:
 
@@ -290,27 +229,6 @@ Exclude by default:
 99-Archive/
 04-Research/00-Inbox/
 06-Records/ unless evidence mode is requested
-```
-
-For PAMA, prioritize:
-
-```text
-00-Core/
-01-Reality/
-03-Decisions/
-04-Goals/
-05-Truth/
-07-Reviews/ when reviewing or promoting memory
-08-Working-Memory/ only for current task context
-```
-
-Exclude or demote by default:
-
-```text
-06-Meta/ as unproven interpretation
-08-Working-Memory/ as durable truth
-99-Archive/ unless historical recall is explicit
-other agents' working notes unless coordination requires them
 ```
 
 ## 10. Write Routing
@@ -419,7 +337,6 @@ Installed registries:
 
 ```text
 ARMOR: 70-Schemas/Frontmatter-Registry.md
-PAMA:  00-Core/Frontmatter-Registry.md
 ```
 
 New files use canonical fields immediately. Existing files migrate lazily when meaningfully updated. Logs, records, and archives are not mass-rewritten merely to remove legacy field names.
@@ -457,10 +374,6 @@ Recommended locations:
 ARMOR:
   80-Indexes/Vault-Document-Map.md
   80-Indexes/Document-Registry.base
-
-PAMA:
-  00-Core/Vault-Document-Map.md
-  07-Reviews/Document-Registry.base
 ```
 
 The map is navigation, not authority. Agents must open the underlying authority files before answering or writing.
@@ -504,7 +417,7 @@ Default install branch:
 ARMOR Enterprise V7.2 Stable
 ```
 
-Use PAMA only when the user explicitly wants a personal memory architecture.
+PAMA is archived and should not be installed from the active path.
 
 ## 17. Update Mental Model
 
@@ -529,7 +442,7 @@ Preserve historical evidence.
 
 ## 18. Common Retired Active Files
 
-For v1.5.0 / ARMOR V7.2 and PAMA V5.3, these old active files or concepts should not remain active:
+For v1.5.0 / ARMOR V7.2, these old active files or concepts should not remain active:
 
 | Retired Active File or Concept | Current Replacement | Action |
 | --- | --- | --- |
@@ -542,6 +455,7 @@ For v1.5.0 / ARMOR V7.2 and PAMA V5.3, these old active files or concepts should
 | Multiple conflicting frontmatter standards | `FRONTMATTER_STANDARD.md` + installed Registry | Preserve domain extensions, migrate canonical fields lazily |
 | No stable Vault navigation entry | `DOCUMENT_MAP_STANDARD.md` + static map + dynamic registry | Install branch-specific map files |
 | Mixed template syntaxes or legacy template frontmatter | `TEMPLATE_AUTOMATION_GUIDE.md` + one selected profile | Preserve one active profile and normalize templates |
+| PAMA active install path | `archive/personal/PAMA-Personal-v5.3-Stable/` | Keep as historical archive only |
 
 Historical mentions in `06-Records/`, `92-Logs/`, `99-Archive/`, or superseded proposals are acceptable when clearly historical.
 
@@ -557,10 +471,8 @@ Use this routing table after reading this document.
 | Vault navigation or document discovery | `DOCUMENT_MAP_STANDARD.md` |
 | Template installation or automation | `TEMPLATE_AUTOMATION_GUIDE.md` |
 | Enterprise architecture details | `enterprise/V7_2_Stable.md` |
-| Personal architecture details | `personal/PAMA V5.3 Stable.md` |
 | Runtime integration | `enterprise/agent_runtime_adaptation_guide.md` |
 | Shared ARMOR Vault | `enterprise/multi_agent_shared_vault_governance.md` |
-| Shared PAMA Vault | `personal/PAMA_Multi_Agent_Shared_Vault_Governance.md` |
 | User says "remember" | Memory Write Router for the selected branch |
 | User reports wrong behavior | Root-Cause Fix Protocol for the selected branch |
 | Ambiguous or risky command | Prompt Intake Router for the selected branch |
