@@ -2,9 +2,9 @@
 
 All notable changes to AI Agent Memory Architecture are recorded here.
 
-This project uses project-level semantic versions for repository releases. Architecture branch names such as ARMOR Enterprise V7.2 Stable and PAMA Personal V5.3 Stable may remain unchanged across patch releases when the update adds templates, guides, or maintenance documentation without changing the stable architecture boundary.
+This project uses project-level semantic versions for repository releases. Architecture branch names such as ARMOR Enterprise V7.2 Stable may remain unchanged across patch releases when the update adds templates, guides, or maintenance documentation without changing the stable architecture boundary.
 
-## Unreleased
+## [v1.6.0] - 2026-06-24
 
 ### Added
 
@@ -16,6 +16,7 @@ This project uses project-level semantic versions for repository releases. Archi
 - Clarified that Document Maps need a durable agent startup instruction to prevent agents from defaulting to broad Vault-wide keyword search.
 - Archived PAMA Personal V5.3 Stable under `archive/personal/PAMA-Personal-v5.3-Stable/`.
 - Removed PAMA from the active install and update path so the maintained project line is ARMOR Enterprise focused.
+- Bumped project version from `v1.5.0` to `v1.6.0`.
 
 ## [v1.5.0] - 2026-06-23
 

@@ -7,7 +7,7 @@ Read this first when you need to understand, install, update, operate, or audit 
 Current release alignment:
 
 ```text
-AI Agent Memory Architecture v1.5.0
+AI Agent Memory Architecture v1.6.0
 ARMOR Enterprise V7.2 Stable
 ```
 
@@ -442,7 +442,7 @@ Preserve historical evidence.
 
 ## 18. Common Retired Active Files
 
-For v1.5.0 / ARMOR V7.2, these old active files or concepts should not remain active:
+For v1.6.0 / ARMOR V7.2, these old active files or concepts should not remain active:
 
 | Retired Active File or Concept | Current Replacement | Action |
 | --- | --- | --- |

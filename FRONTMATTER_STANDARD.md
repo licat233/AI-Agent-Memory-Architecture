@@ -11,7 +11,7 @@ It applies to:
 Current alignment:
 
 ```text
-AI Agent Memory Architecture v1.5.0
+AI Agent Memory Architecture v1.6.0
 ARMOR Enterprise V7.2 Stable
 ```
 

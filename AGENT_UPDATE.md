@@ -19,7 +19,7 @@ How do I align an existing Vault with the latest architecture without leaving st
 Current target:
 
 ```text
-AI Agent Memory Architecture v1.5.0
+AI Agent Memory Architecture v1.6.0
 ARMOR Enterprise V7.2 Stable
 ```
 
@@ -46,7 +46,7 @@ Please read and execute AGENT_UPDATE.md from this repository:
 https://github.com/licat233/AI-Agent-Memory-Architecture
 
 Help me update my existing AI Agent Memory Architecture Vault.
-Target architecture: AI Agent Memory Architecture v1.5.0.
+Target architecture: AI Agent Memory Architecture v1.6.0.
 Default branch: ARMOR Enterprise V7.2 Stable.
 Target Vault path: <paste your Vault or Markdown directory path here>
 
@@ -228,7 +228,7 @@ When Templater is active:
 
 Active indexes should point to the current architecture.
 
-For ARMOR v1.5.0 / V7.2, prefer:
+For ARMOR v1.6.0 / V7.2, prefer:
 
 ```text
 80-Indexes/Vault-Document-Map.md
@@ -390,7 +390,7 @@ Run these checks:
 
 ## Version-Specific Cleanup Notes
 
-### v1.5.0 / ARMOR Enterprise V7.2 Stable
+### v1.6.0 / ARMOR Enterprise V7.2 Stable
 
 Current active replacements:
 
@@ -401,7 +401,7 @@ Current active replacements:
 | `00-Core/Profile-Skills-Architecture.md` | Runtime-local Hermes documentation, not ARMOR Core | Archive or move outside active Core |
 | `80-Indexes/V7-1-Index.md` or old architecture index | `80-Indexes/Vault-Document-Map.md` | Archive or supersede old active index |
 | Claudian or Obsidian UI executor plugin support | Direct trusted runtime file access | Archive old execution guides |
-| `AI Agent Memory Architecture v1.1.0` through `v1.4.0` as current version | `AI Agent Memory Architecture v1.5.0` | Update active version markers |
+| `AI Agent Memory Architecture v1.1.0` through `v1.5.0` as current version | `AI Agent Memory Architecture v1.6.0` | Update active version markers |
 | `PAMA Personal` active install path | Archived PAMA branch | Move active PAMA material out of the current install path |
 | Branch-specific or runtime-specific frontmatter rules | `00-Core/Frontmatter-Standard.md` + installed Registry | Preserve approved domain fields, migrate canonical fields lazily |
 | `memory_class` | `permission_class` or `memory_layer` | Inspect meaning before migration |

@@ -5,7 +5,7 @@ This guide defines how AI Agent Memory Architecture uses Markdown templates with
 Current alignment:
 
 ```text
-AI Agent Memory Architecture v1.5.0
+AI Agent Memory Architecture v1.6.0
 ARMOR Enterprise V7.2 Stable
 ```
 
